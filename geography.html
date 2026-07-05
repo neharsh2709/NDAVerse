@@ -1,114 +1,723 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Geography | NDAVerse</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        .geo-hero { text-align: center; padding: 120px 5% 40px; }
-        .geo-hero h1 { font-size: 48px; margin-bottom: 10px; }
-        .back-link { color: #33b5ff; text-decoration: none; display: inline-block; margin-top: 15px; }
-        .chapter-section { padding: 40px 5%; max-width: 900px; margin: 0 auto; }
-        
-        .chapter-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 20px;
-            padding: 25px;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            margin-bottom: 20px;
-        }
 
-        .num-circle { 
-            width: 60px; height: 60px; border: 2px solid #33b5ff; 
-            border-radius: 50%; display: flex; align-items: center; 
-            justify-content: center; font-weight: 800; color: #33b5ff; font-size: 20px;
-            flex-shrink: 0;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        .card-content { flex-grow: 1; }
-        .card-content h3 { color: #fff; margin-bottom: 5px; }
-        .card-content p { color: #94a3b8; font-size: 14px; }
-        
-        .arrow-btn { 
-            background: rgba(51, 181, 255, 0.1); border: 1px solid #33b5ff;
-            color: #33b5ff; padding: 15px 20px; border-radius: 12px; text-decoration: none;
-        }
+<title>Geography | NDAVerse</title>
 
-        .meta-row { display: flex; gap: 20px; margin-top: 20px; color: #94a3b8; font-size: 13px; }
+<link rel="stylesheet" href="style.css">
 
-        @media (max-width: 600px) {
-            .chapter-card { flex-direction: column; text-align: center; }
-            .geo-hero h1 { font-size: 32px; }
-            .meta-row { justify-content: center; flex-wrap: wrap; }
-            .arrow-btn { width: 100%; }
-        }
-    </style>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2930435097247117"
-     crossorigin="anonymous"></script>
+<style>
+
+.geo-hero{
+text-align:center;
+padding:120px 5% 40px;
+}
+
+.geo-hero h1{
+font-size:48px;
+margin-bottom:10px;
+}
+
+.back-link{
+color:#33b5ff;
+text-decoration:none;
+display:inline-block;
+margin-top:15px;
+}
+
+.chapter-section{
+padding:40px 5%;
+max-width:950px;
+margin:auto;
+}
+
+.chapter-card{
+background:rgba(255,255,255,.03);
+border:1px solid rgba(255,255,255,.08);
+border-radius:20px;
+padding:25px;
+display:flex;
+align-items:center;
+gap:20px;
+margin-bottom:20px;
+transition:.3s;
+}
+
+.chapter-card:hover{
+transform:translateY(-5px);
+border-color:#33b5ff;
+box-shadow:0 15px 35px rgba(0,0,0,.3);
+}
+
+.num-circle{
+width:60px;
+height:60px;
+border:2px solid #33b5ff;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:800;
+font-size:22px;
+color:#33b5ff;
+flex-shrink:0;
+}
+
+.card-content{
+flex:1;
+}
+
+.card-content h3{
+color:#fff;
+margin-bottom:8px;
+}
+
+.card-content p{
+color:#94a3b8;
+font-size:14px;
+line-height:1.6;
+}
+
+.meta-row{
+display:flex;
+gap:18px;
+margin-top:15px;
+font-size:13px;
+color:#94a3b8;
+flex-wrap:wrap;
+}
+
+.arrow-btn{
+background:rgba(51,181,255,.1);
+border:1px solid #33b5ff;
+padding:15px 20px;
+border-radius:12px;
+text-decoration:none;
+color:#33b5ff;
+transition:.3s;
+}
+
+.arrow-btn:hover{
+background:#33b5ff;
+color:#fff;
+}
+
+@media(max-width:600px){
+
+.geo-hero h1{
+font-size:34px;
+}
+
+.chapter-card{
+flex-direction:column;
+text-align:center;
+}
+
+.arrow-btn{
+width:100%;
+}
+
+.meta-row{
+justify-content:center;
+}
+
+}
+
+</style>
+
 </head>
+
 <body>
 
-    <header>
-        <div class="logo">NDAVerse</div>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="index.html#subjects">Subjects</a>
-        </nav>
-    </header>
+<header>
 
-    <section class="geo-hero">
-        <h1>Geography</h1>
-        <p>Explore chapters and notes</p>
-        <a href="index.html#subjects" class="back-link">← Back to Home</a>
-    </section>
+<div class="logo">NDAVerse</div>
 
-    <section class="chapter-section">
-        <!-- SEARCH BAR ADDED HERE -->
-        <input type="text" id="searchInput" placeholder="🔍 Search chapters..." oninput="doSearch()" 
-               style="width: 100%; padding: 15px; border-radius: 12px; background: rgba(255,255,255,0.05); 
-                      border: 1px solid rgba(255,255,255,0.1); color: white; margin-bottom: 30px;">
+<nav>
 
-        <h2 style="margin-bottom: 20px;">📖 Chapters</h2>
-        
-        <div class="chapter-card">
-            <div class="num-circle">1</div>
-            <div class="card-content">
-                <h3>India General Introduction</h3>
-                <p>Location, size, boundaries, and basic physical overview of India.</p>
-                <div class="meta-row">
-                    <span>📄 Notes</span>
-                    <span>📅 Important Points</span>
-                    <span>🎯 NDA Focus</span>
-                </div>
-            </div>
-            <a href="geo-chapter-1.html" class="arrow-btn">→</a>
-        </div>
-    </section>
+<a href="index.html">Home</a>
 
-    <footer>
-        <div style="margin-bottom: 10px;">Dream. Learn. Prepare. Become an Officer. 🇮🇳</div>
-        <p>© 2026 NDAVerse. All rights reserved. | Built with ❤️ by <span>Neharsh Shende</span></p>
-    </footer>
+<a href="index.html#subjects">Subjects</a>
 
-    <!-- JAVASCRIPT ADDED HERE BEFORE CLOSING BODY TAG -->
-    <script>
-        function doSearch() {
-            const query = document.getElementById('searchInput').value.toLowerCase();
-            const cards = document.querySelectorAll('.chapter-card');
+</nav>
 
-            cards.forEach(card => {
-                const title = card.querySelector('h3').innerText.toLowerCase();
-                if (title.includes(query)) {
-                    card.style.display = "flex";
-                } else {
-                    card.style.display = "none";
-                }
-            });
-        }
-    </script>
+</header>
+
+<section class="geo-hero">
+
+<h1>Geography</h1>
+
+<p>Master NDA Geography with premium notes, maps, diagrams, flowcharts and practice questions.</p>
+
+<a href="index.html#subjects" class="back-link">← Back to Home</a>
+
+</section>
+
+<section class="chapter-section">
+
+<input
+type="text"
+id="searchInput"
+placeholder="🔍 Search chapters..."
+oninput="doSearch()"
+
+style="width:100%;
+padding:15px;
+border-radius:12px;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.1);
+color:white;
+margin-bottom:30px;">
+
+<h2 style="margin-bottom:25px;">🌍 Geography Chapters</h2>
+
+<!-- Chapter 1 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">1</div>
+
+<div class="card-content">
+
+<h3>Introduction and Origin of the Universe</h3>
+
+<p>Big Bang Theory, galaxies, stars, solar system formation and the origin of the universe.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
+
+</div>
+
+<a href="geo-introduction-universe.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 2 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">2</div>
+
+<div class="card-content">
+
+<h3>Planets, Latitude and Longitude</h3>
+
+<p>Solar system, planets, parallels of latitude, meridians, time zones and longitude calculations.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
+
+</div>
+
+<a href="geo-planets-latitude-longitude.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 3 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">3</div>
+
+<div class="card-content">
+
+<h3>Interior of the Earth and Formation of the Continents</h3>
+
+<p>Earth's layers, continental drift, crust, mantle, core and continental formation theories.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
+
+</div>
+
+<a href="geo-interior-earth.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 4 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">4</div>
+
+<div class="card-content">
+
+<h3>Plate Tectonics</h3>
+
+<p>Tectonic plates, plate boundaries, continental drift, earthquakes, volcanoes and mountain building.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
+
+</div>
+
+<a href="geo-plate-tectonics.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 5 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">5</div>
+
+<div class="card-content">
+
+<h3>Geomorphic Processes</h3>
+
+<p>Endogenetic and exogenetic forces, weathering, erosion, deposition and landform development.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
+
+</div>
+
+<a href="geo-geomorphic-processes.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 6 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">6</div>
+
+<div class="card-content">
+
+<h3>Composition and Structure of Atmosphere</h3>
+
+<p>Atmospheric layers, gases, temperature structure and importance of the atmosphere.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
+
+</div>
+
+<a href="geo-atmosphere.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 7 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">7</div>
+
+<div class="card-content">
+
+<h3>Insolation, Heat Budget and Temperature</h3>
+
+<p>Solar radiation, Earth's heat budget, temperature distribution and factors affecting climate.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
+
+</div>
+
+<a href="geo-insolation-heat-budget.html" class="arrow-btn">→</a>
+
+</div>
+<!-- Chapter 8 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">8</div>
+
+<div class="card-content">
+
+<h3>Pressure Belts, Primary, Secondary, Local and Atmospheric Winds</h3>
+
+<p>Global pressure belts, planetary winds, monsoon winds, local winds, jet streams and atmospheric circulation.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
+
+</div>
+
+<a href="geo-pressure-belts-winds.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 9 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">9</div>
+
+<div class="card-content">
+
+<h3>Humidity, Clouds and Precipitation</h3>
+
+<p>Humidity, condensation, cloud formation, cloud types, rainfall and other forms of precipitation.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
+
+</div>
+
+<a href="geo-humidity-clouds.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 10 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">10</div>
+
+<div class="card-content">
+
+<h3>Cyclones and Anticyclones</h3>
+
+<p>Tropical and temperate cyclones, anticyclones, formation, characteristics and their effects.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
+
+</div>
+
+<a href="geo-cyclones-anticyclones.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 11 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">11</div>
+
+<div class="card-content">
+
+<h3>Climatic Regions of the World</h3>
+
+<p>Major climatic zones of the world, Köppen climate classification and regional characteristics.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
+
+</div>
+
+<a href="geo-climatic-regions.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 12 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">12</div>
+
+<div class="card-content">
+
+<h3>Oceanography and Deep Sea Relief Features</h3>
+
+<p>Ocean floor relief, continental shelf, slope, abyssal plains, trenches and ocean basins.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
+
+</div>
+
+<a href="geo-oceanography.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 13 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">13</div>
+
+<div class="card-content">
+
+<h3>Properties of Ocean Water</h3>
+
+<p>Temperature, salinity, density, ocean water composition and factors affecting ocean properties.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
+
+</div>
+
+<a href="geo-properties-ocean-water.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 14 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">14</div>
+
+<div class="card-content">
+
+<h3>Waves, Currents and Tides</h3>
+
+<p>Types of ocean waves, ocean currents, tides, their causes, characteristics and importance.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
+
+</div>
+
+<a href="geo-waves-currents-tides.html" class="arrow-btn">→</a>
+
+</div>
+<!-- Chapter 15 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">15</div>
+
+<div class="card-content">
+
+<h3>Physiography of India</h3>
+
+<p>Major physiographic divisions of India including the Himalayas, Northern Plains, Peninsular Plateau, Coastal Plains and Islands.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
+
+</div>
+
+<a href="geo-physiography-india.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 16 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">16</div>
+
+<div class="card-content">
+
+<h3>Drainage Pattern and Rivers of India</h3>
+
+<p>Drainage systems, Himalayan rivers, Peninsular rivers, river basins and important dams of India.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
+
+</div>
+
+<a href="geo-rivers-india.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 17 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">17</div>
+
+<div class="card-content">
+
+<h3>Seasons, Climate and Natural Vegetation of India</h3>
+
+<p>Indian monsoon, climatic regions, seasons, forests, natural vegetation and wildlife.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
+
+</div>
+
+<a href="geo-climate-india.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 18 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">18</div>
+
+<div class="card-content">
+
+<h3>Soil and Agriculture</h3>
+
+<p>Types of Indian soils, major crops, agricultural seasons, irrigation methods and Green Revolution.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
+
+</div>
+
+<a href="geo-soil-agriculture.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 19 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">19</div>
+
+<div class="card-content">
+
+<h3>Minerals, Energy and Industries</h3>
+
+<p>Mineral resources, conventional & renewable energy sources, major industries and industrial regions of India.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
+
+</div>
+
+<a href="geo-minerals-energy.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 20 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">20</div>
+
+<div class="card-content">
+
+<h3>Population and Transport</h3>
+
+<p>Population distribution, density, migration, transport systems, communication and trade in India.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
+
+</div>
+
+<a href="geo-population-transport.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 21 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">21</div>
+
+<div class="card-content">
+
+<h3>World Geography</h3>
+
+<p>Continents, oceans, important countries, major landforms, rivers, mountains, deserts and world climatic regions.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
+
+</div>
+
+<a href="geo-world-geography.html" class="arrow-btn">→</a>
+
+</div>
+
+</section>
+
+<footer>
+
+<div style="margin-bottom:10px;">
+Dream. Learn. Prepare. Become an Officer. 🇮🇳
+</div>
+
+<p>
+© 2026 NDAVerse. All rights reserved. |
+Built with ❤️ by <span>Neharsh Shende</span>
+</p>
+
+</footer>
+
+<script>
+
+function doSearch(){
+
+const query=document.getElementById("searchInput").value.toLowerCase();
+
+const cards=document.querySelectorAll(".chapter-card");
+
+cards.forEach(card=>{
+
+const title=card.querySelector("h3").innerText.toLowerCase();
+
+if(title.includes(query)){
+
+card.style.display="flex";
+
+}else{
+
+card.style.display="none";
+
+}
+
+});
+
+}
+
+</script>
+
 </body>
 </html>
