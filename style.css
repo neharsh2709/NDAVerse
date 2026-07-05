@@ -1,214 +1,904 @@
+/* ===========================
+   NDAVerse Premium CSS v2
+   Part 1
+=========================== */
+
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial,Helvetica,sans-serif;
 scroll-behavior:smooth;
 }
 
 body{
-background:linear-gradient(180deg,#020617,#07142b,#0b1f3a,#020617);
-color:white;
+font-family:'Poppins',sans-serif;
+background:#071224;
+color:#fff;
+overflow-x:hidden;
 }
+
+/* Background Glow */
+
+body::before{
+content:"";
+position:fixed;
+top:-250px;
+left:-250px;
+width:600px;
+height:600px;
+background:#009dff;
+opacity:.18;
+filter:blur(180px);
+z-index:-2;
+}
+
+body::after{
+content:"";
+position:fixed;
+bottom:-300px;
+right:-250px;
+width:650px;
+height:650px;
+background:#0047ff;
+opacity:.15;
+filter:blur(200px);
+z-index:-2;
+}
+
+/* Header */
 
 header{
+
 position:fixed;
+
 top:0;
+
 left:0;
+
 width:100%;
-padding:18px 8%;
+
 display:flex;
+
 justify-content:space-between;
+
 align-items:center;
-background:rgba(0,0,0,.45);
-backdrop-filter:blur(12px);
+
+padding:18px 8%;
+
+background:rgba(8,15,30,.75);
+
+backdrop-filter:blur(18px);
+
 border-bottom:1px solid rgba(255,255,255,.08);
-z-index:1000;
+
+z-index:999;
+
 }
+
+/* Logo */
 
 .logo{
-font-size:32px;
+
+font-size:34px;
+
 font-weight:800;
-color:#33b5ff;
+
+color:#35b6ff;
+
+letter-spacing:1px;
+
+text-shadow:0 0 15px rgba(53,182,255,.6);
+
 }
 
+/* Navigation */
+
 nav{
+
 display:flex;
-gap:25px;
+
+gap:35px;
+
 }
 
 nav a{
+
 text-decoration:none;
+
 color:white;
+
 font-size:17px;
-transition:.3s;
+
+font-weight:500;
+
+transition:.35s;
+
+position:relative;
+
 }
 
 nav a:hover{
-color:#33b5ff;
+
+color:#35b6ff;
+
 }
+
+nav a::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+
+bottom:-6px;
+
+width:0%;
+
+height:2px;
+
+background:#35b6ff;
+
+transition:.35s;
+
+}
+
+nav a:hover::after{
+
+width:100%;
+
+}
+
+/* Hero */
 
 .hero{
+
 min-height:100vh;
+
 display:flex;
+
 justify-content:center;
+
 align-items:center;
-padding:120px 8% 80px;
+
+padding:140px 8% 80px;
+
 text-align:center;
+
 }
+
+/* Hero Content */
 
 .hero-content{
+
 max-width:900px;
+
 }
+
+/* Badge */
 
 .badge{
+
 display:inline-block;
-padding:10px 22px;
-background:rgba(51,181,255,.15);
-border:1px solid rgba(51,181,255,.4);
-border-radius:30px;
-color:#7fd3ff;
-margin-bottom:25px;
+
+padding:10px 24px;
+
+background:rgba(53,182,255,.15);
+
+border:1px solid rgba(53,182,255,.4);
+
+border-radius:40px;
+
+color:#8bd7ff;
+
 font-weight:600;
+
+margin-bottom:28px;
+
 }
+
+/* Heading */
 
 .hero h1{
-font-size:64px;
+
+font-size:72px;
+
 font-weight:800;
-line-height:1.15;
-margin-bottom:20px;
+
+line-height:1.1;
+
+margin-bottom:25px;
+
 }
+
+/* Gradient Text */
+
+.hero h1 span{
+
+background:linear-gradient(90deg,#39b7ff,#6be6ff);
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+}
+
+/* Paragraph */
 
 .hero p{
+
 font-size:22px;
-color:#cbd5e1;
-line-height:1.7;
-margin-bottom:40px;
+
+line-height:1.8;
+
+color:#cfd7e8;
+
+margin-bottom:45px;
+
 }
+
+/* Buttons */
 
 .buttons{
+
 display:flex;
+
 justify-content:center;
+
 gap:20px;
+
 flex-wrap:wrap;
+
 }
 
-.btn,
-.btn-outline{
-padding:16px 34px;
-border-radius:12px;
-font-size:18px;
-font-weight:700;
-text-decoration:none;
-transition:.3s;
-}
+/* Primary Button */
 
 .btn{
-background:#1ea7ff;
+
+background:linear-gradient(135deg,#1ca8ff,#0a84ff);
+
 color:white;
+
+padding:17px 38px;
+
+border-radius:14px;
+
+font-weight:700;
+
+font-size:18px;
+
+text-decoration:none;
+
+transition:.35s;
+
+box-shadow:0 12px 35px rgba(0,150,255,.35);
+
 }
 
 .btn:hover{
-background:#0b8ce0;
-transform:translateY(-4px);
+
+transform:translateY(-6px);
+
+box-shadow:0 18px 40px rgba(0,150,255,.45);
+
 }
 
+/* Secondary Button */
+
 .btn-outline{
-border:2px solid #33b5ff;
-color:#33b5ff;
+
+padding:17px 38px;
+
+border-radius:14px;
+
+border:2px solid #35b6ff;
+
+color:#35b6ff;
+
+font-weight:700;
+
+font-size:18px;
+
+text-decoration:none;
+
+transition:.35s;
+
 }
 
 .btn-outline:hover{
-background:#33b5ff;
+
+background:#35b6ff;
+
 color:white;
+
 }
 
+/* Developer */
+
 .developer{
+
 margin-top:45px;
+
 font-size:18px;
-color:#94a3b8;
+
+color:#9fb0c8;
+
 }
 
 .developer span{
-color:#33b5ff;
-font-weight:bold;
+
+color:#35b6ff;
+
+font-weight:700;
+
 }
+/* ===========================
+   NDAVerse Premium CSS v2
+   Part 2
+=========================== */
+
+/* ---------- Subjects Section ---------- */
 
 #subjects{
-padding:90px 8%;
+padding:100px 8%;
 }
 
 #subjects h2{
-font-size:42px;
+font-size:48px;
+font-weight:800;
 text-align:center;
-margin-bottom:50px;
+margin-bottom:15px;
+}
+
+#subjects h2::after{
+content:"";
+display:block;
+width:90px;
+height:5px;
+margin:18px auto 0;
+border-radius:10px;
+background:linear-gradient(90deg,#00bfff,#0077ff);
 }
 
 .cards{
+margin-top:60px;
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-gap:25px;
+grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+gap:30px;
 }
 
+/* ---------- Subject Card ---------- */
+
 .card{
+
 background:rgba(255,255,255,.05);
+
 border:1px solid rgba(255,255,255,.08);
-border-radius:18px;
-padding:35px 25px;
+
+backdrop-filter:blur(18px);
+
+border-radius:24px;
+
+padding:35px 28px;
+
 text-align:center;
-transition:.35s;
-backdrop-filter:blur(8px);
-font-size:45px;
+
+transition:.4s ease;
+
+position:relative;
+
+overflow:hidden;
+
+min-height:250px;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+.card::before{
+
+content:"";
+
+position:absolute;
+
+top:-100px;
+
+right:-100px;
+
+width:180px;
+
+height:180px;
+
+background:rgba(0,183,255,.12);
+
+border-radius:50%;
+
+transition:.5s;
+
+}
+
+.card:hover::before{
+
+transform:scale(2);
+
 }
 
 .card:hover{
+
 transform:translateY(-10px);
-border-color:#33b5ff;
-box-shadow:0 0 25px rgba(51,181,255,.25);
+
+border-color:#2dbbff;
+
+box-shadow:0 20px 45px rgba(0,160,255,.25);
+
+}
+
+.card{
+
+font-size:55px;
+
 }
 
 .card h3{
-margin:20px 0 10px;
-font-size:25px;
+
+margin:20px 0 12px;
+
+font-size:28px;
+
+font-weight:700;
+
 }
 
 .card p{
-color:#cbd5e1;
-line-height:1.6;
+
+font-size:16px;
+
+line-height:1.7;
+
+color:#cdd7ea;
+
+max-width:220px;
+
 }
+
+/* ---------- Footer ---------- */
+
+footer{
+
+padding:45px 8%;
+
+margin-top:80px;
+
+border-top:1px solid rgba(255,255,255,.08);
+
+text-align:center;
+
+color:#98a9c5;
+
+font-size:15px;
+
+}
+
+footer span{
+
+color:#33b5ff;
+
+font-weight:700;
+
+}
+
+/* ---------- Scrollbar ---------- */
+
+::-webkit-scrollbar{
+
+width:8px;
+
+}
+
+::-webkit-scrollbar-track{
+
+background:#071224;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:#1aa7ff;
+
+border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+background:#008cff;
+
+}
+
+/* ---------- Selection ---------- */
+
+::selection{
+
+background:#1aa7ff;
+
+color:white;
+
+}
+
+/* ---------- Mobile ---------- */
 
 @media(max-width:768px){
 
 header{
-padding:16px 20px;
+
 flex-direction:column;
-gap:15px;
-}
 
-nav{
-flex-wrap:wrap;
-justify-content:center;
-gap:15px;
-}
+padding:16px 20px;
 
-.hero h1{
-font-size:46px;
-}
-
-.hero p{
-font-size:18px;
 }
 
 .logo{
-font-size:28px;
+
+font-size:30px;
+
+margin-bottom:10px;
+
+}
+
+nav{
+
+gap:16px;
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+}
+
+nav a{
+
+font-size:15px;
+
+}
+
+.hero{
+
+padding:170px 25px 70px;
+
+}
+
+.hero h1{
+
+font-size:42px;
+
+}
+
+.hero p{
+
+font-size:17px;
+
 }
 
 .buttons{
+
 flex-direction:column;
+
 }
 
 .btn,
+
 .btn-outline{
+
 width:100%;
+
+text-align:center;
+
 }
+
+#subjects{
+
+padding:70px 20px;
+
 }
+
+#subjects h2{
+
+font-size:34px;
+
+}
+
+.card{
+
+padding:28px 22px;
+
+min-height:210px;
+
+}
+
+.card h3{
+
+font-size:24px;
+
+}
+
+.card p{
+
+font-size:15px;
+
+}
+
+}
+/* ===========================
+   NDAVerse Premium CSS v2
+   Part 3 - Final Effects
+=========================== */
+
+/* Floating Animation */
+@keyframes floating{
+    0%{
+        transform:translateY(0px);
+    }
+    50%{
+        transform:translateY(-12px);
+    }
+    100%{
+        transform:translateY(0px);
+    }
+}
+
+/* Glow Animation */
+@keyframes glow{
+    0%{
+        box-shadow:0 0 12px rgba(53,182,255,.2);
+    }
+    50%{
+        box-shadow:0 0 35px rgba(53,182,255,.5);
+    }
+    100%{
+        box-shadow:0 0 12px rgba(53,182,255,.2);
+    }
+}
+
+/* Fade Up Animation */
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(35px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* Hero Animation */
+
+.hero-content{
+
+animation:fadeUp 1.2s ease;
+
+}
+
+/* Floating Cards */
+
+.card{
+
+animation:floating 5s ease-in-out infinite;
+
+}
+
+.card:nth-child(2){
+
+animation-delay:.4s;
+
+}
+
+.card:nth-child(3){
+
+animation-delay:.8s;
+
+}
+
+.card:nth-child(4){
+
+animation-delay:1.2s;
+
+}
+
+.card:nth-child(5){
+
+animation-delay:1.6s;
+
+}
+
+.card:nth-child(6){
+
+animation-delay:2s;
+
+}
+
+/* Animated Buttons */
+
+.btn{
+
+animation:glow 3s infinite;
+
+}
+
+.btn:hover{
+
+transform:translateY(-8px) scale(1.03);
+
+}
+
+.btn-outline:hover{
+
+transform:translateY(-8px);
+
+}
+
+/* Logo Hover */
+
+.logo{
+
+transition:.4s;
+
+}
+
+.logo:hover{
+
+transform:scale(1.05);
+
+text-shadow:0 0 25px rgba(53,182,255,.8);
+
+}
+
+/* Navigation Hover */
+
+nav a{
+
+transition:.35s;
+
+}
+
+nav a:hover{
+
+letter-spacing:.5px;
+
+}
+
+/* Card Hover */
+
+.card:hover h3{
+
+color:#35b6ff;
+
+transition:.3s;
+
+}
+
+.card:hover p{
+
+color:white;
+
+}
+
+/* Smooth Section Transition */
+
+section{
+
+transition:.5s;
+
+}
+
+/* Hero Background Overlay */
+
+.hero{
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.hero::before{
+
+content:"";
+
+position:absolute;
+
+width:450px;
+
+height:450px;
+
+background:#0a84ff;
+
+opacity:.12;
+
+filter:blur(160px);
+
+border-radius:50%;
+
+top:-120px;
+
+left:-120px;
+
+z-index:-1;
+
+animation:floating 8s infinite ease-in-out;
+
+}
+
+.hero::after{
+
+content:"";
+
+position:absolute;
+
+width:350px;
+
+height:350px;
+
+background:#00bfff;
+
+opacity:.10;
+
+filter:blur(140px);
+
+border-radius:50%;
+
+bottom:-120px;
+
+right:-120px;
+
+z-index:-1;
+
+animation:floating 7s infinite ease-in-out;
+
+}
+
+/* Footer Hover */
+
+footer:hover{
+
+color:white;
+
+transition:.4s;
+
+}
+
+/* Images (for future use) */
+
+img{
+
+max-width:100%;
+
+display:block;
+
+}
+
+/* Links */
+
+a{
+
+transition:.3s;
+
+}
+
+/* Prevent Button Highlight */
+
+button,
+a{
+
+-webkit-tap-highlight-color:transparent;
+
+}
+
+/* End of NDAVerse Premium CSS */
