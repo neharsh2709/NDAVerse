@@ -6,14 +6,11 @@
     <title>Geography | NDAVerse</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Mobile-friendly overrides */
         .geo-hero { text-align: center; padding: 120px 5% 40px; }
         .geo-hero h1 { font-size: 48px; margin-bottom: 10px; }
         .back-link { color: #33b5ff; text-decoration: none; display: inline-block; margin-top: 15px; }
-        
         .chapter-section { padding: 40px 5%; max-width: 900px; margin: 0 auto; }
         
-        /* Matching the screenshot card style */
         .chapter-card {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.08);
@@ -43,7 +40,6 @@
 
         .meta-row { display: flex; gap: 20px; margin-top: 20px; color: #94a3b8; font-size: 13px; }
 
-        /* Responsive Breakpoints */
         @media (max-width: 600px) {
             .chapter-card { flex-direction: column; text-align: center; }
             .geo-hero h1 { font-size: 32px; }
@@ -69,6 +65,11 @@
     </section>
 
     <section class="chapter-section">
+        <!-- SEARCH BAR ADDED HERE -->
+        <input type="text" id="searchInput" placeholder="🔍 Search chapters..." oninput="doSearch()" 
+               style="width: 100%; padding: 15px; border-radius: 12px; background: rgba(255,255,255,0.05); 
+                      border: 1px solid rgba(255,255,255,0.1); color: white; margin-bottom: 30px;">
+
         <h2 style="margin-bottom: 20px;">📖 Chapters</h2>
         
         <div class="chapter-card">
@@ -91,5 +92,21 @@
         <p>© 2026 NDAVerse. All rights reserved. | Built with ❤️ by <span>Neharsh Shende</span></p>
     </footer>
 
+    <!-- JAVASCRIPT ADDED HERE BEFORE CLOSING BODY TAG -->
+    <script>
+        function doSearch() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('.chapter-card');
+
+            cards.forEach(card => {
+                const title = card.querySelector('h3').innerText.toLowerCase();
+                if (title.includes(query)) {
+                    card.style.display = "flex";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        }
+    </script>
 </body>
 </html>
