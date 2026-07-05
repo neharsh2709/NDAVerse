@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,67 +31,79 @@ margin-top:15px;
 
 .chapter-section{
 padding:40px 5%;
-max-width:900px;
+max-width:950px;
 margin:auto;
 }
 
-.coming-soon{
+.chapter-card{
 background:rgba(255,255,255,.03);
 border:1px solid rgba(255,255,255,.08);
 border-radius:20px;
-padding:50px 30px;
-text-align:center;
+padding:25px;
+display:flex;
+align-items:center;
+gap:20px;
+margin-bottom:20px;
 transition:.3s;
 }
 
-.coming-soon:hover{
-border-color:#33b5ff;
+.chapter-card:hover{
 transform:translateY(-5px);
+border-color:#33b5ff;
 box-shadow:0 15px 35px rgba(0,0,0,.3);
 }
 
-.coming-soon h2{
+.num-circle{
+width:60px;
+height:60px;
+border:2px solid #33b5ff;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:800;
+font-size:22px;
 color:#33b5ff;
-margin-bottom:15px;
-font-size:30px;
+flex-shrink:0;
 }
 
-.coming-soon p{
-color:#94a3b8;
-line-height:1.8;
-font-size:16px;
+.card-content{
+flex:1;
 }
 
-.info-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:18px;
-margin-top:35px;
+.card-content h3{
+color:#fff;
+margin-bottom:8px;
 }
 
-.info-card{
-background:rgba(255,255,255,.03);
-border:1px solid rgba(255,255,255,.08);
-border-radius:15px;
-padding:20px;
-text-align:center;
-transition:.3s;
-}
-
-.info-card:hover{
-transform:translateY(-5px);
-border-color:#33b5ff;
-}
-
-.info-card h3{
-color:#ffffff;
-margin-bottom:10px;
-}
-
-.info-card p{
+.card-content p{
 color:#94a3b8;
 font-size:14px;
 line-height:1.6;
+}
+
+.meta-row{
+display:flex;
+gap:18px;
+margin-top:15px;
+font-size:13px;
+color:#94a3b8;
+flex-wrap:wrap;
+}
+
+.arrow-btn{
+background:rgba(51,181,255,.1);
+border:1px solid #33b5ff;
+padding:15px 20px;
+border-radius:12px;
+text-decoration:none;
+color:#33b5ff;
+transition:.3s;
+}
+
+.arrow-btn:hover{
+background:#33b5ff;
+color:#fff;
 }
 
 @media(max-width:600px){
@@ -99,22 +112,30 @@ line-height:1.6;
 font-size:34px;
 }
 
+.chapter-card{
+flex-direction:column;
+text-align:center;
+}
+
+.arrow-btn{
+width:100%;
+}
+
+.meta-row{
+justify-content:center;
+}
+
 }
 
 </style>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2930435097247117"
-     crossorigin="anonymous"></script>
+
 </head>
 
 <body>
 
 <header>
 
-<div class="logo">
-
-NDAVerse
-
-</div>
+<div class="logo">NDAVerse</div>
 
 <nav>
 
@@ -128,77 +149,962 @@ NDAVerse
 
 <section class="history-hero">
 
-<h1>
+<h1>History</h1>
 
-History
+<p>Master NDA History with premium notes, timelines, maps, tables and practice questions.</p>
 
-</h1>
-
-<p>
-
-Master History with premium NDA Foundation notes, timelines, maps, important events and exam-oriented concepts.
-
-</p>
-
-<a href="index.html#subjects" class="back-link">
-
-← Back to Home
-
-</a>
+<a href="index.html#subjects" class="back-link">← Back to Home</a>
 
 </section>
 
 <section class="chapter-section">
 
-<div class="coming-soon">
+<input
+type="text"
+id="searchInput"
+placeholder="🔍 Search chapters..."
+oninput="doSearch()"
 
-<h2>📚 Chapters Coming Soon</h2>
+style="width:100%;
+padding:15px;
+border-radius:12px;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.1);
+color:white;
+margin-bottom:30px;">
 
-<p>
+<h2 style="margin-bottom:25px;">🏛️ History Chapters</h2>
 
-History notes are currently being prepared.
+<!-- Chapter 1 -->
 
-New chapters will be added here soon with detailed explanations,
-timelines, maps, important personalities, previous year NDA questions
-and practice exercises.
+<div class="chapter-card">
 
-</p>
+<div class="num-circle">1</div>
+
+<div class="card-content">
+
+<h3>Indus Valley Civilization</h3>
+
+<p>Harappan culture, town planning, drainage system, trade, economy and decline.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
 
 </div>
 
-<div class="info-grid">
-
-<div class="info-card">
-
-<h3>📖 Detailed Notes</h3>
-
-<p>Easy-to-understand theory with premium formatting.</p>
+<a href="history-indus-valley.html" class="arrow-btn">→</a>
 
 </div>
 
-<div class="info-card">
+<!-- Chapter 2 -->
 
-<h3>📅 Timelines</h3>
+<div class="chapter-card">
 
-<p>Chronological events for quick revision.</p>
+<div class="num-circle">2</div>
+
+<div class="card-content">
+
+<h3>Vedic Civilization and Mahajanapadas</h3>
+
+<p>Early & Later Vedic period, social life, political system and sixteen Mahajanapadas.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
 
 </div>
 
-<div class="info-card">
-
-<h3>🗺 Maps</h3>
-
-<p>Important historical locations and kingdoms.</p>
+<a href="history-vedic-civilization.html" class="arrow-btn">→</a>
 
 </div>
 
-<div class="info-card">
+<!-- Chapter 3 -->
 
-<h3>🎯 NDA Focus</h3>
+<div class="chapter-card">
 
-<p>Exam-oriented facts, PYQs and revision points.</p>
+<div class="num-circle">3</div>
+
+<div class="card-content">
+
+<h3>Buddhism and Jainism</h3>
+
+<p>Life and teachings of Buddha & Mahavira, principles, councils and spread of religions.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
 
 </div>
+
+<a href="history-buddhism-jainism.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 4 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">4</div>
+
+<div class="card-content">
+
+<h3>Mauryan Empire (322–185 BCE)</h3>
+
+<p>Chandragupta Maurya, Ashoka, administration, economy and Mauryan achievements.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
+
+</div>
+
+<a href="history-mauryan-empire.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 5 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">5</div>
+
+<div class="card-content">
+
+<h3>Post Mauryan Age and Sangam Age</h3>
+
+<p>Kushanas, Satavahanas, Sangam literature, society and South Indian culture.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
+
+</div>
+
+<a href="history-post-mauryan.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 6 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">6</div>
+
+<div class="card-content">
+
+<h3>Gupta Empire</h3>
+
+<p>Golden Age of India, administration, literature, science, art and culture.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
+
+</div>
+
+<a href="history-gupta-empire.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 7 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">7</div>
+
+<div class="card-content">
+
+<h3>The Rajput Kingdoms</h3>
+
+<p>Major Rajput dynasties, administration, society, culture and important battles.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
+
+</div>
+
+<a href="history-rajput-kingdoms.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 8 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">8</div>
+
+<div class="card-content">
+
+<h3>Slave Dynasty</h3>
+
+<p>Qutubuddin Aibak, Iltutmish, Razia Sultan and Balban with administrative reforms.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
+
+</div>
+
+<a href="history-slave-dynasty.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 9 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">9</div>
+
+<div class="card-content">
+
+<h3>Khilji, Tughlaq, Syed and Lodhi Dynasties</h3>
+
+<p>Major rulers, military campaigns, administration and important reforms.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
+
+</div>
+
+<a href="history-delhi-sultanate.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 10 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">10</div>
+
+<div class="card-content">
+
+<h3>Architecture in Sultanate Age</h3>
+
+<p>Indo-Islamic architecture, monuments, mosques, tombs and architectural features.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
+
+</div>
+
+<a href="history-sultanate-architecture.html" class="arrow-btn">→</a>
+
+</div>
+<!-- Chapter 11 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">11</div>
+
+<div class="card-content">
+
+<h3>Vijayanagar Empire</h3>
+
+<p>Foundation, administration, economy, culture, architecture and the Battle of Talikota.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
+
+</div>
+
+<a href="history-vijayanagar-empire.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 12 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">12</div>
+
+<div class="card-content">
+
+<h3>Mughals (Akbar: Conquests and Reforms)</h3>
+
+<p>Akbar's military campaigns, administration, Din-i-Ilahi, Mansabdari system and reforms.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
+
+</div>
+
+<a href="history-akbar.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 13 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">13</div>
+
+<div class="card-content">
+
+<h3>Jahangir, Shah Jahan and Mughal Art</h3>
+
+<p>Major events, administration, architecture, painting and cultural achievements.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
+
+</div>
+
+<a href="history-jahangir-shahjahan.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 14 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">14</div>
+
+<div class="card-content">
+
+<h3>Policies of Aurangzeb and Rise of Shivaji</h3>
+
+<p>Aurangzeb's policies, Maratha expansion, Shivaji's administration and military achievements.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
+
+</div>
+
+<a href="history-aurangzeb-shivaji.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 15 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">15</div>
+
+<div class="card-content">
+
+<h3>Later Mughals, Rise and Fall of Marathas</h3>
+
+<p>Decline of the Mughal Empire, Maratha Confederacy and causes of their downfall.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
+
+</div>
+
+<a href="history-later-mughals-marathas.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 16 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">16</div>
+
+<div class="card-content">
+
+<h3>Arrival of Europeans (Sequence and Causes)</h3>
+
+<p>Portuguese, Dutch, English and French arrival in India and reasons behind European expansion.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
+
+</div>
+
+<a href="history-arrival-europeans.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 17 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">17</div>
+
+<div class="card-content">
+
+<h3>Expansion of Company Bahadur</h3>
+
+<p>British East India Company's territorial expansion, wars and political strategies.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
+
+</div>
+
+<a href="history-company-bahadur.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 18 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">18</div>
+
+<div class="card-content">
+
+<h3>British Land Revenue Systems</h3>
+
+<p>Permanent Settlement, Ryotwari, Mahalwari systems and their impact on Indian agriculture.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
+
+</div>
+
+<a href="history-land-revenue.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 19 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">19</div>
+
+<div class="card-content">
+
+<h3>Tribal and Peasant Movements</h3>
+
+<p>Major tribal uprisings, peasant revolts, causes, leaders and historical significance.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
+
+</div>
+
+<a href="history-tribal-peasant-movements.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 20 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">20</div>
+
+<div class="card-content">
+
+<h3>Indian Renaissance</h3>
+
+<p>Social and religious reform movements, Raja Ram Mohan Roy, Swami Vivekananda, Dayanand Saraswati and other reformers.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
+
+</div>
+
+<a href="history-indian-renaissance.html" class="arrow-btn">→</a>
+
+</div>
+<!-- Chapter 21 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">21</div>
+
+<div class="card-content">
+
+<h3>Revolt of 1857 (Causes and Consequences)</h3>
+
+<p>Political, economic, military and social causes, major leaders, important centres and its impact on British rule.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
+
+</div>
+
+<a href="history-revolt-1857.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 22 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">22</div>
+
+<div class="card-content">
+
+<h3>Introduction of Acts During British Era</h3>
+
+<p>Regulating Act, Pitt's India Act, Charter Acts, Government of India Acts and constitutional developments.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
+
+</div>
+
+<a href="history-british-acts.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 23 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">23</div>
+
+<div class="card-content">
+
+<h3>Formation of Congress and its Moderate Phase</h3>
+
+<p>Formation of INC, objectives, moderate leaders, achievements and limitations.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
+
+</div>
+
+<a href="history-congress-moderate-phase.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 24 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">24</div>
+
+<div class="card-content">
+
+<h3>Partition of Bengal, Swadeshi Movement and Muslim League</h3>
+
+<p>Partition of Bengal (1905), Swadeshi Movement, boycott movement and formation of the Muslim League.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
+
+</div>
+
+<a href="history-swadeshi-movement.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 25 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">25</div>
+
+<div class="card-content">
+
+<h3>Morley-Minto Reforms, Reunion of Bengal and Delhi Durbar</h3>
+
+<p>Indian Councils Act 1909, annulment of Bengal partition and Delhi Durbar of 1911.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
+
+</div>
+
+<a href="history-morley-minto.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 26 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">26</div>
+
+<div class="card-content">
+
+<h3>The Gandhian Era and Swaraj Party</h3>
+
+<p>Champaran, Kheda, Non-Cooperation Movement, Swaraj Party and Gandhian leadership.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
+
+</div>
+
+<a href="history-gandhian-era.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 27 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">27</div>
+
+<div class="card-content">
+
+<h3>Revolutionary Activism in India</h3>
+
+<p>Major revolutionary organisations, Bhagat Singh, Chandrashekhar Azad, HSRA and revolutionary movements.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
+
+</div>
+
+<a href="history-revolutionary-activism.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 28 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">28</div>
+
+<div class="card-content">
+
+<h3>Nehru Report and Civil Disobedience Movement</h3>
+
+<p>Nehru Report, Simon Commission, Salt March, Civil Disobedience Movement and its significance.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
+
+</div>
+
+<a href="history-civil-disobedience.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 29 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">29</div>
+
+<div class="card-content">
+
+<h3>Round Table Conferences and Government of India Act, 1935</h3>
+
+<p>Three Round Table Conferences, Poona Pact and major provisions of the Government of India Act, 1935.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
+
+</div>
+
+<a href="history-round-table-conference.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 30 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">30</div>
+
+<div class="card-content">
+
+<h3>Elections of 1937, Pakistan Resolution and Quit India Movement</h3>
+
+<p>Provincial elections, Lahore Resolution, Quit India Movement and India's final phase of freedom struggle.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
+
+</div>
+
+<a href="history-quit-india.html" class="arrow-btn">→</a>
+
+</div>
+<!-- Chapter 31 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">31</div>
+
+<div class="card-content">
+
+<h3>Cripps Mission, C.R. Formula, Wavell Plan and Cabinet Mission</h3>
+
+<p>Major constitutional proposals, negotiations between British and Indian leaders, and the final steps toward independence.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
+
+</div>
+
+<a href="history-cripps-mission.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 32 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">32</div>
+
+<div class="card-content">
+
+<h3>Mountbatten Plan (1947)</h3>
+
+<p>Partition of India, Indian Independence Act, creation of India & Pakistan and transfer of power.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
+
+</div>
+
+<a href="history-mountbatten-plan.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 33 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">33</div>
+
+<div class="card-content">
+
+<h3>Industrial Revolution in Europe</h3>
+
+<p>Causes, inventions, industrial growth, social changes and its impact on the world.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
+
+</div>
+
+<a href="history-industrial-revolution.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 34 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">34</div>
+
+<div class="card-content">
+
+<h3>American War of Independence</h3>
+
+<p>Causes, important events, Treaty of Paris and its significance in world history.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
+
+</div>
+
+<a href="history-american-independence.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 35 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">35</div>
+
+<div class="card-content">
+
+<h3>French Revolution</h3>
+
+<p>Causes, major events, Reign of Terror, Napoleon Bonaparte and global impact.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
+
+</div>
+
+<a href="history-french-revolution.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 36 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">36</div>
+
+<div class="card-content">
+
+<h3>World War I</h3>
+
+<p>Causes, alliances, major battles, Treaty of Versailles and consequences.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
+
+</div>
+
+<a href="history-world-war-1.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 37 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">37</div>
+
+<div class="card-content">
+
+<h3>World War II</h3>
+
+<p>Causes, Axis and Allied Powers, important events, United Nations and post-war world.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
+
+</div>
+
+<a href="history-world-war-2.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 38 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">38</div>
+
+<div class="card-content">
+
+<h3>Russian Revolution – I</h3>
+
+<p>Background, causes, February Revolution, major leaders and the fall of Tsar Nicholas II.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
+
+</div>
+
+<a href="history-russian-revolution-1.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 39 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">39</div>
+
+<div class="card-content">
+
+<h3>Russian Revolution – II</h3>
+
+<p>October Revolution, Lenin, Bolsheviks, Civil War, formation of the USSR and historical significance.</p>
+
+<div class="meta-row">
+<span>📄 Notes</span>
+<span>📝 Practice</span>
+<span>🎯 NDA Focus</span>
+</div>
+
+</div>
+
+<a href="history-russian-revolution-2.html" class="arrow-btn">→</a>
 
 </div>
 
@@ -207,23 +1113,43 @@ and practice exercises.
 <footer>
 
 <div style="margin-bottom:10px;">
-
 Dream. Learn. Prepare. Become an Officer. 🇮🇳
-
 </div>
 
 <p>
-
 © 2026 NDAVerse. All rights reserved. |
-
-Built with ❤️ by
-
-<span>Neharsh Shende</span>
-
+Built with ❤️ by <span>Neharsh Shende</span>
 </p>
 
 </footer>
 
-</body>
+<script>
 
+function doSearch(){
+
+const query=document.getElementById("searchInput").value.toLowerCase();
+
+const cards=document.querySelectorAll(".chapter-card");
+
+cards.forEach(card=>{
+
+const title=card.querySelector("h3").innerText.toLowerCase();
+
+if(title.includes(query)){
+
+card.style.display="flex";
+
+}else{
+
+card.style.display="none";
+
+}
+
+});
+
+}
+
+</script>
+
+</body>
 </html>
