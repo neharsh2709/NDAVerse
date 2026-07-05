@@ -11,12 +11,12 @@
 
 <style>
 
-.biology-hero{
+.bio-hero{
 text-align:center;
 padding:120px 5% 40px;
 }
 
-.biology-hero h1{
+.bio-hero h1{
 font-size:48px;
 margin-bottom:10px;
 }
@@ -30,91 +30,111 @@ margin-top:15px;
 
 .chapter-section{
 padding:40px 5%;
-max-width:900px;
+max-width:950px;
 margin:auto;
 }
 
-.coming-soon{
+.chapter-card{
 background:rgba(255,255,255,.03);
 border:1px solid rgba(255,255,255,.08);
 border-radius:20px;
-padding:50px 30px;
-text-align:center;
+padding:25px;
+display:flex;
+align-items:center;
+gap:20px;
+margin-bottom:20px;
 transition:.3s;
 }
 
-.coming-soon:hover{
-border-color:#33b5ff;
+.chapter-card:hover{
 transform:translateY(-5px);
+border-color:#33b5ff;
 box-shadow:0 15px 35px rgba(0,0,0,.3);
 }
 
-.coming-soon h2{
+.num-circle{
+width:60px;
+height:60px;
+border:2px solid #33b5ff;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:800;
+font-size:22px;
 color:#33b5ff;
-margin-bottom:15px;
-font-size:30px;
+flex-shrink:0;
 }
 
-.coming-soon p{
-color:#94a3b8;
-line-height:1.8;
-font-size:16px;
+.card-content{
+flex:1;
 }
 
-.info-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:18px;
-margin-top:35px;
+.card-content h3{
+color:#fff;
+margin-bottom:8px;
 }
 
-.info-card{
-background:rgba(255,255,255,.03);
-border:1px solid rgba(255,255,255,.08);
-border-radius:15px;
-padding:20px;
-text-align:center;
-transition:.3s;
-}
-
-.info-card:hover{
-transform:translateY(-5px);
-border-color:#33b5ff;
-}
-
-.info-card h3{
-color:#ffffff;
-margin-bottom:10px;
-}
-
-.info-card p{
+.card-content p{
 color:#94a3b8;
 font-size:14px;
 line-height:1.6;
 }
 
+.meta-row{
+display:flex;
+gap:18px;
+margin-top:15px;
+font-size:13px;
+color:#94a3b8;
+flex-wrap:wrap;
+}
+
+.arrow-btn{
+background:rgba(51,181,255,.1);
+border:1px solid #33b5ff;
+padding:15px 20px;
+border-radius:12px;
+text-decoration:none;
+color:#33b5ff;
+transition:.3s;
+}
+
+.arrow-btn:hover{
+background:#33b5ff;
+color:#fff;
+}
+
 @media(max-width:600px){
 
-.biology-hero h1{
+.bio-hero h1{
 font-size:34px;
+}
+
+.chapter-card{
+flex-direction:column;
+text-align:center;
+}
+
+.arrow-btn{
+width:100%;
+}
+
+.meta-row{
+justify-content:center;
 }
 
 }
 
 </style>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2930435097247117"
-     crossorigin="anonymous"></script>
+
 </head>
 
 <body>
 
 <header>
 
-<div class="logo">
-
-NDAVerse
-
-</div>
+<div class="logo">NDAVerse</div>
 
 <nav>
 
@@ -126,93 +146,393 @@ NDAVerse
 
 </header>
 
-<section class="biology-hero">
+<section class="bio-hero">
 
-<h1>
+<h1>Biology</h1>
 
-Biology
+<p>Master NDA Biology with premium notes, diagrams, flowcharts, tables and practice questions.</p>
 
-</h1>
-
-<p>
-
-Master Biology with premium NDA Foundation notes, diagrams, flowcharts, tables, human body systems, plant biology and exam-oriented concepts.
-
-</p>
-
-<a href="index.html#subjects" class="back-link">
-
-← Back to Home
-
-</a>
+<a href="index.html#subjects" class="back-link">← Back to Home</a>
 
 </section>
 
 <section class="chapter-section">
 
-<div class="coming-soon">
+<input
+type="text"
+id="searchInput"
+placeholder="🔍 Search chapters..."
+oninput="doSearch()"
 
-<h2>🧬 Biology Chapters Coming Soon</h2>
+style="width:100%;
+padding:15px;
+border-radius:12px;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.1);
+color:white;
+margin-bottom:30px;">
 
-<p>
+<h2 style="margin-bottom:25px;">🧬 Biology Chapters</h2>
 
-Comprehensive Biology notes are currently being prepared.
+<!-- Chapter 1 -->
 
-Soon you'll find detailed chapters covering Cell, Tissues, Human Body Systems, Nutrition, Respiration, Blood Circulation, Genetics, Plant Physiology, Ecology, Diseases and NDA-focused practice questions.
+<div class="chapter-card">
 
-</p>
+<div class="num-circle">1</div>
 
-</div>
+<div class="card-content">
 
-<div class="info-grid">
+<h3>Cell: The Unit of Life</h3>
 
-<div class="info-card">
+<p>Cell structure, organelles, cell theory, prokaryotic & eukaryotic cells and cell division.</p>
 
-<h3>🔬 Cell Biology</h3>
+<div class="meta-row">
 
-<p>Cell structure, organelles, cell division and functions.</p>
+<span>📄 Notes</span>
 
-</div>
+<span>📝 Practice</span>
 
-<div class="info-card">
-
-<h3>🫀 Human Physiology</h3>
-
-<p>Digestive, respiratory, circulatory, nervous and excretory systems.</p>
-
-</div>
-
-<div class="info-card">
-
-<h3>🌱 Plant Biology</h3>
-
-<p>Photosynthesis, plant tissues, reproduction and transport system.</p>
+<span>🎯 NDA Focus</span>
 
 </div>
 
-<div class="info-card">
+</div>
 
-<h3>🧬 Genetics</h3>
-
-<p>DNA, genes, heredity, chromosomes and evolution.</p>
+<a href="biology-cell-unit-of-life.html" class="arrow-btn">→</a>
 
 </div>
 
-<div class="info-card">
+<!-- Chapter 2 -->
 
-<h3>🌍 Ecology</h3>
+<div class="chapter-card">
 
-<p>Ecosystem, food chain, biodiversity and environmental conservation.</p>
+<div class="num-circle">2</div>
+
+<div class="card-content">
+
+<h3>Tissues</h3>
+
+<p>Plant tissues, animal tissues, structure, functions and important differences.</p>
+
+<div class="meta-row">
+
+<span>📄 Notes</span>
+
+<span>📝 Practice</span>
+
+<span>🎯 NDA Focus</span>
 
 </div>
 
-<div class="info-card">
+</div>
 
-<h3>🎯 NDA Focus</h3>
-
-<p>Important one-liners, MCQs, PYQs and quick revision notes.</p>
+<a href="biology-tissues.html" class="arrow-btn">→</a>
 
 </div>
+
+<!-- Chapter 3 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">3</div>
+
+<div class="card-content">
+
+<h3>Diversity in Organisms</h3>
+
+<p>Classification of living organisms, kingdoms, characteristics and biological diversity.</p>
+
+<div class="meta-row">
+
+<span>📄 Notes</span>
+
+<span>📝 Practice</span>
+
+<span>🎯 NDA Focus</span>
+
+</div>
+
+</div>
+
+<a href="biology-diversity-organisms.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 4 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">4</div>
+
+<div class="card-content">
+
+<h3>Sexual Reproduction in Flowering Plants</h3>
+
+<p>Flower structure, pollination, fertilization, seed formation and fruit development.</p>
+
+<div class="meta-row">
+
+<span>📄 Notes</span>
+
+<span>📝 Practice</span>
+
+<span>🎯 NDA Focus</span>
+
+</div>
+
+</div>
+
+<a href="biology-flowering-plants.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 5 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">5</div>
+
+<div class="card-content">
+
+<h3>Human Reproduction</h3>
+
+<p>Male & female reproductive systems, gamete formation, fertilization and human development.</p>
+
+<div class="meta-row">
+
+<span>📄 Notes</span>
+
+<span>📝 Practice</span>
+
+<span>🎯 NDA Focus</span>
+
+</div>
+
+</div>
+
+<a href="biology-human-reproduction.html" class="arrow-btn">→</a>
+
+</div>
+<!-- Chapter 6 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">6</div>
+
+<div class="card-content">
+
+<h3>Human Physiology</h3>
+
+<p>Digestive, respiratory, circulatory, excretory, nervous and endocrine systems with their functions.</p>
+
+<div class="meta-row">
+
+<span>📄 Notes</span>
+
+<span>📝 Practice</span>
+
+<span>🎯 NDA Focus</span>
+
+</div>
+
+</div>
+
+<a href="biology-human-physiology.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 7 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">7</div>
+
+<div class="card-content">
+
+<h3>Common Diseases</h3>
+
+<p>Communicable and non-communicable diseases, causes, symptoms, prevention and vaccination.</p>
+
+<div class="meta-row">
+
+<span>📄 Notes</span>
+
+<span>📝 Practice</span>
+
+<span>🎯 NDA Focus</span>
+
+</div>
+
+</div>
+
+<a href="biology-common-diseases.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 8 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">8</div>
+
+<div class="card-content">
+
+<h3>Balanced Diet</h3>
+
+<p>Nutrients, vitamins, minerals, balanced diet, deficiency diseases and healthy eating habits.</p>
+
+<div class="meta-row">
+
+<span>📄 Notes</span>
+
+<span>📝 Practice</span>
+
+<span>🎯 NDA Focus</span>
+
+</div>
+
+</div>
+
+<a href="biology-balanced-diet.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 9 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">9</div>
+
+<div class="card-content">
+
+<h3>Photosynthesis and Respiration in Plants</h3>
+
+<p>Photosynthesis, respiration, factors affecting both processes and their importance in plant life.</p>
+
+<div class="meta-row">
+
+<span>📄 Notes</span>
+
+<span>📝 Practice</span>
+
+<span>🎯 NDA Focus</span>
+
+</div>
+
+</div>
+
+<a href="biology-photosynthesis-respiration.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 10 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">10</div>
+
+<div class="card-content">
+
+<h3>Genetics</h3>
+
+<p>Mendel's laws of inheritance, chromosomes, genes, DNA, RNA and hereditary traits.</p>
+
+<div class="meta-row">
+
+<span>📄 Notes</span>
+
+<span>📝 Practice</span>
+
+<span>🎯 NDA Focus</span>
+
+</div>
+
+</div>
+
+<a href="biology-genetics.html" class="arrow-btn">→</a>
+
+</div>
+<!-- Chapter 11 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">11</div>
+
+<div class="card-content">
+
+<h3>Biogas, Ozone and Greenhouse Gases</h3>
+
+<p>Biogas production, ozone layer, greenhouse gases, global warming, climate change and environmental conservation.</p>
+
+<div class="meta-row">
+
+<span>📄 Notes</span>
+
+<span>📝 Practice</span>
+
+<span>🎯 NDA Focus</span>
+
+</div>
+
+</div>
+
+<a href="biology-biogas-ozone-greenhouse.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 12 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">12</div>
+
+<div class="card-content">
+
+<h3>Coordination in Plants</h3>
+
+<p>Plant hormones, tropic movements, nastic movements and coordination in plant growth and development.</p>
+
+<div class="meta-row">
+
+<span>📄 Notes</span>
+
+<span>📝 Practice</span>
+
+<span>🎯 NDA Focus</span>
+
+</div>
+
+</div>
+
+<a href="biology-coordination-plants.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 13 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">13</div>
+
+<div class="card-content">
+
+<h3>Ecology</h3>
+
+<p>Ecosystem, food chain, food web, ecological pyramids, biodiversity and environmental balance.</p>
+
+<div class="meta-row">
+
+<span>📄 Notes</span>
+
+<span>📝 Practice</span>
+
+<span>🎯 NDA Focus</span>
+
+</div>
+
+</div>
+
+<a href="biology-ecology.html" class="arrow-btn">→</a>
 
 </div>
 
@@ -221,23 +541,43 @@ Soon you'll find detailed chapters covering Cell, Tissues, Human Body Systems, N
 <footer>
 
 <div style="margin-bottom:10px;">
-
 Dream. Learn. Prepare. Become an Officer. 🇮🇳
-
 </div>
 
 <p>
-
 © 2026 NDAVerse. All rights reserved. |
-
-Built with ❤️ by
-
-<span>Neharsh Shende</span>
-
+Built with ❤️ by <span>Neharsh Shende</span>
 </p>
 
 </footer>
 
-</body>
+<script>
 
+function doSearch(){
+
+const query=document.getElementById("searchInput").value.toLowerCase();
+
+const cards=document.querySelectorAll(".chapter-card");
+
+cards.forEach(card=>{
+
+const title=card.querySelector("h3").innerText.toLowerCase();
+
+if(title.includes(query)){
+
+card.style.display="flex";
+
+}else{
+
+card.style.display="none";
+
+}
+
+});
+
+}
+
+</script>
+
+</body>
 </html>
