@@ -1,218 +1,1112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mathematics | NDAVerse</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        .math-hero{
-            text-align:center;
-            padding:120px 5% 40px;
-        }
+<title>Mathematics | NDAVerse</title>
 
-        .math-hero h1{
-            font-size:48px;
-            margin-bottom:10px;
-        }
+<link rel="stylesheet" href="style.css">
 
-        .back-link{
-            color:#33b5ff;
-            text-decoration:none;
-            display:inline-block;
-            margin-top:15px;
-            transition:.3s;
-        }
+<style>
 
-        .back-link:hover{
-            color:#fff;
-        }
+.math-hero{
+text-align:center;
+padding:120px 5% 40px;
+}
 
-        .chapter-section{
-            padding:40px 5%;
-            max-width:900px;
-            margin:auto;
-        }
+.math-hero h1{
+font-size:48px;
+margin-bottom:10px;
+}
 
-        .chapter-card{
-            background:rgba(255,255,255,.03);
-            border:1px solid rgba(255,255,255,.08);
-            border-radius:20px;
-            padding:25px;
-            display:flex;
-            align-items:center;
-            gap:20px;
-            margin-bottom:20px;
-            transition:.35s ease;
-            backdrop-filter:blur(10px);
-        }
+.back-link{
+color:#33b5ff;
+text-decoration:none;
+display:inline-block;
+margin-top:15px;
+}
 
-        .chapter-card:hover{
-            transform:translateY(-6px);
-            border-color:#33b5ff;
-            box-shadow:0 10px 30px rgba(51,181,255,.2);
-        }
+.chapter-section{
+padding:40px 5%;
+max-width:950px;
+margin:auto;
+}
 
-        .num-circle{
-            width:60px;
-            height:60px;
-            border-radius:50%;
-            border:2px solid #33b5ff;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            color:#33b5ff;
-            font-size:22px;
-            font-weight:800;
-            flex-shrink:0;
-        }
+.chapter-card{
+background:rgba(255,255,255,.03);
+border:1px solid rgba(255,255,255,.08);
+border-radius:20px;
+padding:25px;
+display:flex;
+align-items:center;
+gap:20px;
+margin-bottom:20px;
+transition:.3s;
+}
 
-        .card-content{
-            flex:1;
-        }
+.chapter-card:hover{
+transform:translateY(-5px);
+border-color:#33b5ff;
+box-shadow:0 15px 35px rgba(0,0,0,.3);
+}
 
-        .card-content h3{
-            color:#fff;
-            margin-bottom:8px;
-        }
+.num-circle{
+width:60px;
+height:60px;
+border:2px solid #33b5ff;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:800;
+font-size:22px;
+color:#33b5ff;
+flex-shrink:0;
+}
 
-        .card-content p{
-            color:#94a3b8;
-            font-size:15px;
-        }
+.card-content{
+flex:1;
+}
 
-        .meta-row{
-            display:flex;
-            gap:20px;
-            margin-top:18px;
-            color:#94a3b8;
-            font-size:13px;
-            flex-wrap:wrap;
-        }
+.card-content h3{
+color:#fff;
+margin-bottom:8px;
+}
 
-        .arrow-btn{
-            background:rgba(51,181,255,.12);
-            border:1px solid #33b5ff;
-            color:#33b5ff;
-            padding:14px 20px;
-            border-radius:12px;
-            text-decoration:none;
-            transition:.3s;
-        }
+.card-content p{
+color:#94a3b8;
+font-size:14px;
+line-height:1.6;
+}
 
-        .arrow-btn:hover{
-            background:#33b5ff;
-            color:#000;
-        }
+.meta-row{
+display:flex;
+gap:18px;
+margin-top:15px;
+font-size:13px;
+color:#94a3b8;
+flex-wrap:wrap;
+}
 
-        #searchInput{
-            width:100%;
-            padding:15px;
-            border-radius:12px;
-            background:rgba(255,255,255,.05);
-            border:1px solid rgba(255,255,255,.1);
-            color:#fff;
-            margin-bottom:30px;
-            outline:none;
-            font-size:15px;
-        }
+.arrow-btn{
+background:rgba(51,181,255,.1);
+border:1px solid #33b5ff;
+padding:15px 20px;
+border-radius:12px;
+text-decoration:none;
+color:#33b5ff;
+transition:.3s;
+}
 
-        #searchInput:focus{
-            border-color:#33b5ff;
-            box-shadow:0 0 15px rgba(51,181,255,.25);
-        }
+.arrow-btn:hover{
+background:#33b5ff;
+color:#fff;
+}
 
-        @media(max-width:600px){
+@media(max-width:600px){
 
-            .math-hero h1{
-                font-size:34px;
-            }
+.math-hero h1{
+font-size:34px;
+}
 
-            .chapter-card{
-                flex-direction:column;
-                text-align:center;
-            }
+.chapter-card{
+flex-direction:column;
+text-align:center;
+}
 
-            .arrow-btn{
-                width:100%;
-            }
+.arrow-btn{
+width:100%;
+}
 
-            .meta-row{
-                justify-content:center;
-            }
-        }
-    </style>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2930435097247117"
-     crossorigin="anonymous"></script>
+.meta-row{
+justify-content:center;
+}
+
+}
+
+</style>
+
 </head>
 
 <body>
 
 <header>
-    <div class="logo">NDAVerse</div>
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="index.html#subjects">Subjects</a>
-    </nav>
+<div class="logo">NDAVerse</div>
+
+<nav>
+
+<a href="index.html">Home</a>
+
+<a href="index.html#subjects">Subjects</a>
+
+</nav>
+
 </header>
 
 <section class="math-hero">
 
-    <h1>Mathematics</h1>
+<h1>Mathematics</h1>
 
-    <p>Master NDA Mathematics with chapter-wise notes.</p>
+<p>Master NDA Mathematics with premium notes, formulas, solved examples, shortcuts and practice questions.</p>
 
-    <a href="index.html#subjects" class="back-link">
-        ← Back to Home
-    </a>
+<a href="index.html#subjects" class="back-link">← Back to Home</a>
 
 </section>
 
 <section class="chapter-section">
 
-    <input
-    type="text"
-    id="searchInput"
-    placeholder="🔍 Search chapters..."
-    oninput="doSearch()">
+<input
+type="text"
+id="searchInput"
+placeholder="🔍 Search chapters..."
+oninput="doSearch()"
 
-    <h2 style="margin-bottom:20px;">📖 Chapters</h2>
+style="width:100%;
+padding:15px;
+border-radius:12px;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.1);
+color:white;
+margin-bottom:30px;">
+
+<h2 style="margin-bottom:25px;">📖 Mathematics Chapters</h2>
+
+<!-- Chapter 1 -->
+
 <div class="chapter-card">
-    <div class="num-circle">1</div>
 
-    <div class="card-content">
-        <h3>Logarithm</h3>
-        <p>
-            Learn the fundamentals of logarithms including definitions,
-            laws of logarithms, common and natural logarithms,
-            properties, change of base formula, solved examples,
-            and NDA-level practice questions.
-        </p>
+<div class="num-circle">1</div>
 
-        <div class="meta-row">
-            <span>📄 Notes</span>
-            <span>📅 Important Formulae</span>
-            <span>🎯 NDA Focus</span>
-        </div>
-    </div>
+<div class="card-content">
 
-    <a href="math-logarithm.html" class="arrow-btn">→</a>
+<h3>Basic Mathematics</h3>
+
+<p>Fundamental concepts, algebra, fractions, percentages, ratio & proportion and simplification.</p>
+
+<div class="meta-row">
+
+<span>📄 Notes</span>
+
+<span>📝 Practice</span>
+
+<span>🎯 NDA Focus</span>
+
 </div>
-     
+
+</div>
+
+<a href="math-basic-mathematics.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 2 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">2</div>
+
+<div class="card-content">
+
+<h3>Logarithms</h3>
+
+<p>Logarithmic laws, properties, equations and NDA level questions.</p>
+
+<div class="meta-row">
+
+<span>📄 Notes</span>
+
+<span>📝 Practice</span>
+
+<span>🎯 NDA Focus</span>
+
+</div>
+
+</div>
+
+<a href="math-logarithms.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 3 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">3</div>
+
+<div class="card-content">
+
+<h3>Sets</h3>
+
+<p>Types of sets, Venn diagrams, operations and important identities.</p>
+
+<div class="meta-row">
+
+<span>📄 Notes</span>
+
+<span>📝 Practice</span>
+
+<span>🎯 NDA Focus</span>
+
+</div>
+
+</div>
+
+<a href="math-sets.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 4 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">4</div>
+
+<div class="card-content">
+
+<h3>Quadratic Equations</h3>
+
+<p>Roots, discriminant, nature of roots and solving quadratic equations.</p>
+
+<div class="meta-row">
+
+<span>📄 Notes</span>
+
+<span>📝 Practice</span>
+
+<span>🎯 NDA Focus</span>
+
+</div>
+
+</div>
+
+<a href="math-quadratic-equations.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 5 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">5</div>
+
+<div class="card-content">
+
+<h3>Trigonometric Functions</h3>
+
+<p>Trigonometric ratios, identities, graphs and applications.</p>
+
+<div class="meta-row">
+
+<span>📄 Notes</span>
+
+<span>📝 Practice</span>
+
+<span>🎯 NDA Focus</span>
+
+</div>
+
+</div>
+
+<a href="math-trigonometric-functions.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 6 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">6</div>
+
+<div class="card-content">
+
+<h3>Properties of Triangles</h3>
+
+<p>Triangle properties, congruency, similarity and important theorems.</p>
+
+<div class="meta-row">
+
+<span>📄 Notes</span>
+
+<span>📝 Practice</span>
+
+<span>🎯 NDA Focus</span>
+
+</div>
+
+</div>
+
+<a href="math-properties-of-triangles.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 7 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">7</div>
+
+<div class="card-content">
+
+<h3>Heights and Distances</h3>
+
+<p>Angles of elevation, depression and trigonometric applications.</p>
+
+<div class="meta-row">
+
+<span>📄 Notes</span>
+
+<span>📝 Practice</span>
+
+<span>🎯 NDA Focus</span>
+
+</div>
+
+</div>
+
+<a href="math-heights-and-distances.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 8 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">8</div>
+
+<div class="card-content">
+
+<h3>Binomial Theorem</h3>
+
+<p>Expansion, general term, middle term and binomial coefficients.</p>
+
+<div class="meta-row">
+
+<span>📄 Notes</span>
+
+<span>📝 Practice</span>
+
+<span>🎯 NDA Focus</span>
+
+</div>
+
+</div>
+
+<a href="math-binomial-theorem.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 9 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">9</div>
+
+<div class="card-content">
+
+<h3>Sequences and Series</h3>
+
+<p>AP, GP, HP and special series with formulas and examples.</p>
+
+<div class="meta-row">
+
+<span>📄 Notes</span>
+
+<span>📝 Practice</span>
+
+<span>🎯 NDA Focus</span>
+
+</div>
+
+</div>
+
+<a href="math-sequences-and-series.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 10 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">10</div>
+
+<div class="card-content">
+
+<h3>Permutations and Combinations</h3>
+
+<p>Counting principles, arrangements, selections and applications.</p>
+
+<div class="meta-row">
+
+<span>📄 Notes</span>
+
+<span>📝 Practice</span>
+
+<span>🎯 NDA Focus</span>
+
+</div>
+
+</div>
+
+<a href="math-permutations-combinations.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 11 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">11</div>
+
+<div class="card-content">
+
+<h3>Complex Numbers</h3>
+
+<p>Imaginary numbers, Argand plane, modulus and algebraic operations.</p>
+
+<div class="meta-row">
+
+<span>📄 Notes</span>
+
+<span>📝 Practice</span>
+
+<span>🎯 NDA Focus</span>
+
+</div>
+
+</div>
+
+<a href="math-complex-numbers.html" class="arrow-btn">→</a>
+
+</div>
+<!-- Chapter 12 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">12</div>
+
+<div class="card-content">
+
+<h3>Basics of Coordinate Geometry</h3>
+
+<p>Coordinate system, distance formula, section formula and midpoint theorem.</p>
+
+<div class="meta-row">
+
+<span>📄 Notes</span>
+
+<span>📝 Practice</span>
+
+<span>🎯 NDA Focus</span>
+
+</div>
+
+</div>
+
+<a href="math-coordinate-geometry.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 13 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">13</div>
+
+<div class="card-content">
+
+<h3>Straight Lines</h3>
+
+<p>Slope, intercepts, equations of lines, angle between lines and applications.</p>
+
+<div class="meta-row">
+
+<span>📄 Notes</span>
+
+<span>📝 Practice</span>
+
+<span>🎯 NDA Focus</span>
+
+</div>
+
+</div>
+
+<a href="math-straight-lines.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 14 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">14</div>
+
+<div class="card-content">
+
+<h3>Circles</h3>
+
+<p>Standard equation, tangent, normal, chord and properties of circles.</p>
+
+<div class="meta-row">
+
+<span>📄 Notes</span>
+
+<span>📝 Practice</span>
+
+<span>🎯 NDA Focus</span>
+
+</div>
+
+</div>
+
+<a href="math-circles.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 15 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">15</div>
+
+<div class="card-content">
+
+<h3>Parabola and Ellipse</h3>
+
+<p>Definitions, standard equations, focus, directrix and important properties.</p>
+
+<div class="meta-row">
+
+<span>📄 Notes</span>
+
+<span>📝 Practice</span>
+
+<span>🎯 NDA Focus</span>
+
+</div>
+
+</div>
+
+<a href="math-parabola-ellipse.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 16 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">16</div>
+
+<div class="card-content">
+
+<h3>Hyperbola and Rectangular Hyperbola</h3>
+
+<p>Equations, asymptotes, focus, eccentricity and graphical interpretation.</p>
+
+<div class="meta-row">
+
+<span>📄 Notes</span>
+
+<span>📝 Practice</span>
+
+<span>🎯 NDA Focus</span>
+
+</div>
+
+</div>
+
+<a href="math-hyperbola.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 17 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">17</div>
+
+<div class="card-content">
+
+<h3>Relations and Functions</h3>
+
+<p>Types of relations, functions, domain, range and composition of functions.</p>
+
+<div class="meta-row">
+
+<span>📄 Notes</span>
+
+<span>📝 Practice</span>
+
+<span>🎯 NDA Focus</span>
+
+</div>
+
+</div>
+
+<a href="math-relations-functions.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 18 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">18</div>
+
+<div class="card-content">
+
+<h3>Inverse Trigonometric Functions</h3>
+
+<p>Principal values, domains, ranges, identities and applications.</p>
+
+<div class="meta-row">
+
+<span>📄 Notes</span>
+
+<span>📝 Practice</span>
+
+<span>🎯 NDA Focus</span>
+
+</div>
+
+</div>
+
+<a href="math-inverse-trigonometric-functions.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 19 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">19</div>
+
+<div class="card-content">
+
+<h3>Matrices</h3>
+
+<p>Types of matrices, operations, transpose, inverse and matrix equations.</p>
+
+<div class="meta-row">
+
+<span>📄 Notes</span>
+
+<span>📝 Practice</span>
+
+<span>🎯 NDA Focus</span>
+
+</div>
+
+</div>
+
+<a href="math-matrices.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 20 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">20</div>
+
+<div class="card-content">
+
+<h3>Determinants</h3>
+
+<p>Properties, evaluation, minors, cofactors and applications of determinants.</p>
+
+<div class="meta-row">
+
+<span>📄 Notes</span>
+
+<span>📝 Practice</span>
+
+<span>🎯 NDA Focus</span>
+
+</div>
+
+</div>
+
+<a href="math-determinants.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 21 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">21</div>
+
+<div class="card-content">
+
+<h3>Methods of Differentiation</h3>
+
+<p>Rules of differentiation, chain rule, implicit differentiation and logarithmic differentiation.</p>
+
+<div class="meta-row">
+
+<span>📄 Notes</span>
+
+<span>📝 Practice</span>
+
+<span>🎯 NDA Focus</span>
+
+</div>
+
+</div>
+
+<a href="math-methods-of-differentiation.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 22 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">22</div>
+
+<div class="card-content">
+
+<h3>Limits</h3>
+
+<p>Concept of limits, standard limits, evaluation techniques and applications.</p>
+
+<div class="meta-row">
+
+<span>📄 Notes</span>
+
+<span>📝 Practice</span>
+
+<span>🎯 NDA Focus</span>
+
+</div>
+
+</div>
+
+<a href="math-limits.html" class="arrow-btn">→</a>
+
+</div>
+<!-- Chapter 23 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">23</div>
+
+<div class="card-content">
+
+<h3>Continuity and Differentiability</h3>
+
+<p>Continuity, differentiability, types of discontinuity and important theorems.</p>
+
+<div class="meta-row">
+
+<span>📄 Notes</span>
+
+<span>📝 Practice</span>
+
+<span>🎯 NDA Focus</span>
+
+</div>
+
+</div>
+
+<a href="math-continuity-differentiability.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 24 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">24</div>
+
+<div class="card-content">
+
+<h3>Applications of Derivatives</h3>
+
+<p>Increasing & decreasing functions, maxima-minima, tangents, normals and rate of change.</p>
+
+<div class="meta-row">
+
+<span>📄 Notes</span>
+
+<span>📝 Practice</span>
+
+<span>🎯 NDA Focus</span>
+
+</div>
+
+</div>
+
+<a href="math-applications-of-derivatives.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 25 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">25</div>
+
+<div class="card-content">
+
+<h3>Indefinite Integration</h3>
+
+<p>Basic integration formulas, substitution, partial fractions and integration techniques.</p>
+
+<div class="meta-row">
+
+<span>📄 Notes</span>
+
+<span>📝 Practice</span>
+
+<span>🎯 NDA Focus</span>
+
+</div>
+
+</div>
+
+<a href="math-indefinite-integration.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 26 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">26</div>
+
+<div class="card-content">
+
+<h3>Definite Integration</h3>
+
+<p>Properties of definite integrals, evaluation methods and applications.</p>
+
+<div class="meta-row">
+
+<span>📄 Notes</span>
+
+<span>📝 Practice</span>
+
+<span>🎯 NDA Focus</span>
+
+</div>
+
+</div>
+
+<a href="math-definite-integration.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 27 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">27</div>
+
+<div class="card-content">
+
+<h3>Area Under the Curve</h3>
+
+<p>Finding areas using integration between curves and coordinate axes.</p>
+
+<div class="meta-row">
+
+<span>📄 Notes</span>
+
+<span>📝 Practice</span>
+
+<span>🎯 NDA Focus</span>
+
+</div>
+
+</div>
+
+<a href="math-area-under-the-curve.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 28 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">28</div>
+
+<div class="card-content">
+
+<h3>Differential Equations</h3>
+
+<p>Formation, solution and applications of first-order differential equations.</p>
+
+<div class="meta-row">
+
+<span>📄 Notes</span>
+
+<span>📝 Practice</span>
+
+<span>🎯 NDA Focus</span>
+
+</div>
+
+</div>
+
+<a href="math-differential-equations.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 29 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">29</div>
+
+<div class="card-content">
+
+<h3>Vector Algebra</h3>
+
+<p>Vectors, dot product, cross product, scalar triple product and applications.</p>
+
+<div class="meta-row">
+
+<span>📄 Notes</span>
+
+<span>📝 Practice</span>
+
+<span>🎯 NDA Focus</span>
+
+</div>
+
+</div>
+
+<a href="math-vector-algebra.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 30 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">30</div>
+
+<div class="card-content">
+
+<h3>3-D Geometry</h3>
+
+<p>Direction cosines, planes, straight lines and shortest distance problems.</p>
+
+<div class="meta-row">
+
+<span>📄 Notes</span>
+
+<span>📝 Practice</span>
+
+<span>🎯 NDA Focus</span>
+
+</div>
+
+</div>
+
+<a href="math-3d-geometry.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 31 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">31</div>
+
+<div class="card-content">
+
+<h3>Probability</h3>
+
+<p>Probability laws, conditional probability, Bayes' theorem and random events.</p>
+
+<div class="meta-row">
+
+<span>📄 Notes</span>
+
+<span>📝 Practice</span>
+
+<span>🎯 NDA Focus</span>
+
+</div>
+
+</div>
+
+<a href="math-probability.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 32 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">32</div>
+
+<div class="card-content">
+
+<h3>Statistics</h3>
+
+<p>Mean, median, mode, variance, standard deviation and data interpretation.</p>
+
+<div class="meta-row">
+
+<span>📄 Notes</span>
+
+<span>📝 Practice</span>
+
+<span>🎯 NDA Focus</span>
+
+</div>
+
+</div>
+
+<a href="math-statistics.html" class="arrow-btn">→</a>
+
+</div>
+
+<!-- Chapter 33 -->
+
+<div class="chapter-card">
+
+<div class="num-circle">33</div>
+
+<div class="card-content">
+
+<h3>Binary Numbers</h3>
+
+<p>Binary number system, conversions, binary arithmetic and logic basics.</p>
+
+<div class="meta-row">
+
+<span>📄 Notes</span>
+
+<span>📝 Practice</span>
+
+<span>🎯 NDA Focus</span>
+
+</div>
+
+</div>
+
+<a href="math-binary-numbers.html" class="arrow-btn">→</a>
+
+</div>
+
 </section>
 
 <footer>
 
-    <div style="margin-bottom:10px;">
-        Dream. Learn. Prepare. Become an Officer. 🇮🇳
-    </div>
+<div style="margin-bottom:10px;">
+Dream. Learn. Prepare. Become an Officer. 🇮🇳
+</div>
 
-    <p>
-        © 2026 NDAVerse. All rights reserved. |
-        Built with ❤️ by <span>Neharsh Shende</span>
-    </p>
+<p>
+© 2026 NDAVerse. All rights reserved. |
+Built with ❤️ by <span>Neharsh Shende</span>
+</p>
 
 </footer>
 
@@ -228,7 +1122,15 @@ cards.forEach(card=>{
 
 const title=card.querySelector("h3").innerText.toLowerCase();
 
-card.style.display=title.includes(query)?"flex":"none";
+if(title.includes(query)){
+
+card.style.display="flex";
+
+}else{
+
+card.style.display="none";
+
+}
 
 });
 
