@@ -1,0 +1,1743 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Basic Mathematics | NDAVerse</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+.notes-container{
+    padding:100px 5% 50px;
+    max-width:1000px;
+    margin:auto;
+}
+
+.note-card{
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:24px;
+    padding:40px;
+    backdrop-filter:blur(18px);
+    box-shadow:0 10px 40px rgba(0,0,0,.25);
+}
+
+h1{
+    text-align:center;
+    color:#35b6ff;
+    font-size:40px;
+    margin-bottom:10px;
+}
+
+.chapter-subtitle{
+    text-align:center;
+    color:#94a3b8;
+    margin-bottom:35px;
+}
+
+h2{
+    color:#35b6ff;
+    margin-top:35px;
+    margin-bottom:15px;
+    border-left:5px solid #35b6ff;
+    padding-left:12px;
+}
+
+h3{
+    color:#ffffff;
+    margin-top:25px;
+}
+
+p,li{
+    color:#d8e3f3;
+    line-height:1.8;
+    font-size:16px;
+}
+
+.highlight{
+    color:#35b6ff;
+    font-weight:bold;
+}
+
+ul{
+    padding-left:22px;
+}
+
+.topic-box{
+
+background:rgba(53,182,255,.08);
+
+border:1px solid rgba(53,182,255,.3);
+
+padding:20px;
+
+border-radius:18px;
+
+margin:30px 0;
+
+}
+
+.topic-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+gap:15px;
+
+margin-top:20px;
+
+}
+
+.topic-item{
+
+background:rgba(255,255,255,.03);
+
+padding:15px;
+
+border-radius:12px;
+
+border:1px solid rgba(255,255,255,.06);
+
+transition:.3s;
+
+}
+
+.topic-item:hover{
+
+transform:translateY(-5px);
+
+border-color:#35b6ff;
+
+}
+
+.formula-box{
+
+background:#111c2e;
+
+border-left:5px solid #35b6ff;
+
+padding:20px;
+
+border-radius:12px;
+
+margin:20px 0;
+
+font-family:monospace;
+
+font-size:17px;
+
+color:#ffffff;
+
+overflow:auto;
+
+}
+
+.tip-box{
+
+background:rgba(0,255,150,.08);
+
+border-left:5px solid #00d084;
+
+padding:18px;
+
+border-radius:12px;
+
+margin:25px 0;
+
+}
+
+.table-container{
+
+overflow-x:auto;
+
+margin:25px 0;
+
+}
+
+table{
+
+width:100%;
+
+border-collapse:collapse;
+
+}
+
+th{
+
+background:#35b6ff;
+
+color:white;
+
+padding:14px;
+
+}
+
+td{
+
+padding:12px;
+
+border:1px solid rgba(255,255,255,.08);
+
+color:#d8e3f3;
+
+}
+
+.flowchart{
+
+background:#0f172a;
+
+padding:25px;
+
+border-radius:18px;
+
+margin-top:20px;
+
+font-family:monospace;
+
+line-height:2;
+
+overflow:auto;
+
+}
+
+@media(max-width:768px){
+
+.note-card{
+
+padding:25px;
+
+}
+
+h1{
+
+font-size:30px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">NDAVerse</div>
+
+<nav>
+
+<a href="geography.html">Geography</a>
+
+<a href="mathematics.html">Mathematics</a>
+
+<a href="index.html">Home</a>
+
+</nav>
+
+</header>
+
+<section class="notes-container">
+
+<div class="note-card">
+
+<h1>Basic Mathematics</h1>
+
+<p class="chapter-subtitle">
+
+Chapter 1 • NDA Mathematics • Complete Notes
+
+</p>
+
+<div class="topic-box">
+
+<h2>📚 Topics Covered</h2>
+
+<div class="topic-grid">
+
+<div class="topic-item">✔ Number System</div>
+
+<div class="topic-item">✔ Classification of Numbers</div>
+
+<div class="topic-item">✔ Natural Numbers</div>
+
+<div class="topic-item">✔ Whole Numbers</div>
+
+<div class="topic-item">✔ Integers</div>
+
+<div class="topic-item">✔ Rational Numbers</div>
+
+<div class="topic-item">✔ Irrational Numbers</div>
+
+<div class="topic-item">✔ Imaginary Numbers</div>
+
+<div class="topic-item">✔ Prime & Composite Numbers</div>
+
+<div class="topic-item">✔ Even & Odd Numbers</div>
+
+</div>
+
+</div>
+
+<h2>1. Introduction to Number System</h2>
+
+<p>
+
+A <span class="highlight">Number System</span> is a method of representing numbers using digits and mathematical symbols.
+
+Every number belongs to a particular category depending upon its properties.
+
+The Number System forms the foundation of Algebra, Arithmetic and Higher Mathematics.
+
+Questions from this topic are frequently asked in the <span class="highlight">NDA Examination</span>.
+
+</p>
+<h2>2. Classification of Number System</h2>
+
+<p>
+The Number System is broadly classified into
+<span class="highlight">Real Numbers</span> and
+<span class="highlight">Imaginary Numbers</span>.
+Real Numbers are further divided into
+<span class="highlight">Rational</span> and
+<span class="highlight">Irrational Numbers</span>.
+</p>
+
+<div class="flowchart">
+
+Numbers
+
+<br><br>
+
+├── <span class="highlight">Real Numbers (R)</span>
+
+<br>
+
+│&nbsp;&nbsp;&nbsp;&nbsp;├── Rational Numbers (Q)
+
+<br>
+
+│&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;├── Integers (Z)
+
+<br>
+
+│&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;├── Negative Integers
+
+<br>
+
+│&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;├── Zero
+
+<br>
+
+│&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;└── Positive Integers
+
+<br>
+
+│&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── Natural Numbers
+
+<br>
+
+│&nbsp;&nbsp;&nbsp;&nbsp;│
+
+<br>
+
+│&nbsp;&nbsp;&nbsp;&nbsp;└── Irrational Numbers
+
+<br>
+
+└── Imaginary Numbers (i)
+
+</div>
+
+<div class="tip-box">
+
+<b>🎯 NDA Tip</b>
+
+Remember this flowchart carefully.
+Every year NDA asks direct or indirect questions
+based on the classification of numbers.
+
+</div>
+
+<h2>3. Real Numbers</h2>
+
+<p>
+
+All numbers that can be represented on the
+<span class="highlight">Number Line</span>
+are called Real Numbers.
+
+</p>
+
+<div class="formula-box">
+
+Real Numbers = Rational Numbers + Irrational Numbers
+
+</div>
+
+<div class="table-container">
+
+<table>
+
+<tr>
+
+<th>Real Numbers</th>
+
+<th>Examples</th>
+
+</tr>
+
+<tr>
+
+<td>Integers</td>
+
+<td>-5, -2, 0, 4, 15</td>
+
+</tr>
+
+<tr>
+
+<td>Fractions</td>
+
+<td>2/3, 7/9, -5/8</td>
+
+</tr>
+
+<tr>
+
+<td>Decimals</td>
+
+<td>3.25, 0.75, 8.125</td>
+
+</tr>
+
+<tr>
+
+<td>Irrational</td>
+
+<td>√2, √3, π</td>
+
+</tr>
+
+</table>
+
+</div>
+
+<h2>4. Imaginary Numbers</h2>
+
+<p>
+
+Numbers involving the square root of a negative
+number are called
+<span class="highlight">Imaginary Numbers</span>.
+
+</p>
+
+<div class="formula-box">
+
+√(-1) = i
+
+<br><br>
+
+√(-4) = 2i
+
+<br><br>
+
+√(-9) = 3i
+
+<br><br>
+
+√(-25) = 5i
+
+</div>
+
+<div class="table-container">
+
+<table>
+
+<tr>
+
+<th>Expression</th>
+
+<th>Value</th>
+
+</tr>
+
+<tr>
+
+<td>√(-1)</td>
+
+<td>i</td>
+
+</tr>
+
+<tr>
+
+<td>√(-16)</td>
+
+<td>4i</td>
+
+</tr>
+
+<tr>
+
+<td>√(-49)</td>
+
+<td>7i</td>
+
+</tr>
+
+<tr>
+
+<td>√(-100)</td>
+
+<td>10i</td>
+
+</tr>
+
+</table>
+
+</div>
+
+<h2>5. Important Formula</h2>
+
+<div class="formula-box">
+
+√ab = √a × √b
+
+<br><br>
+
+√(a²) = |a|
+
+<br><br>
+
+i² = -1
+
+<br><br>
+
+i⁴ = 1
+
+</div>
+<h2>6. Natural Numbers (N)</h2>
+
+<p>
+Natural Numbers are the counting numbers used in our daily life.
+They start from <span class="highlight">1</span> and continue infinitely.
+Zero is <b>not</b> included in Natural Numbers.
+</p>
+
+<div class="formula-box">
+N = {1, 2, 3, 4, 5, 6, ...∞}
+</div>
+
+<div class="table-container">
+<table>
+<tr>
+<th>Property</th>
+<th>Details</th>
+</tr>
+
+<tr>
+<td>Smallest Natural Number</td>
+<td>1</td>
+</tr>
+
+<tr>
+<td>Largest Natural Number</td>
+<td>Does not exist (Infinite)</td>
+</tr>
+
+<tr>
+<td>Includes Zero?</td>
+<td>❌ No</td>
+</tr>
+
+<tr>
+<td>Examples</td>
+<td>1,2,3,4,5...</td>
+</tr>
+
+</table>
+</div>
+
+<h2>7. Whole Numbers (W)</h2>
+
+<p>
+Whole Numbers are obtained by adding
+<span class="highlight">Zero</span>
+to the set of Natural Numbers.
+</p>
+
+<div class="formula-box">
+W = {0,1,2,3,4,5,6...∞}
+</div>
+
+<div class="table-container">
+
+<table>
+
+<tr>
+<th>Property</th>
+<th>Details</th>
+</tr>
+
+<tr>
+<td>Smallest Whole Number</td>
+<td>0</td>
+</tr>
+
+<tr>
+<td>Largest Whole Number</td>
+<td>Does not exist</td>
+</tr>
+
+<tr>
+<td>Contains Zero?</td>
+<td>✔ Yes</td>
+</tr>
+
+</table>
+
+</div>
+
+<h2>8. Integers (Z)</h2>
+
+<p>
+
+Integers contain all
+<span class="highlight">Positive Numbers,
+Negative Numbers and Zero.</span>
+
+</p>
+
+<div class="formula-box">
+
+Z = {......,-3,-2,-1,0,1,2,3......}
+
+</div>
+
+<div class="table-container">
+
+<table>
+
+<tr>
+
+<th>Type</th>
+
+<th>Examples</th>
+
+</tr>
+
+<tr>
+
+<td>Negative Integers</td>
+
+<td>-8,-7,-6,-5...</td>
+
+</tr>
+
+<tr>
+
+<td>Zero</td>
+
+<td>0</td>
+
+</tr>
+
+<tr>
+
+<td>Positive Integers</td>
+
+<td>1,2,3,4,5...</td>
+
+</tr>
+
+</table>
+
+</div>
+
+<h2>📊 Comparison Table</h2>
+
+<div class="table-container">
+
+<table>
+
+<tr>
+
+<th>Natural</th>
+
+<th>Whole</th>
+
+<th>Integers</th>
+
+</tr>
+
+<tr>
+
+<td>Starts from 1</td>
+
+<td>Starts from 0</td>
+
+<td>Includes Negative Numbers</td>
+
+</tr>
+
+<tr>
+
+<td>1,2,3...</td>
+
+<td>0,1,2...</td>
+
+<td>...-2,-1,0,1,2...</td>
+
+</tr>
+
+</table>
+
+</div>
+
+<div class="tip-box">
+
+<b>🎯 NDA Memory Trick</b>
+
+<br><br>
+
+Natural = Starts from <b>1</b>
+
+<br>
+
+Whole = Natural + <b>0</b>
+
+<br>
+
+Integers = Whole + <b>Negative Numbers</b>
+
+</div>
+
+<h2>Solved Example 1</h2>
+
+<p><b>Question:</b> Which of the following is a Whole Number but not a Natural Number?</p>
+
+<ul>
+
+<li>A) 5</li>
+
+<li>B) 2</li>
+
+<li>C) 0</li>
+
+<li>D) 9</li>
+
+</ul>
+
+<div class="formula-box">
+
+Solution:
+
+Whole Numbers = {0,1,2,3...}
+
+Natural Numbers = {1,2,3...}
+
+Therefore,
+
+<b>Answer = 0 (Option C)</b>
+
+</div>
+
+<h2>Practice Questions</h2>
+
+<ol>
+
+<li>Write the first ten Natural Numbers.</li>
+
+<li>Is Zero a Natural Number?</li>
+
+<li>Write five Negative Integers.</li>
+
+<li>Which set contains all Whole Numbers?</li>
+
+<li>Can an Integer be a Fraction? Explain.</li>
+
+</ol>
+<h2>9. Rational Numbers (Q)</h2>
+
+<p>
+A <span class="highlight">Rational Number</span> is any number that can be written in the form
+<b>p/q</b>, where <b>p</b> and <b>q</b> are integers and <b>q ≠ 0</b>.
+</p>
+
+<div class="formula-box">
+
+Rational Number = p / q
+
+<br><br>
+
+Where,
+
+p = Integer
+
+<br>
+
+q = Integer (q ≠ 0)
+
+</div>
+
+<div class="table-container">
+
+<table>
+
+<tr>
+
+<th>Rational Numbers</th>
+
+<th>Examples</th>
+
+</tr>
+
+<tr>
+
+<td>Positive Fraction</td>
+
+<td>3/5</td>
+
+</tr>
+
+<tr>
+
+<td>Negative Fraction</td>
+
+<td>-7/9</td>
+
+</tr>
+
+<tr>
+
+<td>Integer</td>
+
+<td>5 = 5/1</td>
+
+</tr>
+
+<tr>
+
+<td>Terminating Decimal</td>
+
+<td>0.25 = 25/100</td>
+
+</tr>
+
+<tr>
+
+<td>Recurring Decimal</td>
+
+<td>0.333... = 1/3</td>
+
+</tr>
+
+</table>
+
+</div>
+
+<div class="tip-box">
+
+<b>🎯 NDA Tip</b>
+
+Every Integer is a Rational Number,
+but every Rational Number is not an Integer.
+
+</div>
+
+<h2>10. Irrational Numbers</h2>
+
+<p>
+
+Numbers which
+<span class="highlight">cannot be expressed in p/q form</span>
+are called Irrational Numbers.
+
+They have
+<b>non-terminating and non-recurring decimal expansion.</b>
+
+</p>
+
+<div class="formula-box">
+
+Examples
+
+<br><br>
+
+√2
+
+<br>
+
+√3
+
+<br>
+
+√5
+
+<br>
+
+π
+
+<br>
+
+√7
+
+</div>
+
+<div class="table-container">
+
+<table>
+
+<tr>
+
+<th>Rational Numbers</th>
+
+<th>Irrational Numbers</th>
+
+</tr>
+
+<tr>
+
+<td>Can be written as p/q</td>
+
+<td>Cannot be written as p/q</td>
+
+</tr>
+
+<tr>
+
+<td>Decimals terminate or repeat</td>
+
+<td>Decimals never terminate or repeat</td>
+
+</tr>
+
+<tr>
+
+<td>2/5, 4, -9</td>
+
+<td>√2, √5, π</td>
+
+</tr>
+
+</table>
+
+</div>
+
+<h2>Solved Example 2</h2>
+
+<p>
+
+<b>Question:</b>
+
+Which of the following is an Irrational Number?
+
+</p>
+
+<ul>
+
+<li>A) 7/9</li>
+
+<li>B) √16</li>
+
+<li>C) √3</li>
+
+<li>D) -8</li>
+
+</ul>
+
+<div class="formula-box">
+
+Solution
+
+<br><br>
+
+√16 = 4 (Rational)
+
+<br>
+
+7/9 is Rational
+
+<br>
+
+-8 is Rational
+
+<br><br>
+
+Only √3 is Irrational.
+
+<br><br>
+
+<b>Answer : Option C</b>
+
+</div>
+
+<h2>11. Prime Numbers</h2>
+
+<p>
+
+A Prime Number has exactly
+<span class="highlight">two factors</span>:
+
+<b>1 and the number itself.</b>
+
+</p>
+
+<div class="formula-box">
+
+Prime Numbers
+
+<br><br>
+
+2, 3, 5, 7, 11, 13, 17, 19, 23, 29...
+
+</div>
+
+<div class="table-container">
+
+<table>
+
+<tr>
+
+<th>Property</th>
+
+<th>Prime Number</th>
+
+</tr>
+
+<tr>
+
+<td>Factors</td>
+
+<td>Exactly 2</td>
+
+</tr>
+
+<tr>
+
+<td>Smallest Prime Number</td>
+
+<td>2</td>
+
+</tr>
+
+<tr>
+
+<td>Only Even Prime Number</td>
+
+<td>2</td>
+
+</tr>
+
+</table>
+
+</div>
+
+<h2>12. Composite Numbers</h2>
+
+<p>
+
+A Composite Number has
+<span class="highlight">more than two factors.</span>
+
+</p>
+
+<div class="formula-box">
+
+Composite Numbers
+
+<br><br>
+
+4,6,8,9,10,12,14,15,16...
+
+</div>
+
+<div class="table-container">
+
+<table>
+
+<tr>
+
+<th>Prime Number</th>
+
+<th>Composite Number</th>
+
+</tr>
+
+<tr>
+
+<td>Exactly 2 factors</td>
+
+<td>More than 2 factors</td>
+
+</tr>
+
+<tr>
+
+<td>2,3,5,7,11...</td>
+
+<td>4,6,8,9,10...</td>
+
+</tr>
+
+</table>
+
+</div>
+
+<div class="tip-box">
+
+<b>💡 Important Facts</b>
+
+<ul>
+
+<li>1 is neither Prime nor Composite.</li>
+
+<li>2 is the only Even Prime Number.</li>
+
+<li>Every Composite Number has more than two factors.</li>
+
+</ul>
+
+</div>
+
+<h2>Practice Questions</h2>
+
+<ol>
+
+<li>Is √49 Rational or Irrational?</li>
+
+<li>Write five Prime Numbers.</li>
+
+<li>Is 91 a Prime Number?</li>
+
+<li>Which is the smallest Composite Number?</li>
+
+<li>Can every Integer be written as p/q? Explain.</li>
+
+</ol>
+<h2>13. Even Numbers</h2>
+
+<p>
+An <span class="highlight">Even Number</span> is any integer that is exactly divisible by <b>2</b>.
+Its remainder is always <b>0</b>.
+</p>
+
+<div class="formula-box">
+
+Even Number = 2n
+
+<br><br>
+
+where n = 0,1,2,3,...
+
+</div>
+
+<div class="table-container">
+
+<table>
+
+<tr>
+
+<th>Property</th>
+
+<th>Even Numbers</th>
+
+</tr>
+
+<tr>
+
+<td>Divisible by</td>
+
+<td>2</td>
+
+</tr>
+
+<tr>
+
+<td>Last Digit</td>
+
+<td>0, 2, 4, 6, 8</td>
+
+</tr>
+
+<tr>
+
+<td>Examples</td>
+
+<td>2, 4, 6, 8, 10, 12...</td>
+
+</tr>
+
+</table>
+
+</div>
+
+<h2>14. Odd Numbers</h2>
+
+<p>
+
+An <span class="highlight">Odd Number</span> is an integer which is <b>not divisible by 2</b>.
+
+</p>
+
+<div class="formula-box">
+
+Odd Number = 2n + 1
+
+</div>
+
+<div class="table-container">
+
+<table>
+
+<tr>
+
+<th>Property</th>
+
+<th>Odd Numbers</th>
+
+</tr>
+
+<tr>
+
+<td>Not divisible by</td>
+
+<td>2</td>
+
+</tr>
+
+<tr>
+
+<td>Last Digit</td>
+
+<td>1,3,5,7,9</td>
+
+</tr>
+
+<tr>
+
+<td>Examples</td>
+
+<td>1,3,5,7,9,11...</td>
+
+</tr>
+
+</table>
+
+</div>
+
+<h2>15. Factors and Multiples</h2>
+
+<p>
+
+A <span class="highlight">Factor</span> divides a number completely, whereas a
+<span class="highlight">Multiple</span> is obtained by multiplying the number.
+
+</p>
+
+<div class="table-container">
+
+<table>
+
+<tr>
+
+<th>Number</th>
+
+<th>Factors</th>
+
+<th>First Five Multiples</th>
+
+</tr>
+
+<tr>
+
+<td>6</td>
+
+<td>1,2,3,6</td>
+
+<td>6,12,18,24,30</td>
+
+</tr>
+
+<tr>
+
+<td>8</td>
+
+<td>1,2,4,8</td>
+
+<td>8,16,24,32,40</td>
+
+</tr>
+
+<tr>
+
+<td>10</td>
+
+<td>1,2,5,10</td>
+
+<td>10,20,30,40,50</td>
+
+</tr>
+
+</table>
+
+</div>
+
+<h2>16. Divisibility Rules</h2>
+
+<div class="table-container">
+
+<table>
+
+<tr>
+
+<th>Number</th>
+
+<th>Rule</th>
+
+</tr>
+
+<tr>
+
+<td>2</td>
+
+<td>Last digit is even.</td>
+
+</tr>
+
+<tr>
+
+<td>3</td>
+
+<td>Sum of digits is divisible by 3.</td>
+
+</tr>
+
+<tr>
+
+<td>4</td>
+
+<td>Last two digits divisible by 4.</td>
+
+</tr>
+
+<tr>
+
+<td>5</td>
+
+<td>Ends with 0 or 5.</td>
+
+</tr>
+
+<tr>
+
+<td>6</td>
+
+<td>Divisible by both 2 and 3.</td>
+
+</tr>
+
+<tr>
+
+<td>8</td>
+
+<td>Last three digits divisible by 8.</td>
+
+</tr>
+
+<tr>
+
+<td>9</td>
+
+<td>Sum of digits divisible by 9.</td>
+
+</tr>
+
+<tr>
+
+<td>10</td>
+
+<td>Ends with 0.</td>
+
+</tr>
+
+<tr>
+
+<td>11</td>
+
+<td>Difference of alternate digit sums is 0 or divisible by 11.</td>
+
+</tr>
+
+</table>
+
+</div>
+
+<div class="tip-box">
+
+<b>🎯 NDA Tip</b>
+
+Questions on divisibility rules are frequently used in
+HCF, LCM and simplification problems.
+
+</div>
+
+<h2>Solved Example 3</h2>
+
+<p><b>Question:</b> Is 792 divisible by 9?</p>
+
+<div class="formula-box">
+
+Solution
+
+7 + 9 + 2 = 18
+
+18 is divisible by 9.
+
+Therefore,
+
+<b>792 is divisible by 9.</b>
+
+</div>
+
+<h2>Quick Revision</h2>
+
+<div class="formula-box">
+
+Natural Numbers → 1,2,3...
+
+<br><br>
+
+Whole Numbers → 0,1,2,3...
+
+<br><br>
+
+Integers → ...,−2,−1,0,1,2...
+
+<br><br>
+
+Prime → Exactly 2 factors
+
+<br><br>
+
+Composite → More than 2 factors
+
+<br><br>
+
+Even → Divisible by 2
+
+<br><br>
+
+Odd → Not divisible by 2
+
+</div>
+<h2>17. Highest Common Factor (HCF)</h2>
+
+<p>
+The <span class="highlight">Highest Common Factor (HCF)</span> is the
+greatest number that divides two or more numbers exactly.
+It is also called the <span class="highlight">Greatest Common Divisor (GCD)</span>.
+</p>
+
+<div class="formula-box">
+
+HCF = Greatest Common Divisor (GCD)
+
+</div>
+
+<h3>Example</h3>
+
+<div class="formula-box">
+
+Find the HCF of 12 and 18.
+
+<br><br>
+
+Factors of 12 = 1,2,3,4,6,12
+
+<br>
+
+Factors of 18 = 1,2,3,6,9,18
+
+<br><br>
+
+Common Factors = 1,2,3,6
+
+<br><br>
+
+<b>HCF = 6</b>
+
+</div>
+
+<h2>18. Least Common Multiple (LCM)</h2>
+
+<p>
+
+The <span class="highlight">Least Common Multiple (LCM)</span>
+is the smallest positive number that is exactly divisible
+by two or more numbers.
+
+</p>
+
+<div class="formula-box">
+
+LCM = Smallest Common Multiple
+
+</div>
+
+<h3>Example</h3>
+
+<div class="formula-box">
+
+Find the LCM of 12 and 18.
+
+<br><br>
+
+Multiples of 12
+
+12,24,36,48...
+
+<br><br>
+
+Multiples of 18
+
+18,36,54...
+
+<br><br>
+
+<b>LCM = 36</b>
+
+</div>
+
+<h2>Important Formula</h2>
+
+<div class="formula-box">
+
+HCF × LCM = Product of the Numbers
+
+</div>
+
+<div class="tip-box">
+
+<b>🎯 NDA Tip</b>
+
+If two numbers are co-prime,
+
+their HCF = 1.
+
+</div>
+
+<h2>Solved Example 4</h2>
+
+<p>
+
+<b>Question:</b>
+
+Find the HCF and LCM of 8 and 12.
+
+</p>
+
+<div class="formula-box">
+
+Factors of 8 = 1,2,4,8
+
+<br>
+
+Factors of 12 = 1,2,3,4,6,12
+
+<br><br>
+
+HCF = 4
+
+<br><br>
+
+LCM = 24
+
+</div>
+
+<h2>Practice Exercise</h2>
+
+<ol>
+
+<li>Find the HCF of 24 and 36.</li>
+
+<li>Find the LCM of 15 and 20.</li>
+
+<li>Write the first ten Even Numbers.</li>
+
+<li>Write the first ten Odd Numbers.</li>
+
+<li>Is 97 Prime or Composite?</li>
+
+<li>Find the factors of 48.</li>
+
+<li>Find the multiples of 14.</li>
+
+<li>Is √25 Rational or Irrational?</li>
+
+<li>Find the HCF of 16 and 20.</li>
+
+<li>Find the LCM of 9 and 12.</li>
+
+</ol>
+
+<h2>Chapter Summary</h2>
+
+<div class="table-container">
+
+<table>
+
+<tr>
+
+<th>Topic</th>
+
+<th>Key Point</th>
+
+</tr>
+
+<tr>
+
+<td>Natural Numbers</td>
+
+<td>Starts from 1</td>
+
+</tr>
+
+<tr>
+
+<td>Whole Numbers</td>
+
+<td>Starts from 0</td>
+
+</tr>
+
+<tr>
+
+<td>Integers</td>
+
+<td>Positive, Negative & Zero</td>
+
+</tr>
+
+<tr>
+
+<td>Rational Numbers</td>
+
+<td>Can be written as p/q</td>
+
+</tr>
+
+<tr>
+
+<td>Irrational Numbers</td>
+
+<td>Cannot be written as p/q</td>
+
+</tr>
+
+<tr>
+
+<td>Prime Numbers</td>
+
+<td>Exactly two factors</td>
+
+</tr>
+
+<tr>
+
+<td>Composite Numbers</td>
+
+<td>More than two factors</td>
+
+</tr>
+
+<tr>
+
+<td>Even Numbers</td>
+
+<td>Divisible by 2</td>
+
+</tr>
+
+<tr>
+
+<td>Odd Numbers</td>
+
+<td>Not divisible by 2</td>
+
+</tr>
+
+<tr>
+
+<td>HCF</td>
+
+<td>Greatest Common Divisor</td>
+
+</tr>
+
+<tr>
+
+<td>LCM</td>
+
+<td>Least Common Multiple</td>
+
+</tr>
+
+</table>
+
+</div>
+
+<div class="tip-box">
+
+<h3>🇮🇳 NDA Quick Revision</h3>
+
+<ul>
+
+<li>✔ Remember the complete Number System flowchart.</li>
+
+<li>✔ Learn all divisibility rules.</li>
+
+<li>✔ Memorize Prime Numbers up to 100.</li>
+
+<li>✔ Practice HCF & LCM daily.</li>
+
+<li>✔ Revise all important formulas before the exam.</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<div style="margin-bottom:10px;">
+
+Dream. Learn. Prepare. Become an Officer. 🇮🇳
+
+</div>
+
+<p>
+
+© 2026 NDAVerse. All rights reserved. |
+Built with ❤️ by <span>Neharsh Shende</span>
+
+</p>
+
+</footer>
+
+</body>
+
+</html>
