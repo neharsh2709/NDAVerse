@@ -9,16 +9,18 @@
         .notes-container { padding: 100px 5% 50px; max-width: 900px; margin: 0 auto; }
         .note-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 24px; padding: 30px; backdrop-filter: blur(18px); }
         h1 { font-size: 28px; color: #35b6ff; margin-bottom: 20px; text-align: center; }
-        h2 { color: #35b6ff; margin: 25px 0 10px; font-size: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 5px; }
-        p, ul { color: #cfd7e8; font-size: 15px; line-height: 1.6; }
+        h2 { color: #35b6ff; margin: 30px 0 15px; font-size: 22px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px; }
+        h3 { color: #fff; font-size: 18px; margin-top: 15px; }
+        p, li { color: #cfd7e8; font-size: 15px; line-height: 1.7; }
         ul { list-style: none; margin-top: 10px; }
-        ul li { margin-bottom: 10px; padding-left: 20px; position: relative; }
-        ul li::before { content: "▹"; color: #35b6ff; position: absolute; left: 0; font-weight: bold; }
-        .table-container { overflow-x: auto; margin-top: 15px; }
+        li { margin-bottom: 10px; padding-left: 25px; position: relative; }
+        li::before { content: "➤"; color: #35b6ff; position: absolute; left: 0; font-weight: bold; }
+        .highlight { color: #35b6ff; font-weight: bold; }
+        .table-container { overflow-x: auto; margin-top: 20px; }
         table { width: 100%; border-collapse: collapse; color: #cfd7e8; font-size: 14px; }
-        th, td { padding: 10px; border: 1px solid rgba(255,255,255,0.05); text-align: left; }
-        th { color: #35b6ff; background: rgba(255,255,255,0.02); }
-        @media (min-width: 768px) { h1 { font-size: 36px; } .note-card { padding: 40px; } }
+        th, td { padding: 12px; border: 1px solid rgba(255,255,255,0.05); text-align: left; }
+        th { color: #35b6ff; background: rgba(255,255,255,0.05); }
+        @media (min-width: 768px) { h1 { font-size: 38px; } .note-card { padding: 50px; } }
     </style>
 </head>
 <body>
@@ -32,50 +34,57 @@
     <div class="note-card">
         <h1>India: General Introduction</h1>
         
-        <h2>General Stats & Population</h2>
+        <h2>1. Geographical Overview</h2>
         <ul>
-            <li>India is the 7th largest country by area and 1st largest by population.</li>
-            <li>Occupies 2.4% of the total area of the lithosphere.</li>
-            <li>Population percentage: 16.7% (2001 Census) and 17.5% (2011 Census).</li>
-            <li>Land boundary: ~15,200 km | Coastline boundary: ~7,516.6 km.</li>
-            <li>Population Density: 382 per sq. km.</li>
+            <li>India is the <span class="highlight">7th largest country</span> by geographical area and the <span class="highlight">1st largest</span> by population.</li>
+            <li>It occupies approximately <span class="highlight">2.4%</span> of the world's total land area (lithosphere).</li>
+            <li>The total land boundary stretches for <span class="highlight">15,200 km</span>, while the coastline boundary covers <span class="highlight">7,516.6 km</span>.</li>
+            <li>India's national population density stands at <span class="highlight">382 persons per sq. km</span>.</li>
         </ul>
 
-        <h2>Extreme Points</h2>
+        <h2>2. Extreme Points of India</h2>
         <ul>
-            <li>Southernmost Point (Mainland): Kanyakumari (TN).</li>
-            <li>Southernmost Point (Country): Indira Point or Pygmalion Point.</li>
-            <li>Northernmost Point: Indira Col, Near Siachen Glacier (J&K).</li>
-            <li>Westernmost Point: Guhar Moti (Gujarat) | Easternmost Point: Kibithu (AP).</li>
+            <li><span class="highlight">Northernmost:</span> Indira Col, located near the Siachen Glacier (J&K).</li>
+            <li><span class="highlight">Southernmost (Mainland):</span> Kanyakumari, Tamil Nadu.</li>
+            <li><span class="highlight">Southernmost (Absolute):</span> Indira Point or Pygmalion Point.</li>
+            <li><span class="highlight">Westernmost:</span> Guhar Moti (Gujarat).</li>
+            <li><span class="highlight">Easternmost:</span> Kibithu (Arunachal Pradesh).</li>
         </ul>
 
-        <h2>Neighbouring Countries & Boundary Lines</h2>
+        <h2>3. International Boundaries & Relations</h2>
+        <h3>Boundary Lines</h3>
         <ul>
-            <li><strong>Shortest boundary:</strong> Afghanistan (106 km).</li>
-            <li><strong>Longest boundary:</strong> Bangladesh (4096.7 km).</li>
-            <li><strong>Boundary Lines:</strong> Pakistan (Radcliffe line), Afghanistan (Durand line), China (McMahon line), Sri Lanka (Palk strait).</li>
+            <li><span class="highlight">Radcliffe Line:</span> India and Pakistan.</li>
+            <li><span class="highlight">Durand Line:</span> India and Afghanistan.</li>
+            <li><span class="highlight">McMahon Line:</span> India and China.</li>
+            <li><span class="highlight">Palk Strait:</span> India and Sri Lanka.</li>
+        </ul>
+        <h3>Boundary Stats</h3>
+        <ul>
+            <li><span class="highlight">Largest Land Boundary:</span> Bangladesh (4,096.7 km).</li>
+            <li><span class="highlight">Shortest Land Boundary:</span> Afghanistan (106 km).</li>
         </ul>
 
-        <h2>States Bordering International Countries</h2>
+        <h2>4. State-International Borders</h2>
         <ul>
-            <li><strong>Pakistan:</strong> Ladakh, J&K, Punjab, Rajasthan, Gujarat.</li>
-            <li><strong>Afghanistan:</strong> Ladakh.</li>
-            <li><strong>China:</strong> Ladakh, Himachal Pradesh, Uttarakhand, Sikkim, Arunachal Pradesh.</li>
-            <li><strong>Nepal:</strong> Uttarakhand, UP, Bihar, West Bengal, Sikkim.</li>
-            <li><strong>Bhutan:</strong> Sikkim, West Bengal, Assam, Arunachal Pradesh.</li>
-            <li><strong>Myanmar:</strong> Arunachal Pradesh, Nagaland, Manipur, Mizoram.</li>
-            <li><strong>Sri Lanka:</strong> Coastline boundary with Tamil Nadu.</li>
+            <li><span class="highlight">Pakistan:</span> Ladakh, J&K, Punjab, Rajasthan, Gujarat.</li>
+            <li><span class="highlight">China:</span> Ladakh, Himachal Pradesh, Uttarakhand, Sikkim, Arunachal Pradesh.</li>
+            <li><span class="highlight">Nepal:</span> Uttarakhand, UP, Bihar, West Bengal, Sikkim.</li>
+            <li><span class="highlight">Myanmar:</span> Arunachal Pradesh, Nagaland, Manipur, Mizoram.</li>
         </ul>
 
-        <h2>Area, Population & Territories</h2>
-        <ul>
-            <li><strong>Largest State:</strong> Area (Rajasthan), Population (UP).</li>
-            <li><strong>Smallest State:</strong> Area (Goa), Population (Sikkim).</li>
-            <li><strong>Union Territories:</strong> Largest Area (J&K), Largest Population (Delhi) | Smallest Area & Population (Lakshadweep).</li>
-            <li><strong>Coastline:</strong> Longest coastline is Gujarat.</li>
-        </ul>
+        <h2>5. Demographics & Rankings</h2>
+        <div class="table-container">
+            <table>
+                <tr><th>Category</th><th>Largest</th><th>Smallest</th></tr>
+                <tr><td>State (Area)</td><td>Rajasthan</td><td>Goa</td></tr>
+                <tr><td>State (Pop)</td><td>Uttar Pradesh</td><td>Sikkim</td></tr>
+                <tr><td>UT (Area)</td><td>Jammu & Kashmir</td><td>Lakshadweep</td></tr>
+                <tr><td>UT (Pop)</td><td>Delhi</td><td>Lakshadweep</td></tr>
+            </table>
+        </div>
 
-        <h2>7 Sister States</h2>
+        <h2>6. The Seven Sisters (North-East India)</h2>
         <div class="table-container">
             <table>
                 <tr><th>State</th><th>Capital</th></tr>
