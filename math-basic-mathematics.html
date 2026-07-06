@@ -1,0 +1,2359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NDA Verse | Basic Maths - Chapter 1</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#07131f;
+    color:#f5f5f5;
+    line-height:1.9;
+}
+
+.container{
+    width:95%;
+    max-width:1200px;
+    margin:auto;
+    padding:30px 15px 80px;
+}
+
+.hero{
+    background:linear-gradient(135deg,#0b1f33,#12385c);
+    padding:60px 30px;
+    border-radius:20px;
+    text-align:center;
+    margin-bottom:35px;
+    box-shadow:0 10px 25px rgba(0,0,0,.4);
+}
+
+.hero h1{
+    font-size:2.6rem;
+    color:#ffd54f;
+    margin-bottom:12px;
+}
+
+.hero p{
+    color:#ddd;
+    font-size:1.1rem;
+}
+
+.section{
+    background:#102235;
+    margin:25px 0;
+    padding:30px;
+    border-radius:18px;
+    border-left:6px solid #ffd54f;
+    box-shadow:0 6px 18px rgba(0,0,0,.35);
+}
+
+.section h2{
+    color:#ffd54f;
+    margin-bottom:20px;
+    font-size:2rem;
+}
+
+.section h3{
+    color:#7ec8ff;
+    margin:25px 0 15px;
+}
+
+.section h4{
+    color:#9be7ff;
+    margin:20px 0 10px;
+}
+
+p{
+    margin:12px 0;
+}
+
+ul{
+    margin-left:25px;
+    margin-top:10px;
+}
+
+li{
+    margin:8px 0;
+}
+
+.note{
+    background:#17324a;
+    border-left:5px solid #00e5ff;
+    padding:18px;
+    margin:20px 0;
+    border-radius:10px;
+}
+
+.formula{
+    background:#1d2939;
+    color:#ffe082;
+    padding:15px;
+    border-radius:10px;
+    margin:15px 0;
+    overflow:auto;
+    font-weight:bold;
+}
+
+.example{
+    background:#15273b;
+    border-left:5px solid #4caf50;
+    padding:15px;
+    border-radius:10px;
+    margin:15px 0;
+}
+
+.graph{
+    margin:20px 0;
+    padding:25px;
+    text-align:center;
+    border:2px dashed #ffd54f;
+    border-radius:12px;
+    color:#ccc;
+}
+
+hr{
+    border:none;
+    border-top:1px solid rgba(255,255,255,.12);
+    margin:35px 0;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:2rem;
+}
+
+.section{
+padding:20px;
+}
+
+.section h2{
+font-size:1.6rem;
+}
+
+}
+</style>
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)'], ['$','$']],
+    displayMath: [['\\[','\\]']]
+  }
+};
+</script>
+
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="hero">
+<h1>Chapter 1 : Basic Maths</h1>
+<p>NDA Verse Mathematics Notes</p>
+</div>
+
+<section class="section">
+
+<h2>NUMBERS</h2>
+
+<p>
+A number is an arithmetic value used for representing a quantity and it is used in making mathematical calculations.
+Any number can be formed with the help of 10 digits.
+i.e., 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+</p>
+
+</section>
+
+<section class="section">
+
+<h2>BASE OF A NUMBER SYSTEM</h2>
+
+<ul>
+
+<li>
+The number of different types of digits involved in a number system is called the base of that number system.
+</li>
+
+<li>
+If a number system involves only two digits 0 and 1, then it base is 2.
+</li>
+
+<li>
+A number system in which 10 digits 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9 are used, is a system with base 10.
+</li>
+
+<li>
+If a number system involves 8 digits then it is called octal number system.
+</li>
+
+</ul>
+
+</section>
+
+<section class="section">
+
+<h2>TYPES OF NUMBERS</h2>
+
+<h3>NATURAL NUMBERS</h3>
+
+<ul>
+
+<li>
+Counting numbers (also called natural numbers): The set of numbers beginning 1, 2, 3, 4, ... and going on infinitely.
+</li>
+
+<li>
+Set of natural number is denoted by
+
+<div class="formula">
+N = {1, 2, 3, 4, ....}
+</div>
+
+</li>
+
+<li>
+The sum of two natural numbers is always a natural number.
+</li>
+
+</ul>
+
+<div class="example">
+<b>Example:</b><br>
+5 + 3 = 8 which is also a natural number.
+</div>
+
+<ul>
+
+<li>
+The product of two natural numbers is also a natural number.
+</li>
+
+</ul>
+
+<div class="example">
+<b>Example:</b><br>
+2 × 3 = 6 which is also a natural number.
+</div>
+
+<ul>
+
+<li>
+But when a natural number is subtracted from another natural number, the result is not always a natural number. This implies that natural numbers are not closed under subtraction.
+</li>
+
+</ul>
+
+<div class="example">
+<b>Example:</b><br>
+3 − 5 = −2 and 3 − 3 = 0
+</div>
+
+<hr>
+
+<h3>WHOLE NUMBERS</h3>
+
+<ul>
+
+<li>
+This group has all of the Natural Numbers in it with the number 0.
+</li>
+
+<li>
+Whole number is denoted by W.
+</li>
+
+<li>
+
+Set of whole number is
+
+<div class="formula">
+W = {0, 1, 2, 3.......}
+</div>
+
+</li>
+
+</ul>
+
+<h3>Closure Property of Whole Numbers</h3>
+
+<ul>
+
+<li>
+<b>Addition of whole numbers always gives a whole number. Thus whole numbers are closed under addition.</b>
+</li>
+
+</ul>
+
+<div class="example">
+<b>Example:</b><br>
+3 + 8 = 11
+</div>
+
+<ul>
+
+<li>
+<b>Subtraction of whole numbers does not always give a whole number. Thus whole numbers are not closed under subtraction.</b>
+</li>
+
+</ul>
+
+<div class="example">
+<b>Example:</b><br>
+5 − 7 = −2, which is a negative integer and not a whole number.<br><br>
+9 − 6 = 3 which is whole number.
+</div>
+
+<ul>
+
+<li>
+<b>Multiplication of whole numbers always gives a whole number. Thus whole numbers are closed under multiplication.</b>
+</li>
+
+</ul>
+
+<div class="example">
+<b>Example:</b><br>
+5 × 8 = 40
+</div>
+
+<ul>
+
+<li>
+<b>Dividing a whole number by another does not always give a whole number. Thus whole numbers are not closed under division.</b>
+</li>
+
+</ul>
+
+<div class="example">
+<b>Example:</b><br>
+4 ÷ 7 = 4/7, which is a fraction, thus it will not be a whole number.
+</div>
+<section class="section">
+
+<h2>INTEGERS</h2>
+
+<ul>
+
+<li>
+Integer is set of counting numbers, zero, and negative of counting numbers.
+</li>
+
+<li>
+Set of integers is denoted by <b>Z</b>.
+</li>
+
+<li>
+
+Set of integers is
+
+<div class="formula">
+Z = {0, ±1, ±2, ±3, ±4, .......}
+</div>
+
+</li>
+
+</ul>
+
+<h3>Integers are of Two Types</h3>
+
+<h4>Negative Integers</h4>
+
+<ul>
+
+<li>
+Negative integers are the set of integers before 0. They do not have any fractional or decimal part.
+</li>
+
+</ul>
+
+<div class="example">
+<b>Example:</b><br>
+-1, -2, -3....
+</div>
+
+<h4>Positive Integers / Whole Numbers</h4>
+
+<ul>
+
+<li>
+Positive integers/whole numbers are the set of natural numbers including zero. They do not have any fractional or decimal part.
+</li>
+
+<li>
+To distinguish between the positive and negative sides of 0, opposite signs are used, i.e. positive (+) and negative (-).
+</li>
+
+</ul>
+
+<h3>Opposites</h3>
+
+<div class="graph">
+<b>Graph Placeholder</b><br><br>
+
+Horizontal Number Line<br><br>
+
+Negative Integers &nbsp;&nbsp;
+-6 &nbsp; -5 &nbsp; -4 &nbsp; -3 &nbsp; -2 &nbsp; -1 &nbsp; 0 &nbsp; 1 &nbsp; 2 &nbsp; 3 &nbsp; 4 &nbsp; 5 &nbsp; 6
+&nbsp;&nbsp; Positive Integers
+</div>
+
+<h3>Additive Inverse</h3>
+
+<ul>
+
+<li>
+An additive inverse of a number is defined as the value, which on adding with the original number results in zero value.
+</li>
+
+</ul>
+
+<div class="example">
+<b>Example:</b><br>
+3 + (-3) = 0
+
+<br><br>
+
+So 3 is the additive inverse of -3 and vice versa.
+</div>
+
+<ul>
+
+<li>
+Each integer on the number line, except 0, consists of its mirror image of the opposite sign.
+</li>
+
+</ul>
+
+<div class="example">
+<b>Example:</b><br>
+Mirror image of 6 will be -6, that of -1 will be 1 etc.
+</div>
+
+<hr>
+
+<h2>What is Zero?</h2>
+
+<p>
+Zero is the only whole number which is not a natural number. It is represented by 0.
+</p>
+
+<h3>Properties of Zero (0)</h3>
+
+<ul>
+
+<li>
+Zero added to any number gives the number itself. Hence, 0 is the additive identity for all numbers.
+</li>
+
+<li>
+Multiply any number by 0 is always be 0.
+</li>
+
+<li>
+Zero divided by any number (except 0) gives 0.
+</li>
+
+<li>
+Any number divided by 0 is not defined.
+</li>
+
+<li>
+Zero to the power 0, (0<sup>0</sup>) is not defined.
+</li>
+
+</ul>
+
+</section>
+
+<section class="section">
+
+<h2>NATURAL NUMBERS CAN BE DIVIDED INTO DIFFERENT TYPES</h2>
+
+<ul>
+
+<li>Even and Odd Numbers</li>
+
+<li>Prime Numbers and Composite Numbers</li>
+
+<li>Relatively Prime / Co-prime Numbers</li>
+
+</ul>
+
+<hr>
+
+<h3>EVEN NUMBERS</h3>
+
+<ul>
+
+<li>
+An even number is any number that is exactly divisible by 2.
+</li>
+
+</ul>
+
+<div class="example">
+<b>Example:</b><br>
+12 is exactly divisible by 2, so 12 is even.
+</div>
+
+<ul>
+
+<li>
+Any number whose last digit is 0, 2, 4, 6 or 8 is an even number.
+</li>
+
+<li>
+Other examples of even numbers are 58, 44884, 998632, 98, 48, and 10000000.
+</li>
+
+<li>
+A number n is even if there exist a number k, such that
+
+<div class="formula">
+n = 2k
+
+where k is an integer.
+</div>
+
+</li>
+
+</ul>
+
+<hr>
+
+<h3>ODD NUMBERS</h3>
+
+<ul>
+
+<li>
+Odd number is a number, when divided by 2 does not yield an integer.
+</li>
+
+</ul>
+
+<div class="example">
+<b>Example:</b><br>
+25 cannot be divided by 2, so 25 is odd.
+</div>
+
+<ul>
+
+<li>
+Any number whose last digit is not 0, 2, 4, 6, or 8 is an odd number.
+</li>
+
+<li>
+Other examples of odd numbers are 53, 881, 238637, 99, 45, and 100000023.
+</li>
+
+<li>
+A number n is odd if there exist a number k, such that
+
+<div class="formula">
+n = 2k + 1
+
+where k is an integer.
+</div>
+
+</li>
+
+<li>
+This is a formal way of saying that if an odd number n is divided by 2, we always get a quotient k with a remainder of 1. Having a remainder of 1 means that n cannot be exactly divisible by 2.
+</li>
+
+</ul>
+
+<hr>
+
+<h3>BASIC OPERATIONS WITH EVEN AND ODD NUMBERS</h3>
+
+<h4>Addition</h4>
+
+<ul>
+
+<li>Even + Even = Even</li>
+
+</ul>
+
+<div class="example">
+2 + 4 = 6
+</div>
+
+<ul>
+
+<li>Even + Odd = Odd</li>
+
+</ul>
+
+<div class="example">
+2 + 1 = 3
+</div>
+
+<ul>
+
+<li>Odd + Odd = Even</li>
+
+</ul>
+
+<div class="example">
+5 + 3 = 8
+</div>
+
+<h4>Subtraction</h4>
+
+<ul>
+
+<li>Even − Even = Even</li>
+
+</ul>
+
+<div class="example">
+8 − 4 = 4
+</div>
+
+<ul>
+
+<li>Even − Odd = Odd</li>
+
+</ul>
+
+<div class="example">
+6 − 3 = 3
+</div>
+
+<ul>
+
+<li>Odd − Even = Odd</li>
+
+</ul>
+
+<ul>
+
+<li>Odd − Odd = Even</li>
+
+</ul>
+
+<div class="example">
+9 − 5 = 4
+</div>
+
+<h4>Multiplication</h4>
+
+<ul>
+
+<li>Even × Even = Even</li>
+
+</ul>
+
+<div class="example">
+2 × 4 = 8
+</div>
+
+<ul>
+
+<li>Even × Odd = Even</li>
+
+</ul>
+
+<div class="example">
+4 × 3 = 12
+</div>
+
+<ul>
+
+<li>Odd × Odd = Odd</li>
+
+</ul>
+
+<div class="example">
+5 × 3 = 15
+</div>
+<section class="section">
+
+<h2>PRIME NUMBERS</h2>
+
+<ul>
+
+<li>
+A Prime Number is a positive number that is divided evenly only by 1 and itself. And it must be a whole number greater than 1.
+</li>
+
+</ul>
+
+<div class="example">
+<b>Example:</b><br><br>
+
+If we list the factors of 28, we have 1, 2, 4, 7, 14, and 28. That's six factors.
+
+<br><br>
+
+If we list the factors of 29, we only have 1 and 29. That's two factors.
+
+<br><br>
+
+So we say that 29 is a prime number, but 28 isn't.
+</div>
+
+<ul>
+
+<li>
+Note that the definition of a prime number doesn't allow 1 to be a prime number: 1 only has one factor, namely 1. Prime numbers have exactly two factors, not "at most two" or anything like that. When a number has more than two factors it is called a composite number.
+</li>
+
+</ul>
+
+<h3>Some Important Points</h3>
+
+<ul>
+
+<li>The only even prime number is 2.</li>
+
+<li>If the sum of a number's digits is a multiple of 3, that number can be divided by 3.</li>
+
+<li>No prime number greater than 5 ends in a 5. Any number greater than 5 that ends in a 5 can be divided by 5.</li>
+
+<li>Zero and 1 are not considered prime numbers.</li>
+
+</ul>
+
+</section>
+
+<section class="section">
+
+<h2>COMPOSITE NUMBERS</h2>
+
+<p>
+Any positive integers than has at least one factor other than 1 and itself.
+</p>
+
+<div class="example">
+<b>Example:</b><br><br>
+
+4, 10, 26 are composite numbers as,
+
+<br><br>
+
+4 has three factors 1, 2, 4.
+
+<br>
+
+10 has four factors 1, 2, 5, 10.
+
+<br>
+
+26 has four factors 1, 2, 13, 26.
+</div>
+
+<div class="note">
+<b>Note:</b> 0 &amp; 1 are neither prime nor composite.
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>CO-PRIME NUMBERS</h2>
+
+<ul>
+
+<li>
+A set of numbers which do not have any other common factor other than 1 are called co-prime or relatively prime numbers.
+</li>
+
+<li>
+This means those numbers whose HCF is 1.
+</li>
+
+</ul>
+
+<div class="example">
+<b>Example:</b><br><br>
+
+8 and 9 have no other common factor other than 1 so they are coprime numbers.
+</div>
+
+<div class="example">
+<b>Example 1:</b><br><br>
+
+21 and 22
+
+<br><br>
+
+The factors of 21 are 1, 3, 7 and 21.
+
+<br>
+
+The factors of 22 are 1, 2, 11 and 22.
+
+<br><br>
+
+Here 21 and 22 have only one common factor that is 1.
+
+<br><br>
+
+Hence, they are co-prime.
+</div>
+
+<div class="example">
+<b>Example 2:</b><br><br>
+
+21 and 27
+
+<br><br>
+
+The factors of 21 are 1, 3, 7 and 21.
+
+<br>
+
+The factors of 27 are 1, 3, 9 and 27.
+
+<br><br>
+
+Here, 21 and 27 have two common factors 1 and 3, hence their HCF is 3 and they are not co-prime.
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>RATIONAL NUMBERS</h2>
+
+<ul>
+
+<li>
+Any number which can be expressed in the form
+</li>
+
+</ul>
+
+<div class="formula">
+p/q
+
+where p and q are integers and q ≠ 0.
+</div>
+
+<div class="example">
+<b>Examples:</b><br><br>
+
+2/3, -3/4, 4/7, 0, 4, -2
+</div>
+
+<ul>
+
+<li>
+The term rational is derived from the word "ratio" because the rational numbers are figures which can be written in the ratio form.
+</li>
+
+<li>
+All the fractions are rational numbers as they are already in the form p/q, where p &amp; q are integers and q ≠ 0.
+</li>
+
+<li>
+All integers are rational number as then can be written in form where p = the integer and q = 1.
+</li>
+
+<li>
+Rational number may or may not be integers.
+</li>
+
+</ul>
+
+<h3>NUMERATOR AND DENOMINATOR</h3>
+
+<ul>
+
+<li>
+If a/b is a rational number, then the integer a is known as its numerator and the integer b is called its denominator.
+</li>
+
+</ul>
+
+<div class="example">
+<b>Example:</b><br>
+
+2/-3
+
+<br><br>
+
+Here 2 is numerator and 3 is denominator.
+</div>
+
+<h3>ZERO IS A RATIONAL NUMBER</h3>
+
+<ul>
+
+<li>
+Since, we can write 0 in anyone of the forms 0/1, 0/2, 0/-2 and so on.
+</li>
+
+<li>
+Thus 0 can be expressed as p/q, where p = 0 and q is any non-zero integer.
+</li>
+
+<li>
+Hence 0 is a rational number.
+</li>
+
+</ul>
+
+<h3>Positive Rational Number</h3>
+
+<ul>
+
+<li>
+A rational number is said to be positive if its numerator and denominator are either both positive or both negative.
+</li>
+
+</ul>
+
+<div class="example">
+<b>Examples:</b><br>
+
+5/7, -6/-5
+</div>
+
+<h3>Negative Rational Number</h3>
+
+<ul>
+
+<li>
+Every negative integer is a negative rational number.
+</li>
+
+</ul>
+
+<div class="example">
+<b>Examples:</b><br>
+
+-1, -2, -3 and so on, which may be expressed as
+
+<br><br>
+
+-1 = -1/1
+
+<br>
+
+-2 = -2/1
+
+<br><br>
+
+are all negative rational numbers.
+</div>
+
+<ul>
+
+<li>
+The rational number 0 is neither positive nor negative.
+</li>
+
+</ul>
+
+</section>
+<section class="section">
+
+<h2>IRRATIONAL NUMBER</h2>
+
+<ul>
+
+<li>
+An irrational number is any number that is not rational. It is a number that cannot be written as a ratio of two integers (or it cannot be expressed as a fraction).
+</li>
+
+<li>
+An irrational number has endless non-repeating digits to the right of the decimal point.
+</li>
+
+</ul>
+
+<div class="example">
+<b>Examples:</b><br><br>
+
+√2, π, 3.6843...., √14
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>SOME USEFUL LAWS OF EXPONENTS</h2>
+
+<div class="formula">
+
+1. x<sup>m</sup> × x<sup>n</sup> = x<sup>m+n</sup>
+
+<br><br>
+
+Example:
+
+2<sup>2</sup> × 2<sup>3</sup> = 2<sup>2+3</sup> = 2<sup>5</sup>
+
+<hr>
+
+2. x<sup>m</sup> ÷ x<sup>n</sup> = x<sup>m−n</sup>
+
+<br><br>
+
+Example:
+
+2<sup>5</sup> ÷ 2<sup>3</sup> = 2<sup>5−3</sup> = 2<sup>2</sup>
+
+<hr>
+
+3. (x<sup>m</sup>)<sup>n</sup> = x<sup>mn</sup>
+
+<br><br>
+
+Example:
+
+(2<sup>2</sup>)<sup>3</sup> = 2<sup>6</sup>
+
+<hr>
+
+4. x<sup>n</sup> × y<sup>n</sup> = (xy)<sup>n</sup>
+
+<br><br>
+
+Example:
+
+2<sup>2</sup> × 3<sup>2</sup> = (2 × 3)<sup>2</sup> = 6<sup>2</sup> = 36
+
+<hr>
+
+5. x<sup>n</sup> ÷ y<sup>n</sup> = (x/y)<sup>n</sup>
+
+<br><br>
+
+Example:
+
+2<sup>2</sup> ÷ 3<sup>2</sup> = (2/3)<sup>2</sup> = 4/9
+
+<hr>
+
+6. x<sup>0</sup> = 1
+
+<br><br>
+
+Example:
+
+2<sup>0</sup> = 1
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>ALGEBRAIC EXPRESSIONS</h2>
+
+<ul>
+
+<li>
+An algebraic expression (or) a variable expression is a combination of terms which are combined with the operations such as addition, subtraction, multiplication or division.
+</li>
+
+</ul>
+
+<h3>Terms</h3>
+
+<ul>
+
+<li>
+Several parts of an algebraic expression separated by + or − signs are called the terms of the expression.
+</li>
+
+</ul>
+
+</section>
+
+<section class="section">
+
+<h2>POLYNOMIALS</h2>
+
+<ul>
+
+<li>
+A polynomial is an algebraic expression consisting of one or more terms, in each of which exponent of the variable is zero or a positive integer.
+</li>
+
+</ul>
+
+<h3>DEGREE OF A POLYNOMIAL</h3>
+
+<ul>
+
+<li>
+Degree of a polynomial is the highest power of the variable in the polynomial.
+</li>
+
+</ul>
+
+<h3>TYPES OF POLYNOMIALS</h3>
+
+<h4>Linear Polynomial</h4>
+
+<ul>
+
+<li>
+Polynomial having degree one is called linear polynomial and its general form is ax + b.
+</li>
+
+</ul>
+
+<div class="example">
+<b>Examples:</b><br><br>
+
+x, 3x, 4x + 1, x + z etc.
+
+</div>
+
+<h4>Quadratic Polynomial</h4>
+
+<ul>
+
+<li>
+Polynomial having degree two is called quadratic polynomial and its general form is ax<sup>2</sup> + bx + c.
+</li>
+
+</ul>
+
+<div class="example">
+<b>Examples:</b><br><br>
+
+x<sup>2</sup>, x<sup>2</sup> − 3, xy + 1, y<sup>2</sup> + y + 1 etc.
+
+</div>
+
+<h4>Cubic Polynomial</h4>
+
+<ul>
+
+<li>
+Polynomial having degree three is called cubic polynomial and its general form is ax<sup>3</sup> + bx<sup>2</sup> + cx + d.
+</li>
+
+</ul>
+
+<div class="example">
+<b>Examples:</b><br><br>
+
+x<sup>3</sup>, y<sup>3</sup>, x<sup>3</sup> + 2, x<sup>3</sup> + x<sup>2</sup> + x + 1 etc.
+
+</div>
+
+<h4>Monomial</h4>
+
+<ul>
+
+<li>
+A polynomial consisting of a single term is called a monomial.
+</li>
+
+</ul>
+
+<h4>Binomial</h4>
+
+<ul>
+
+<li>
+A polynomial with two terms is called a binomial.
+</li>
+
+</ul>
+
+<h4>Trinomial</h4>
+
+<ul>
+
+<li>
+A polynomial with three terms is called a trinomial.
+</li>
+
+</ul>
+
+<h3>Simple Equations</h3>
+
+<ul>
+
+<li>
+Let us start with a statement - "seven added to four times a number gives twenty-seven."
+</li>
+
+<li>
+Taking x as the unknown number the statement can be written mathematically as:
+</li>
+
+</ul>
+
+<div class="formula">
+
+4x + 7 = 27
+
+</div>
+
+<ul>
+
+<li>
+This algebraic statement is known as an equation.
+</li>
+
+<li>
+Thus, Two algebraic expressions connected by a sign of equality constitute an algebraic equation.
+</li>
+
+<li>
+The expressions to the left and to the right of the sign of equality are the two sides of the equation.
+</li>
+
+</ul>
+
+<h3>Unknown Quantity and Root</h3>
+
+<ul>
+
+<li>
+The symbol for which a value is to be determined, is termed as the unknown quantity of the equation.
+</li>
+
+<li>
+Generally, x, y, z are used to denote the unknown quantity.
+</li>
+
+<li>
+Other symbols used in an algebraic equation are taken as constants, such as letters a, b, c etc.
+</li>
+
+<li>
+The value of the unknown quantity satisfying the equality of both the sides of the equation is known as a root of the equation.
+</li>
+
+</ul>
+
+</section>
+<section class="section">
+
+<h2>BASIC ALGEBRAIC FORMULAS</h2>
+
+<div class="formula">
+
+(a + b)<sup>2</sup> = a<sup>2</sup> + 2ab + b<sup>2</sup>
+
+</div>
+
+<div class="formula">
+
+(a - b)<sup>2</sup> = a<sup>2</sup> - 2ab + b<sup>2</sup>
+
+</div>
+
+<div class="formula">
+
+a<sup>2</sup> - b<sup>2</sup> = (a + b)(a - b)
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>INTERVALS</h2>
+
+<p>
+Intervals are basically subsets of R and are commonly used in solving inequalities or in finding domains.
+If there are two numbers a, b ∈ R such that a &lt; b, we can define four types of intervals as follows:
+</p>
+
+<h3>Open Interval</h3>
+
+<div class="formula">
+(a, b) = {x : a &lt; x &lt; b}
+</div>
+
+<p>i.e. extreme points are not included.</p>
+
+<h3>Closed Interval</h3>
+
+<div class="formula">
+[a, b] = {x : a ≤ x ≤ b}
+</div>
+
+<p>
+i.e. extreme points are included.
+It can be possible when a and b are finite.
+</p>
+
+<h3>Semi-Open Interval</h3>
+
+<div class="formula">
+(a, b] = {x : a &lt; x ≤ b}
+</div>
+
+<p>
+i.e. a is not included and b is included.
+</p>
+
+<h3>Semi-Closed Interval</h3>
+
+<div class="formula">
+[a, b) = {x : a ≤ x &lt; b}
+</div>
+
+<p>
+i.e. a is included and b is not included.
+</p>
+
+<div class="note">
+
+<b>Note:</b>
+
+<ol style="margin-left:20px; margin-top:15px;">
+
+<li>
+The infinite intervals are defined as follows:
+<br><br>
+
+(i) (a, ∞) = {x : x &gt; a}
+
+<br>
+
+(ii) [a, ∞) = {x : x ≥ a}
+
+<br>
+
+(iii) (-∞, b) = {x : x &lt; b}
+
+<br>
+
+(iv) (-∞, b] = {x : x ≤ b}
+
+<br>
+
+(v) (-∞, ∞) = {x : x ∈ R}
+</li>
+
+<br>
+
+<li>
+x ∈ {1, 2} denotes some particular values of x, i.e. x = 1, 2.
+</li>
+
+<br>
+
+<li>
+If there is no value of x, then we say x ∈ ϕ (null set).
+</li>
+
+</ol>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>GENERAL METHOD TO SOLVE INEQUALITIES</h2>
+
+<h3>Method of Intervals (Wavy Curve Method)</h3>
+
+<div class="formula">
+
+g(x) =
+[(x − b₁)<sup>r₁</sup>(x − b₂)<sup>r₂</sup>...(x − bₙ)<sup>rₙ</sup>]
+/
+[(x − a₁)<sup>k₁</sup>(x − a₂)<sup>k₂</sup>...(x − aₙ)<sup>kₙ</sup>]
+
+</div>
+
+<p>
+Where k₁, k₂ ... kₙ and r₁, r₂ ... rₙ ∈ N and
+b₁, b₂ ... bₙ and a₁, a₂ ... aₙ are real numbers.
+</p>
+
+<p>
+Then to solve the inequality following steps are taken.
+</p>
+
+<h3>Steps</h3>
+
+<ul>
+
+<li>
+Points where numerator becomes zero are called zeros or roots of the function and where denominator becomes zero are called poles of the function.
+</li>
+
+<li>
+First we find the zeros and poles of the function.
+</li>
+
+<li>
+Then we mark all the zeros and poles on the real line and form a curve to divide the real line into many intervals.
+</li>
+
+<li>
+Determine sign of the function in any of the interval and then alternates the sign in the neighboring interval if the poles or zeros dividing the two interval has appeared odd number of times otherwise retain the sign.
+</li>
+
+<li>
+Thus we consider all the intervals.
+The solution of g(x) &gt; 0 is the union of the intervals in which we have to put the plus sign and the solution of g(x) &lt; 0 is the union of all intervals in which we have to put the minus sign.
+</li>
+
+</ul>
+
+</section>
+
+<section class="section">
+
+<h2>ABSOLUTE VALUE FUNCTION / MODULUS FUNCTION</h2>
+
+<p>
+This is also known as absolute value function and denoted by
+</p>
+
+<div class="formula">
+
+f(x) = |x|
+
+<br><br>
+
+f(x) =
+{
+x, &nbsp;&nbsp; x ≥ 0
+
+<br>
+
+−x, &nbsp;&nbsp; x &lt; 0
+}
+
+</div>
+
+<p>
+Domain of this function is set of all real numbers because f(x) exists for all x ∈ R but |x| ≥ 0 so range is all non-negative real numbers.
+</p>
+
+<div class="graph">
+
+<b>Graph Placeholder</b>
+
+<br><br>
+
+Insert the V-shaped graph of |x| with the vertex at (0,0).
+
+</div>
+
+<div class="formula">
+
+Domain = R
+
+<br><br>
+
+Range = [0, ∞)
+
+or
+
+R<sup>+</sup> ∪ {0}
+
+</div>
+
+<h3>Properties of Modulus</h3>
+
+<div class="formula">
+
+(i) |a| ≥ 0
+
+<br><br>
+
+(ii) |a| = |-a|
+
+<br><br>
+
+(a) |a<sup>n</sup>| = |a|<sup>n</sup>
+
+<br>
+
+(b) |a<sup>n</sup>| = a<sup>n</sup>, where n is even and n ∈ Z
+
+<br><br>
+
+(iii) |a| ≥ a
+
+<br>
+
+|a| ≥ −a
+
+<br><br>
+
+(iv) |ab| = |a||b|
+
+<br><br>
+
+(v)
+
+|a/b| = |a| / |b|
+
+</div>
+
+<div class="note">
+
+<b>Note:</b>
+
+<br><br>
+
+|f(x)| + |g(x)| = |f(x) + g(x)|
+
+⇒
+
+f(x) · g(x) ≥ 0
+
+</div>
+<section class="section">
+
+<h2>INEQUALITIES INVOLVING ABSOLUTE VALUE</h2>
+
+<h3>(i) |x| ≤ a (where a &gt; 0)</h3>
+
+<p>
+It implies those values of x on real number line which are at distance a or less than a from zero.
+</p>
+
+<div class="formula">
+
+-a ≤ x ≤ a
+
+</div>
+
+<div class="example">
+
+<b>Example:</b>
+
+<br><br>
+
+|x| ≤ 2
+
+<br><br>
+
+⇒
+
+-2 ≤ x ≤ 2
+
+</div>
+
+<p>
+In general,
+</p>
+
+<div class="formula">
+
+|f(x)| ≤ a
+
+(where a &gt; 0)
+
+<br><br>
+
+⇒
+
+-a ≤ f(x) ≤ a
+
+</div>
+
+<hr>
+
+<h3>(ii) |x| ≥ a (where a &gt; 0)</h3>
+
+<p>
+It implies those values of x on real number line which are at distance a or more than a from zero.
+</p>
+
+<div class="formula">
+
+x ≤ -a
+
+or
+
+x ≥ a
+
+</div>
+
+<div class="example">
+
+<b>Examples:</b>
+
+<br><br>
+
+|x| ≥ 3
+
+<br>
+
+⇒
+
+x ≤ -3
+
+or
+
+x ≥ 3
+
+<br><br>
+
+|x| &gt; 2
+
+<br>
+
+⇒
+
+x &lt; -2
+
+or
+
+x &gt; 2
+
+</div>
+
+<p>
+In general,
+</p>
+
+<div class="formula">
+
+|f(x)| ≥ a
+
+<br><br>
+
+⇒
+
+f(x) ≤ -a
+
+or
+
+f(x) ≥ a
+
+</div>
+
+<hr>
+
+<h3>(iii) a ≤ |x| ≤ b (where a, b &gt; 0)</h3>
+
+<p>
+It implies those value of x on real number line whose distance from zero is equal to a or b or lies between a and b.
+</p>
+
+<div class="formula">
+
+[-b, -a] ∪ [a, b]
+
+</div>
+
+<div class="example">
+
+<b>Example:</b>
+
+<br><br>
+
+2 ≤ |x| ≤ 4
+
+<br><br>
+
+⇒
+
+x ∈ [-4, -2] ∪ [2, 4]
+
+</div>
+
+<hr>
+
+<h3>(iv) Important Modulus Identities</h3>
+
+<div class="formula">
+
+|x + y| = |x| + |y|,
+
+xy ≥ 0
+
+<br><br>
+
+|x - y| = |x| + |y|,
+
+xy ≤ 0
+
+<br><br>
+
+|x + y| = ||x| - |y||,
+
+xy ≤ 0
+
+<br><br>
+
+|x - y| = ||x| - |y||,
+
+xy ≥ 0
+
+</div>
+
+</section>
+
+<!-- ========================================================= -->
+<!-- SOLVED EXAMPLES WILL BE INSERTED BELOW THIS SECTION -->
+<!-- DO NOT CLOSE THE HTML DOCUMENT YET -->
+<!-- SEND THE SOLVED EXAMPLES NEXT -->
+<!-- ========================================================= -->
+<section class="section">
+
+<h2>SOLVED EXAMPLES</h2>
+
+<div class="example">
+
+<h3>
+1. \( \left(\frac{2}{3}\right)^4 \div \left(\frac{2}{3}\right)^4 \) is equal to
+</h3>
+
+<p>
+(a) \(0\)<br>
+(b) \(1\)<br>
+(c) \(-1\)<br>
+(d) \( \frac{2}{3} \)
+</p>
+
+<p><strong>Ans.</strong> (b)</p>
+
+<div class="formula">
+
+\[
+\left(\frac{2}{3}\right)^4
+\div
+\left(\frac{2}{3}\right)^4
+=
+\left(\frac{2}{3}\right)^{4-4}
+=
+\left(\frac{2}{3}\right)^0
+=
+1
+\]
+
+</div>
+
+</div>
+
+<hr>
+
+<div class="example">
+
+<h3>
+2. \( \left(-\frac{4}{5}\right)^3 \) is equal to
+</h3>
+
+<p>
+(a) \( \frac{125}{64} \)<br>
+(b) \( \frac{64}{125} \)<br>
+(c) \( -\frac{64}{125} \)<br>
+(d) \( -\frac{125}{64} \)
+</p>
+
+<p><strong>Ans.</strong> (c)</p>
+
+<div class="formula">
+
+\[
+\left(-\frac{4}{5}\right)^3
+=
+\left(-\frac{4}{5}\right)
+\times
+\left(-\frac{4}{5}\right)
+\times
+\left(-\frac{4}{5}\right)
+=
+\frac{(-4)^3}{5^3}
+=
+-\frac{64}{125}
+\]
+
+</div>
+
+</div>
+
+<hr>
+
+<div class="example">
+
+<h3>
+3. Express \( \left(-\frac{2}{3}\right)^3 \) as a rational number.
+</h3>
+
+<p>
+(a) \( \frac{4}{27} \)<br>
+(b) \( \frac{8}{27} \)<br>
+(c) \( -\frac{8}{27} \)<br>
+(d) \( -\frac{8}{9} \)
+</p>
+
+<p><strong>Ans.</strong> (c)</p>
+
+<div class="formula">
+
+\[
+\left(-\frac{2}{3}\right)^3
+=
+\frac{(-2)^3}{3^3}
+=
+\frac{(-2)\times(-2)\times(-2)}
+{3\times3\times3}
+=
+-\frac{8}{27}
+\]
+
+</div>
+
+</div>
+
+<hr>
+
+<div class="example">
+
+<h3>
+4. Express \( \left(-\frac{3}{4}\right)^{-3} \) as a rational number.
+</h3>
+
+<p>
+(a) \( \frac{27}{64} \)<br>
+(b) \( -\frac{27}{64} \)<br>
+(c) \( -\frac{64}{27} \)<br>
+(d) \( \frac{64}{27} \)
+</p>
+
+<p><strong>Ans.</strong> (c)</p>
+
+<div class="formula">
+
+\[
+\left(-\frac{3}{4}\right)^{-3}
+=
+-\left(\frac{4}{3}\right)^3
+=
+-\frac{4^3}{3^3}
+=
+-\frac{4\times4\times4}{3\times3\times3}
+=
+-\frac{64}{27}
+\]
+
+</div>
+
+</div>
+
+<hr>
+
+<div class="example">
+
+<h3>
+5. Express \( \frac{27}{125} \) as a power of a rational number.
+</h3>
+
+<p>
+(a) \( \left(\frac{3}{5}\right)^3 \)<br>
+(b) \( \left(\frac{3}{5}\right)^{-3} \)<br>
+(c) \( \left(\frac{5}{3}\right)^3 \)<br>
+(d) \( \left(-\frac{5}{3}\right)^3 \)
+</p>
+
+<p><strong>Ans.</strong> (a)</p>
+
+<div class="formula">
+
+\[
+\frac{27}{125}
+=
+\frac{3\times3\times3}{5\times5\times5}
+=
+\frac{3^3}{5^3}
+=
+\left(\frac{3}{5}\right)^3
+\]
+
+</div>
+
+</div>
+
+<hr>
+
+<div class="example">
+
+<h3>
+6. Value of \( \left(-\frac{2}{3}\right)^3 \times \left(-\frac{3}{2}\right)^2 \) is equal to
+</h3>
+
+<p>
+(a) \( -\frac{3}{2} \)<br>
+(b) \( \frac{2}{3} \)<br>
+(c) \( \frac{3}{2} \)<br>
+(d) \( -\frac{2}{3} \)
+</p>
+
+<p><strong>Ans.</strong> (d)</p>
+
+<div class="formula">
+
+\[
+\left(-\frac{2}{3}\right)^3
+\times
+\left(-\frac{3}{2}\right)^2
+=
+\frac{(-2)^3}{3^3}
+\times
+\frac{(-3)^2}{2^2}
+=
+\frac{(-2)^3\times(-3)^2}{3^3\times2^2}
+=
+-\frac{2}{3}
+\]
+
+</div>
+
+</div>
+
+</section>
+<section class="section">
+
+<h2>SOLVED EXAMPLES (PART 2)</h2>
+
+<div class="example">
+
+<h3>
+7. Value of \( \left[\left(-\frac{2}{3}\right)^2\right]^3 \) is equal to
+</h3>
+
+<p>
+(a) \( -\frac{64}{729} \)<br>
+(b) \( \frac{64}{729} \)<br>
+(c) \( -\frac{35}{243} \)<br>
+(d) \( \frac{35}{243} \)
+</p>
+
+<p><strong>Ans.</strong> (b)</p>
+
+<div class="formula">
+
+\[
+\left[\left(-\frac{2}{3}\right)^2\right]^3
+=
+\left(-\frac{2}{3}\right)^6
+=
+\frac{(-2)^6}{3^6}
+=
+\frac{64}{729}
+\]
+
+</div>
+
+</div>
+
+<hr>
+
+<div class="example">
+
+<h3>
+8. \( (-5)^6 \div (-5)^8 \) is equal to
+</h3>
+
+<p>
+(a) \( -5^2 \)<br>
+(b) \( 5^{-2} \)<br>
+(c) \( -5^{-2} \)<br>
+(d) \( 5^2 \)
+</p>
+
+<p><strong>Ans.</strong> (c)</p>
+
+<div class="formula">
+
+\[
+(-5)^6 \div (-5)^8
+=
+(-5)^{6-8}
+=
+(-5)^{-2}
+\]
+
+</div>
+
+</div>
+
+<hr>
+
+<div class="example">
+
+<h3>
+9. Which of the following is equal to \( (2^3 \times 2^5) \div 2^8 \)?
+</h3>
+
+<p>
+(a) \(1\)<br>
+(b) \( \frac{1}{2^4} \)<br>
+(c) \( \frac{1}{2} \)<br>
+(d) \( 2^7 \)
+</p>
+
+<p><strong>Ans.</strong> (a)</p>
+
+<div class="formula">
+
+\[
+(2^3 \times 2^5) \div 2^8
+=
+2^{3+5} \div 2^8
+=
+2^8 \div 2^8
+=
+2^{8-8}
+=
+2^0
+=
+1
+\]
+
+</div>
+
+</div>
+
+<hr>
+
+<div class="example">
+
+<h3>
+10. Which of the following is equal to  
+\( \left(\frac{1}{3}\right)^5 \div \left(\frac{1}{3}\right)^4 \div \frac{1}{3} \)?
+</h3>
+
+<p>
+(a) \( \frac{1}{9} \)<br>
+(b) \(1\)<br>
+(c) \(729\)<br>
+(d) \( \frac{1}{3} \)
+</p>
+
+<p><strong>Ans.</strong> (b)</p>
+
+<div class="formula">
+
+\[
+\left(\frac{1}{3}\right)^5
+\div
+\left(\frac{1}{3}\right)^4
+\div
+\frac{1}{3}
+=
+\left(\frac{1}{3}\right)^{5-4}
+\div
+\frac{1}{3}
+=
+\left(\frac{1}{3}\right)^1
+\div
+\left(\frac{1}{3}\right)^1
+=
+\left(\frac{1}{3}\right)^0
+=
+1
+\]
+
+</div>
+
+</div>
+
+<hr>
+
+<div class="example">
+
+<h3>
+11. Solution of \( \frac{(x-1)^2(x+4)}{(2-x)} < 0 \) is
+</h3>
+
+<p>
+(a) \( (-\infty,-4)\cup(2,\infty) \)<br>
+(b) \( (-4,-2) \)<br>
+(c) \( (-\infty,-2) \)<br>
+(d) \( (-4,\infty) \)
+</p>
+
+<p><strong>Ans.</strong> (a)</p>
+
+<div class="formula">
+
+\[
+\frac{(x-1)^2(x+4)}{(2-x)} < 0
+\Rightarrow
+\frac{x+4}{x-2} > 0
+\]
+
+</div>
+
+<div class="note">
+
+Graph idea: critical points at \(x=-4\) and \(x=2\). Sign analysis gives positive outside the interval.
+
+</div>
+
+<div class="formula">
+
+\[
+\Rightarrow (-\infty,-4)\cup(2,\infty)
+\]
+
+</div>
+
+</div>
+
+</section>
+<section class="section">
+
+<h2>SOLVED EXAMPLES (PART 3)</h2>
+
+<div class="example">
+
+<h3>
+12. The solution of \( \frac{\sqrt[3]{(x+4)^4}(x-1)^3}{(x-2)} > 0 \) is
+</h3>
+
+<p>
+(a) \( (-\infty,1]\cup[2,\infty) - \{4\} \)<br>
+(b) \( (-\infty,2)\cup(4,\infty) \)<br>
+(c) \( (-\infty,1)\cup(2,\infty) - \{-4\} \)<br>
+(d) \( \mathbb{R} - \{2,-4\} \)
+</p>
+
+<p><strong>Ans.</strong> (c)</p>
+
+<div class="formula">
+
+\[
+\frac{(x+4)^{4/3}(x-1)^3}{(x-2)} > 0
+\Rightarrow
+\frac{x-1}{x-2} > 0
+\]
+
+</div>
+
+<div class="formula">
+
+\[
+\Rightarrow (-\infty,1)\cup(2,\infty)
+\]
+
+</div>
+
+<div class="note">
+
+Note: \(x=-4\) is excluded due to cube root structure domain restriction.
+
+</div>
+
+</div>
+
+<hr>
+
+<div class="example">
+
+<h3>
+13. What is the solution of \( x|x| = 4 \)?
+</h3>
+
+<p>
+(a) \(2,-2\)<br>
+(b) \(2\)<br>
+(c) \(-4\)<br>
+(d) \(-2\)
+</p>
+
+<p><strong>Ans.</strong> (b)</p>
+
+<div class="formula">
+
+Case 1: \(x > 0\)
+
+\[
+x|x| = x^2 = 4 \Rightarrow x = 2
+\]
+
+Case 2: \(x < 0\)
+
+\[
+x|x| = -x^2 = 4 \Rightarrow x^2 = -4 \; (\text{not possible})
+\]
+
+</div>
+
+</div>
+
+<hr>
+
+<div class="example">
+
+<h3>
+14. Solve \( |x-3| + 2|x+1| = 4 \)
+</h3>
+
+<p>
+(a) \( \frac{5}{3} \)<br>
+(b) \( -1, \frac{5}{3} \)<br>
+(c) \( -1 \)<br>
+(d) \(1\)
+</p>
+
+<p><strong>Ans.</strong> (c)</p>
+
+<div class="formula">
+
+Case I: \(x \leq -1\)
+
+\[
+-(x-3) - 2(x+1) = 4
+\Rightarrow -3x+1=4
+\Rightarrow x=-1
+\]
+
+Case II: \(-1 < x \leq 3\)
+
+\[
+-(x-3)+2(x+1)=4
+\Rightarrow x=-1 \; (\text{not valid})
+\]
+
+Case III: \(x > 3\)
+
+\[
+(x-3)+2(x+1)=4
+\Rightarrow 3x-1=4
+\Rightarrow x=\frac{5}{3} \; (\text{not valid})
+\]
+
+\[
+\Rightarrow x=-1
+\]
+
+</div>
+
+</div>
+
+<hr>
+
+<div class="example">
+
+<h3>
+15. For what values of \(x\), \(x^2 - 4|x| + 3 < 0\)?
+</h3>
+
+<p>
+(a) \( (-3,0)\cup[1,3) \)<br>
+(b) \( (-1,1)\cup\{3\} \)<br>
+(c) \( (-3,-1)\cup[1,\infty) \)<br>
+(d) \( (-3,-1)\cup(1,3) \)
+</p>
+
+<p><strong>Ans.</strong> (d)</p>
+
+<div class="formula">
+
+\[
+x^2 - 4|x| + 3 < 0
+\Rightarrow (|x|-1)(|x|-3) < 0
+\]
+
+\[
+\Rightarrow 1 < |x| < 3
+\]
+
+\[
+\Rightarrow x \in (-3,-1)\cup(1,3)
+\]
+
+</div>
+
+</div>
+
+<hr>
+
+<div class="example">
+
+<h3>
+16. For what values of \(x\), \(1 \leq |x-2| \leq 3\)?
+</h3>
+
+<p>
+(a) \( [-1,1]\cup[3,5] \)<br>
+(b) \( (-\infty,-1)\cup(1,3)\cup(5,\infty) \)<br>
+(c) \( (-1,3)\cup\{5\} \)<br>
+(d) \( (-1,1)\cup(3,5) \)
+</p>
+
+<p><strong>Ans.</strong> (a)</p>
+
+<div class="formula">
+
+\[
+1 \leq |x-2| \leq 3
+\Rightarrow -3 \leq x-2 \leq -1 \; \text{or} \; 1 \leq x-2 \leq 3
+\]
+
+\[
+\Rightarrow -1 \leq x \leq 1 \; \text{or} \; 3 \leq x \leq 5
+\]
+
+\[
+\Rightarrow x \in [-1,1]\cup[3,5]
+\]
+
+</div>
+
+</div>
+
+<hr>
+
+<div class="example">
+
+<h3>
+17. For what values of \(x\), \( |x-1| + |x-2| + |x-3| \geq 6 \)?
+</h3>
+
+<p>
+(a) \(x \leq 0 \text{ or } x \geq 4\)<br>
+(b) \(x \geq 0 \text{ and } x \geq 4\)<br>
+(c) \(x < 0 \text{ or } x \leq 4\)<br>
+(d) \(x < 0 \text{ and } x \leq 4\)
+</p>
+
+<p><strong>Ans.</strong> (a)</p>
+
+<div class="formula">
+
+For \(x \leq 1\):
+
+\[
+1-x + 2-x + 3-x \geq 6 \Rightarrow -3x \geq 0 \Rightarrow x \leq 0
+\]
+
+For \(x \geq 3\):
+
+\[
+x-1 + x-2 + x-3 \geq 6 \Rightarrow 3x \geq 12 \Rightarrow x \geq 4
+\]
+
+\[
+\Rightarrow x \leq 0 \text{ or } x \geq 4
+\]
+
+</div>
+
+</div>
+
+</section>
+
+</body>
+</html>
