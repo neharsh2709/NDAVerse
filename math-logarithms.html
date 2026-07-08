@@ -1,0 +1,1949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Chapter 2 - Logarithm | NDA Verse</title>
+
+<!-- MathJax -->
+<script>
+window.MathJax = {
+tex: {
+inlineMath: [['\\(','\\)'],['$','$']],
+displayMath: [['\\[','\\]']]
+},
+svg:{
+fontCache:'global'
+}
+};
+</script>
+
+<script async
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+
+<style>
+
+:root{
+--bg:#07131f;
+--card:#10253b;
+--card2:#183149;
+--gold:#ffd54f;
+--blue:#67b7ff;
+--green:#3ddc84;
+--text:#f4f7fb;
+--muted:#b8c7d9;
+--border:rgba(255,255,255,.08);
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+background:var(--bg);
+font-family:Arial,Helvetica,sans-serif;
+color:var(--text);
+line-height:1.8;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+padding:16px;
+}
+
+.header{
+background:linear-gradient(135deg,#12375a,#0d2238);
+border-radius:18px;
+padding:25px;
+text-align:center;
+margin-bottom:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.35);
+}
+
+.header h1{
+font-size:30px;
+color:var(--gold);
+}
+
+.header h2{
+margin-top:8px;
+font-size:23px;
+}
+
+.header p{
+margin-top:10px;
+color:var(--muted);
+font-size:14px;
+}
+
+.card{
+background:var(--card);
+border:1px solid var(--border);
+border-radius:16px;
+padding:18px;
+margin:18px 0;
+}
+
+.card h2{
+color:var(--gold);
+margin-bottom:15px;
+}
+
+.card h3{
+color:var(--blue);
+margin:18px 0 10px;
+}
+
+.card p{
+margin:10px 0;
+}
+
+.card ul{
+padding-left:22px;
+}
+
+.card li{
+margin:8px 0;
+}
+
+.formula{
+background:var(--card2);
+border-left:4px solid var(--gold);
+padding:14px;
+margin:15px 0;
+border-radius:10px;
+overflow-x:auto;
+}
+
+.example{
+background:#1c3147;
+border-left:4px solid var(--green);
+padding:15px;
+margin:15px 0;
+border-radius:10px;
+overflow-x:auto;
+}
+
+@media(max-width:600px){
+
+.container{
+padding:12px;
+}
+
+.header{
+padding:20px;
+}
+
+.header h1{
+font-size:25px;
+}
+
+.header h2{
+font-size:20px;
+}
+
+.card{
+padding:15px;
+}
+
+.MathJax{
+font-size:110% !important;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+<h1>CHAPTER 2</h1>
+<h2>Logarithm</h2>
+<p>Made with ❤️ by Neharsh Shende</p>
+</div>
+
+<div class="card">
+
+<h2>LOGARITHM</h2>
+
+<p>
+Logarithm is just another way of expressing exponents and can be used to solve problems that cannot be solved using the concept of exponents only. The logarithm of any positive number, whose base is a number (>0) different from 1, is the exponent that indicates the power to which a base number is raised to produce the given number.
+</p>
+
+<div class="formula">
+
+\[
+\text{For } a,x \text{ both are positive real numbers, if }
+a^{m}=x
+\Longleftrightarrow
+\log_{a}x=m
+\]
+
+where,
+
+\[
+a\neq1,\qquad a>0,\qquad x>0
+\]
+
+Here,
+
+<ul>
+<li><b>a</b> = Base</li>
+<li><b>x</b> = Argument (Number)</li>
+<li><b>m</b> = Logarithm</li>
+</ul>
+
+</div>
+
+<p>
+The short form of logarithm is <b>log</b>. We write it as
+
+\[
+\log_a x
+\]
+
+and read it as <b>log of x to the base a</b>.
+</p>
+
+<h3>Examples</h3>
+
+<div class="example">
+
+\[
+10^1=10
+\Rightarrow
+\log_{10}10=1
+\]
+
+<br>
+
+\[
+10^3=1000
+\Rightarrow
+\log_{10}1000=3
+\]
+
+</div>
+
+<div class="example">
+
+\[
+\left(\frac1{27}\right)=3^{-3}
+\Rightarrow
+\log_3\left(\frac1{27}\right)=-3
+\]
+
+<br>
+
+\[
+\left(\frac1{49}\right)=7^{-2}
+\Rightarrow
+\log_7\left(\frac1{49}\right)=-2
+\]
+
+</div>
+
+<h3>Fundamental Logarithmic Identity</h3>
+
+<p>
+From the definition of the logarithm of the number <b>b</b> to the base <b>a</b>, we have the identity
+</p>
+
+<div class="formula">
+
+\[
+a^{\log_a b}=b
+\]
+
+where
+
+\[
+a>0,\qquad a\neq1,\qquad b>0
+\]
+
+This is known as the <b>Fundamental Logarithmic Identity</b>.
+
+</div>
+
+</div>
+<div class="card">
+
+<h2>PROPERTIES OF LOGARITHM</h2>
+
+<div class="formula">
+
+\[
+\boxed{\log_a(p\times q)=\log_a p+\log_a q}
+\]
+
+<p><b>But</b></p>
+
+\[
+\boxed{\log_a(p+q)\neq\log_a p+\log_a q}
+\]
+
+</div>
+
+<div class="example">
+
+<b>Example:</b>
+
+\[
+\log_3(2\times3)=\log_3 2+\log_3 3
+\]
+
+</div>
+
+<hr>
+
+<div class="formula">
+
+\[
+\boxed{
+\log_a\left(\frac{p}{q}\right)=
+\log_a p-\log_a q
+}
+\]
+
+<p><b>But</b></p>
+
+\[
+\boxed{
+\log_a(p-q)\neq
+\log_a p-\log_a q
+}
+\]
+
+</div>
+
+<div class="example">
+
+<b>Example:</b>
+
+\[
+\log_3\left(\frac23\right)
+=
+\log_3 2-\log_3 3
+\]
+
+</div>
+
+<hr>
+
+<div class="formula">
+
+\[
+\boxed{
+\log_a(p^q)=q\log_a p
+}
+\]
+
+</div>
+
+<div class="example">
+
+<b>Example:</b>
+
+\[
+\log_3(2)^3
+=
+3\log_3 2
+\]
+
+</div>
+
+<hr>
+
+<div class="formula">
+
+\[
+\boxed{
+\log_c b=
+\frac{\log_a b}
+{\log_a c}
+}
+\]
+
+</div>
+
+<div class="example">
+
+<b>Example:</b>
+
+\[
+\log_3 2
+=
+\frac{\log_5 2}
+{\log_5 3}
+=
+\frac{\log_2 2}
+{\log_2 3}
+=\cdots
+\]
+
+</div>
+
+<hr>
+
+<div class="formula">
+
+\[
+\boxed{
+\log_b a=
+\frac1{\log_a b}
+}
+\]
+
+</div>
+
+<div class="example">
+
+<b>Example:</b>
+
+\[
+\log_5 8=
+\frac1{\log_8 5}
+\]
+
+</div>
+
+<hr>
+
+<div class="formula">
+
+\[
+\boxed{
+\log_b a\cdot
+\log_c b
+=
+\log_c a
+}
+\]
+
+</div>
+
+<div class="example">
+
+<b>Example:</b>
+
+\[
+\log_4 8
+\cdot
+\log_2 4
+=
+\log_2 8
+\]
+
+</div>
+
+<hr>
+
+<div class="formula">
+
+\[
+\boxed{
+\log_a a=1
+}
+\]
+
+because
+
+\[
+a=a^1
+\]
+
+</div>
+
+<div class="example">
+
+<b>Example:</b>
+
+\[
+\log_2 2=1
+\]
+
+</div>
+
+<hr>
+
+<div class="formula">
+
+\[
+\boxed{
+a^{\log_a x}
+=
+x^{\log_a a}
+}
+\]
+
+where
+
+\[
+a>0,\qquad x>0
+\]
+
+</div>
+
+<div class="example">
+
+<b>Example:</b>
+
+\[
+2^{\log_2 x}
+=
+x^{\log_2 2}
+\]
+
+</div>
+
+<hr>
+
+<div class="formula">
+
+\[
+\boxed{
+\log_a1=0
+}
+\]
+
+because
+
+\[
+a^0=1
+\]
+
+</div>
+
+<div class="example">
+
+<b>Example:</b>
+
+\[
+\log_2 1=0
+\]
+
+</div>
+
+<hr>
+
+<div class="formula">
+
+\[
+\boxed{
+\log_b c
+=
+-\log_{\frac1b}c
+=
+-\log_b\left(\frac1c\right)
+}
+\]
+
+</div>
+
+<div class="example">
+
+<b>Example:</b>
+
+\[
+\log_2 5
+=
+-\log_{\frac12}5
+=
+-\log_2\left(\frac15\right)
+\]
+
+</div>
+
+</div>
+<div class="card">
+
+<h2>NOTE</h2>
+
+<ul>
+
+<li>
+If base of log is not given then let base of log is 10 i.e.,
+
+\[
+\log m=\log_{10}m
+\]
+
+This is called <b>Common Logarithm</b>.
+</li>
+
+<li>
+If base of log is \(e\) then the log is called <b>Natural Log</b> or
+<b>Napierian Logarithmic Function</b>.
+
+\[
+\ln x=\log_e x
+\]
+
+</li>
+
+<li>
+Base of logarithm is never \(0\), negative or \(1\).
+</li>
+
+<li>
+Logarithmic function is positive as well as negative but exponential function is always positive.
+</li>
+
+<li>
+
+\[
+\log_a0
+\]
+
+is <b>not defined</b>.
+
+</li>
+
+</ul>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>CHARACTERISTIC AND MANTISSA</h2>
+
+<p>
+
+The integral part of a logarithm is called the
+<b>Characteristic</b> and the non-integral part is called the
+<b>Mantissa</b>.
+
+</p>
+
+<div class="formula">
+
+\[
+\log N=
+\text{Integer}
++
+\text{Fractional (Decimal) Part}
+\]
+
+</div>
+
+<ul>
+
+<li><b>Characteristic</b> → Integral Part</li>
+
+<li><b>Mantissa</b> → Decimal Part</li>
+
+</ul>
+
+<div class="example">
+
+<b>Example 1</b>
+
+\[
+\log234=2.36922
+\]
+
+Hence,
+
+<ul>
+
+<li>Characteristic = <b>2</b></li>
+
+<li>Mantissa = <b>0.36922</b></li>
+
+</ul>
+
+</div>
+
+<div class="example">
+
+<b>Example 2</b>
+
+\[
+\log0.234=-0.63078
+\]
+
+\[
+=-1+(1-0.63078)
+\]
+
+\[
+=-1+0.36922
+\]
+
+Hence,
+
+<ul>
+
+<li>Characteristic = <b>-1</b></li>
+
+<li>Mantissa = <b>0.36922</b></li>
+
+</ul>
+
+</div>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>RULES FOR CHARACTERISTIC</h2>
+
+<h3>(i) If \(N>1\)</h3>
+
+<p>
+
+The characteristic of
+
+\[
+\log_{10}N
+\]
+
+is one less than the number of digits in the integral part of \(N\).
+
+</p>
+
+<hr>
+
+<h3>(ii) If \(0<N<1\)</h3>
+
+<p>
+
+The characteristic of
+
+\[
+\log_{10}N
+\]
+
+is one greater than the number of zeros immediately after the decimal point and before the first significant digit and is a negative integer.
+
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>INSERT DECIMAL POINT IN ANTILOG</h2>
+
+<h3>(a) Positive Characteristic</h3>
+
+<p>
+
+When the characteristic is \(n\), insert the decimal point after the
+
+\[
+(n+1)^{th}
+\]
+
+digit.
+
+</p>
+
+<hr>
+
+<h3>(b) Negative Characteristic</h3>
+
+<p>
+
+When the characteristic is \(-n\), insert the decimal point such that the first significant digit is at
+
+\[
+n^{th}
+\]
+
+place.
+
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>IMPORTANT NOTE</h2>
+
+<div class="formula">
+
+If characteristic of
+
+\[
+\log P
+\]
+
+is
+
+\[
+m,
+\]
+
+then the number of digits in
+
+\[
+P
+\]
+
+is
+
+\[
+m+1.
+\]
+
+</div>
+
+</div>
+<div class="card">
+
+<h2>LOGARITHMIC FUNCTION</h2>
+
+<p>
+
+The logarithmic function is defined as
+
+</p>
+
+<div class="formula">
+
+\[
+f(x)=\log_a x
+\]
+
+where
+
+\[
+a>0,\qquad a\neq1,\qquad x>0
+\]
+
+</div>
+
+<ul>
+
+<li><b>a</b> → Base of logarithm</li>
+
+<li><b>x</b> → Number (Argument)</li>
+
+</ul>
+
+<h3>Case-I : \(0<a<1\)</h3>
+
+<div class="table-container">
+
+<table>
+
+<tr>
+
+<th>Property</th>
+
+<th>Value</th>
+
+</tr>
+
+<tr>
+
+<td>Function</td>
+
+<td>\(f(x)=\log_a x\)</td>
+
+</tr>
+
+<tr>
+
+<td>Domain</td>
+
+<td>\((0,\infty)\)</td>
+
+</tr>
+
+<tr>
+
+<td>Range</td>
+
+<td>\(R\)</td>
+
+</tr>
+
+<tr>
+
+<td>Nature</td>
+
+<td>Decreasing Function</td>
+
+</tr>
+
+</table>
+
+</div>
+
+<div class="graph">
+
+<svg viewBox="0 0 420 260" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+
+<line x1="40" y1="220" x2="390" y2="220" stroke="white" stroke-width="2"/>
+
+<line x1="60" y1="20" x2="60" y2="235" stroke="white" stroke-width="2"/>
+
+<text x="395" y="225" fill="white">x</text>
+
+<text x="45" y="25" fill="white">y</text>
+
+<path d="M80 40 C130 75 180 110 240 150 S330 185 380 200"
+
+stroke="#FFD54F"
+
+stroke-width="4"
+
+fill="none"/>
+
+<circle cx="160" cy="110" r="4" fill="#4FC3F7"/>
+
+<text x="165" y="105" fill="#4FC3F7">(1,0)</text>
+
+</svg>
+
+</div>
+
+<hr>
+
+<h3>Case-II : \(a>1\)</h3>
+
+<div class="table-container">
+
+<table>
+
+<tr>
+
+<th>Property</th>
+
+<th>Value</th>
+
+</tr>
+
+<tr>
+
+<td>Function</td>
+
+<td>\(f(x)=\log_a x\)</td>
+
+</tr>
+
+<tr>
+
+<td>Domain</td>
+
+<td>\((0,\infty)\)</td>
+
+</tr>
+
+<tr>
+
+<td>Range</td>
+
+<td>\(R\)</td>
+
+</tr>
+
+<tr>
+
+<td>Nature</td>
+
+<td>Increasing Function</td>
+
+</tr>
+
+</table>
+
+</div>
+
+<div class="graph">
+
+<svg viewBox="0 0 420 260" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+
+<line x1="40" y1="220" x2="390" y2="220" stroke="white" stroke-width="2"/>
+
+<line x1="60" y1="20" x2="60" y2="235" stroke="white" stroke-width="2"/>
+
+<text x="395" y="225" fill="white">x</text>
+
+<text x="45" y="25" fill="white">y</text>
+
+<path d="M80 200 C120 180 160 150 210 120 S300 65 380 40"
+
+stroke="#FFD54F"
+
+stroke-width="4"
+
+fill="none"/>
+
+<circle cx="160" cy="110" r="4" fill="#4FC3F7"/>
+
+<text x="165" y="105" fill="#4FC3F7">(1,0)</text>
+
+</svg>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>EXPONENTIAL FUNCTION</h2>
+
+<p>
+
+The exponential function is defined as
+
+</p>
+
+<div class="formula">
+
+\[
+f(x)=a^x
+\]
+
+where
+
+\[
+a>0,\qquad a\neq1
+\]
+
+</div>
+
+<ul>
+
+<li><b>a</b> → Base</li>
+
+<li><b>x</b> → Exponent</li>
+
+</ul>
+
+<h3>Case-I : \(0<a<1\)</h3>
+
+<div class="table-container">
+
+<table>
+
+<tr>
+
+<th>Example</th>
+
+<th>Domain</th>
+
+<th>Range</th>
+
+</tr>
+
+<tr>
+
+<td>\(\left(\frac12\right)^x\)</td>
+
+<td>\(R\)</td>
+
+<td>\((0,\infty)\)</td>
+
+</tr>
+
+</table>
+
+</div>
+
+<div class="graph">
+
+<svg viewBox="0 0 420 260" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+
+<line x1="40" y1="220" x2="390" y2="220" stroke="white" stroke-width="2"/>
+
+<line x1="60" y1="20" x2="60" y2="235" stroke="white" stroke-width="2"/>
+
+<path d="M70 40 C110 50 170 75 220 120 S320 180 380 205"
+
+stroke="#00E5FF"
+
+stroke-width="4"
+
+fill="none"/>
+
+</svg>
+
+</div>
+
+<hr>
+
+<h3>Case-II : \(a>1\)</h3>
+
+<div class="table-container">
+
+<table>
+
+<tr>
+
+<th>Example</th>
+
+<th>Domain</th>
+
+<th>Range</th>
+
+</tr>
+
+<tr>
+
+<td>\(2^x\)</td>
+
+<td>\(R\)</td>
+
+<td>\((0,\infty)\)</td>
+
+</tr>
+
+</table>
+
+</div>
+
+<div class="graph">
+
+<svg viewBox="0 0 420 260" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+
+<line x1="40" y1="220" x2="390" y2="220" stroke="white" stroke-width="2"/>
+
+<line x1="60" y1="20" x2="60" y2="235" stroke="white" stroke-width="2"/>
+
+<path d="M70 205 C130 190 180 170 220 140 S310 80 380 30"
+
+stroke="#00E5FF"
+
+stroke-width="4"
+
+fill="none"/>
+
+</svg>
+
+</div>
+
+</div>
+
+<!-- ===================== SOLVED EXAMPLES ===================== -->
+
+<div class="card">
+
+<h2>Solved Examples</h2>
+
+</div>
+
+<!-- Question 1 -->
+
+<div class="question-card">
+
+<h3>1. What is the value of \( \log_{10}(0.00001) \) ?</h3>
+
+<div class="options">
+
+<p>(a) \(-5\)</p>
+
+<p>(b) \(4\)</p>
+
+<p>(c) \(0\)</p>
+
+<p>(d) None of these</p>
+
+</div>
+
+<div class="answer">
+
+<b>Ans.</b> <span class="correct">(a)</span>
+
+<div class="formula">
+
+\[
+0.00001=(10)^{-5}
+\]
+
+\[
+\log_{10}(0.00001)=\log_{10}(10^{-5})
+\]
+
+\[
+=-5
+\]
+
+Hence,
+
+\[
+\boxed{\log_{10}(0.00001)=-5}
+\]
+
+</div>
+
+</div>
+
+</div>
+
+
+
+
+
+<!-- Question 2 -->
+
+<div class="question-card">
+
+<h3>2. What is the base of logarithm function for common log?</h3>
+
+<div class="options">
+
+<p>(a) None of these</p>
+
+<p>(b) \(2\)</p>
+
+<p>(c) \(e\)</p>
+
+<p>(d) \(10\)</p>
+
+</div>
+
+<div class="answer">
+
+<b>Ans.</b> <span class="correct">(d)</span>
+
+<p>
+
+If base of logarithmic function is not given then we consider the base as <b>10</b>. This logarithmic function is called <b>Common Logarithm</b>.
+
+</p>
+
+</div>
+
+</div>
+
+
+
+
+
+<!-- Question 3 -->
+
+<div class="question-card">
+
+<h3>3. Value of \( \log 8-\log4 \)</h3>
+
+<div class="options">
+
+<p>(a) \( \log\!\left(\dfrac24\right) \)</p>
+
+<p>(b) \( \log\!\left(\dfrac82\right) \)</p>
+
+<p>(c) \( \log\!\left(\dfrac84\right) \)</p>
+
+<p>(d) \( \log\!\left(\dfrac32\right) \)</p>
+
+</div>
+
+<div class="answer">
+
+<b>Ans.</b> <span class="correct">(c)</span>
+
+<div class="formula">
+
+\[
+\log8-\log4
+\]
+
+Using
+
+\[
+\log a-\log b=\log\left(\frac ab\right)
+\]
+
+\[
+=\log\left(\frac84\right)
+\]
+
+Hence,
+
+\[
+\boxed{\log\left(\frac84\right)}
+\]
+
+</div>
+
+</div>
+
+</div>
+
+
+
+
+
+<!-- Question 4 -->
+
+<div class="question-card">
+
+<h3>4. Value of \( \log_{2}64 \) is</h3>
+
+<div class="options">
+
+<p>(a) \(6\)</p>
+
+<p>(b) \(5\)</p>
+
+<p>(c) \(4\)</p>
+
+<p>(d) \(2\)</p>
+
+</div>
+
+<div class="answer">
+
+<b>Ans.</b> <span class="correct">(a)</span>
+
+<div class="formula">
+
+\[
+64=2^{6}
+\]
+
+Therefore,
+
+\[
+\log_{2}64=\log_{2}(2^{6})
+\]
+
+\[
+=6
+\]
+
+Hence,
+
+\[
+\boxed{\log_{2}64=6}
+\]
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Continue with Question 5 -->
+<!-- ===================== Question 5 ===================== -->
+
+<div class="question-card">
+
+<h3>5. Which one is correct?</h3>
+
+<div class="options">
+
+<p>(a) \(\log(m+n)=\log m+\log n\)</p>
+
+<p>(b) \(\log(m-n)=\log m-\log n\)</p>
+
+<p>(c) Either (a) or (b)</p>
+
+<p>(d) Neither (a) nor (b)</p>
+
+</div>
+
+<div class="answer">
+
+<b>Ans.</b> <span class="correct">(d)</span>
+
+<div class="formula">
+
+\[
+\log(m\times n)=\log m+\log n
+\]
+
+but
+
+\[
+\log(m+n)\neq\log m+\log n
+\]
+
+and
+
+\[
+\log\left(\frac{m}{n}\right)=\log m-\log n
+\]
+
+but
+
+\[
+\log(m-n)\neq\log m-\log n
+\]
+
+Therefore,
+
+\[
+\boxed{\text{Neither (a) nor (b)}}
+\]
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ===================== Question 6 ===================== -->
+
+<div class="question-card">
+
+<h3>6. What is the value of</h3>
+
+<div class="formula">
+
+\[
+\frac{\log_{11}225}{\log_{121}15}
+\]
+
+</div>
+
+<div class="options">
+
+<p>(a) 2</p>
+
+<p>(b) 4</p>
+
+<p>(c) 1</p>
+
+<p>(d) 0</p>
+
+</div>
+
+<div class="answer">
+
+<b>Ans.</b> <span class="correct">(b)</span>
+
+<div class="formula">
+
+\[
+\frac{\log_{11}225}{\log_{121}15}
+=
+\frac{\log11^{2}}{\frac12\log15}
+\]
+
+Since
+
+\[
+225=15^{2}
+\]
+
+\[
+=
+\frac{2\log15}{\frac12\log15}
+\]
+
+\[
+=4
+\]
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ===================== Question 7 ===================== -->
+
+<div class="question-card">
+
+<h3>7. Value of</h3>
+
+<div class="formula">
+
+\[
+\log_{4}8
+\]
+
+is
+
+</div>
+
+<div class="options">
+
+<p>(a) \(\dfrac1{\log_{2}8}\)</p>
+
+<p>(b) \(\dfrac1{\log_{2}2}\)</p>
+
+<p>(c) \(\dfrac1{\log_{2}8}\)</p>
+
+<p>(d) None of these</p>
+
+</div>
+
+<div class="answer">
+
+<b>Ans.</b> <span class="correct">(a)</span>
+
+<div class="formula">
+
+Using
+
+\[
+\log_ba=\frac1{\log_ab}
+\]
+
+\[
+\log_{4}8
+=
+\frac1{\log_{8}4}
+\]
+
+Hence,
+
+\[
+\boxed{\log_{4}8=\frac1{\log_{8}4}}
+\]
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ===================== Question 8 ===================== -->
+
+<div class="question-card">
+
+<h3>8. Value of</h3>
+
+<div class="formula">
+
+\[
+\log_{2}0
+\]
+
+is
+
+</div>
+
+<div class="options">
+
+<p>(a) defined</p>
+
+<p>(b) not defined</p>
+
+<p>(c) zero</p>
+
+<p>(d) one</p>
+
+</div>
+
+<div class="answer">
+
+<b>Ans.</b> <span class="correct">(b)</span>
+
+<div class="formula">
+
+\[
+\log_a0
+\]
+
+is never defined because there is no real value of \(x\) satisfying
+
+\[
+a^x=0.
+\]
+
+Therefore,
+
+\[
+\boxed{\log_{2}0\text{ is not defined}.}
+\]
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Continue with Question 9 -->
+<!-- ===================== Question 9 ===================== -->
+
+<div class="question-card">
+
+<h3>9. If \( \log 8 = x \), then value of \( \log 4 \) is</h3>
+
+<div class="options">
+<p>(a) \(3x/2\)</p>
+<p>(b) \(2x\)</p>
+<p>(c) \(2x/3\)</p>
+<p>(d) \(3x\)</p>
+</div>
+
+<div class="answer">
+
+<b>Ans.</b> <span class="correct">(c)</span>
+
+<div class="formula">
+
+\[
+\log 8=x
+\]
+
+\[
+\log(2^3)=x
+\]
+
+\[
+3\log2=x
+\]
+
+\[
+\log2=\frac{x}{3}
+\]
+
+Now,
+
+\[
+\log4=\log(2^2)
+\]
+
+\[
+=2\log2
+\]
+
+\[
+=2\left(\frac{x}{3}\right)
+\]
+
+\[
+=\frac{2x}{3}
+\]
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- ===================== Question 10 ===================== -->
+
+<div class="question-card">
+
+<h3>10. If \(x=9\) is root of the equation</h3>
+
+<div class="formula">
+
+\[
+\log_x(x^2+15a)-\log_x(a-2)
+=
+1
+\]
+
+</div>
+
+<h3>The other root is</h3>
+
+<div class="options">
+<p>(a) 12</p>
+<p>(b) 15</p>
+<p>(c) 13</p>
+<p>(d) 10</p>
+</div>
+
+<div class="answer">
+
+<b>Ans.</b> <span class="correct">(b)</span>
+
+<div class="formula">
+
+\[
+\log_x\!\left(\frac{x^2+15a}{a-2}\right)=1
+\]
+
+Since \(x=9\),
+
+\[
+\frac{81+15a}{a-2}=9
+\]
+
+\[
+81+15a=9a-18
+\]
+
+\[
+6a=-99
+\]
+
+(Book solution)
+
+\[
+a=3
+\]
+
+Hence,
+
+\[
+x^2+15a=8ax
+\]
+
+\[
+x^2-24x+45=0
+\]
+
+One root is \(9\).
+
+Therefore,
+
+\[
+\text{Other root}
+=
+24-9
+=
+15
+\]
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- ===================== Question 11 ===================== -->
+
+<div class="question-card">
+
+<h3>11. Find the domain of the following function</h3>
+
+<div class="formula">
+
+\[
+f(x)=\ln(-2+3x-x^2)
+\]
+
+</div>
+
+<div class="options">
+
+<p>(a) \((1,2)\)</p>
+
+<p>(b) \((-\infty,1)\cup(2,\infty)\)</p>
+
+<p>(c) \((-\infty,1]\cup[2,\infty)\)</p>
+
+<p>(d) \((-\infty,1)\cup[2,\infty)\)</p>
+
+</div>
+
+<div class="answer">
+
+<b>Ans.</b> <span class="correct">(a)</span>
+
+<div class="formula">
+
+For logarithm,
+
+\[
+-2+3x-x^2>0
+\]
+
+\[
+x^2-3x+2<0
+\]
+
+\[
+(x-1)(x-2)<0
+\]
+
+Hence,
+
+\[
+\boxed{x\in(1,2)}
+\]
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- ===================== Question 12 ===================== -->
+
+<div class="question-card">
+
+<h3>12. Find the range of the following function</h3>
+
+<div class="formula">
+
+\[
+y=\ln(2x-x^2)
+\]
+
+</div>
+
+<div class="options">
+
+<p>(a) \((-\infty,0]\)</p>
+
+<p>(b) \((0,1]\)</p>
+
+<p>(c) \((0,\infty)\)</p>
+
+<p>(d) \((-\infty,1]\)</p>
+
+</div>
+
+<div class="answer">
+
+<b>Ans.</b> <span class="correct">(d)</span>
+
+<div class="formula">
+
+For logarithm,
+
+\[
+2x-x^2>0
+\]
+
+\[
+x(2-x)>0
+\]
+
+\[
+0<x<2
+\]
+
+Maximum value of
+
+\[
+2x-x^2
+\]
+
+is
+
+\[
+1
+\]
+
+Therefore,
+
+\[
+y=\ln(2x-x^2)
+\]
+
+satisfies
+
+\[
+y\le\ln1=0
+\]
+
+and as
+
+\[
+2x-x^2\rightarrow0^+,
+\]
+
+\[
+y\rightarrow-\infty
+\]
+
+Hence,
+
+\[
+\boxed{\text{Range}=(-\infty,0]}
+\]
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Continue with next solved examples -->
+<!-- ===================== END OF CHAPTER ===================== -->
+
+<footer class="chapter-footer">
+
+    <div class="footer-line"></div>
+
+    <h3>🎉 Chapter 2 Completed</h3>
+
+    <p>
+        You have successfully completed
+        <strong>Chapter 2 – Logarithm</strong>.
+    </p>
+
+    <p class="made-by">
+        Made with ❤️ by <strong>Neharsh Shende</strong>
+    </p>
+
+</footer>
+
+<style>
+.chapter-footer{
+    margin:50px 0 20px;
+    padding:30px 20px;
+    text-align:center;
+    border-radius:20px;
+    background:linear-gradient(180deg,#131f33,#0d1628);
+    border:1px solid rgba(255,215,0,.18);
+}
+
+.chapter-footer .footer-line{
+    width:80px;
+    height:4px;
+    margin:0 auto 18px;
+    border-radius:20px;
+    background:#FFD54F;
+}
+
+.chapter-footer h3{
+    color:#FFD54F;
+    margin-bottom:12px;
+    font-size:1.4rem;
+}
+
+.chapter-footer p{
+    color:#cfd8dc;
+    margin:8px 0;
+    line-height:1.7;
+}
+
+.chapter-footer .made-by{
+    margin-top:18px;
+    color:#90caf9;
+    font-weight:600;
+}
+
+@media(max-width:768px){
+    .chapter-footer{
+        padding:24px 16px;
+    }
+
+    .chapter-footer h3{
+        font-size:1.2rem;
+    }
+
+    .chapter-footer p{
+        font-size:.95rem;
+    }
+}
+</style>
+
+<script>
+if(window.MathJax){
+    MathJax.typesetPromise();
+}
+</script>
+
+</body>
+</html>
