@@ -12,98 +12,102 @@
 <style>
 
 .mock-hero{
-text-align:center;
-padding:120px 5% 40px;
+    text-align:center;
+    padding:120px 5% 50px;
 }
 
 .mock-hero h1{
-font-size:48px;
-margin-bottom:10px;
+    font-size:48px;
+    margin-bottom:15px;
 }
 
-.back-link{
-color:#33b5ff;
-text-decoration:none;
-display:inline-block;
-margin-top:15px;
+.mock-hero p{
+    max-width:700px;
+    margin:auto;
+    color:#94a3b8;
+    line-height:1.8;
+    font-size:17px;
 }
 
-.chapter-section{
-padding:40px 5%;
-max-width:900px;
-margin:auto;
+.subjects{
+    max-width:1200px;
+    margin:auto;
+    padding:30px 5% 80px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
 }
 
-.coming-soon{
-background:rgba(255,255,255,.03);
-border:1px solid rgba(255,255,255,.08);
-border-radius:20px;
-padding:50px 30px;
-text-align:center;
-transition:.3s;
+.subject-card{
+    background:rgba(255,255,255,.03);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:18px;
+    padding:30px;
+    text-decoration:none;
+    color:#fff;
+    text-align:center;
+    transition:.3s;
 }
 
-.coming-soon:hover{
-border-color:#33b5ff;
-transform:translateY(-5px);
-box-shadow:0 15px 35px rgba(0,0,0,.3);
+.subject-card:hover{
+    transform:translateY(-8px);
+    border-color:#33b5ff;
+    box-shadow:0 15px 35px rgba(0,0,0,.35);
 }
 
-.coming-soon h2{
-color:#33b5ff;
-margin-bottom:15px;
-font-size:30px;
+.subject-icon{
+    font-size:55px;
+    margin-bottom:18px;
 }
 
-.coming-soon p{
-color:#94a3b8;
-line-height:1.8;
-font-size:16px;
+.subject-card h2{
+    margin-bottom:12px;
+    font-size:24px;
 }
 
-.info-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:18px;
-margin-top:35px;
+.subject-card p{
+    color:#94a3b8;
+    line-height:1.7;
+    font-size:15px;
+    min-height:70px;
 }
 
-.info-card{
-background:rgba(255,255,255,.03);
-border:1px solid rgba(255,255,255,.08);
-border-radius:15px;
-padding:20px;
-text-align:center;
-transition:.3s;
+.badge{
+    display:inline-block;
+    margin-top:15px;
+    padding:10px 20px;
+    border-radius:30px;
+    background:#33b5ff;
+    color:#fff;
+    font-weight:600;
+    transition:.3s;
 }
 
-.info-card:hover{
-transform:translateY(-5px);
-border-color:#33b5ff;
-}
-
-.info-card h3{
-color:#ffffff;
-margin-bottom:10px;
-}
-
-.info-card p{
-color:#94a3b8;
-font-size:14px;
-line-height:1.6;
+.subject-card:hover .badge{
+    background:#1d9bf0;
 }
 
 @media(max-width:600px){
 
 .mock-hero h1{
-font-size:34px;
+    font-size:34px;
+}
+
+.subject-card{
+    padding:25px;
+}
+
+.subject-icon{
+    font-size:45px;
 }
 
 }
 
 </style>
+
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2930435097247117"
-     crossorigin="anonymous"></script>
+crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -111,15 +115,12 @@ font-size:34px;
 <header>
 
 <div class="logo">
-
 NDAVerse
-
 </div>
 
 <nav>
 
 <a href="index.html">Home</a>
-
 <a href="index.html#subjects">Subjects</a>
 
 </nav>
@@ -128,112 +129,105 @@ NDAVerse
 
 <section class="mock-hero">
 
-<h1>
-
-Mock Tests
-
-</h1>
+<h1>Mock Tests</h1>
 
 <p>
-
-Practice full NDA-level mock tests, subject-wise tests, and speed-based quizzes to improve accuracy and performance.
-
+Practice chapter-wise mock tests designed according to the NDA exam pattern.
+Choose your subject below and start improving your preparation.
 </p>
-
-<a href="index.html#subjects" class="back-link">
-
-← Back to Home
-
-</a>
 
 </section>
 
-<section class="chapter-section">
+<section class="subjects">
 
-<div class="coming-soon">
+<a href="mathematics-tests.html" class="subject-card">
+<div class="subject-icon">📘</div>
+<h2>Mathematics</h2>
+<p>Chapter-wise Mathematics mock tests with detailed solutions.</p>
+<div class="badge">Start Practice →</div>
+</a>
 
-<h2>📝 Mock Tests Coming Soon</h2>
+<a href="english-tests.html" class="subject-card">
+<div class="subject-icon">📙</div>
+<h2>English</h2>
+<p>Grammar, Vocabulary, Idioms, Comprehension and Practice Tests.</p>
+<div class="badge">Start Practice →</div>
+</a>
 
-<p>
+<a href="physics-tests.html" class="subject-card">
+<div class="subject-icon">⚛️</div>
+<h2>Physics</h2>
+<p>Concept-based Physics mock tests following the NDA syllabus.</p>
+<div class="badge">Start Practice →</div>
+</a>
 
-Mock test system is currently under development.
+<a href="chemistry-tests.html" class="subject-card">
+<div class="subject-icon">🧪</div>
+<h2>Chemistry</h2>
+<p>Practice important Chemistry questions chapter by chapter.</p>
+<div class="badge">Start Practice →</div>
+</a>
 
-Soon you will get full-length NDA mock tests, subject-wise practice tests, time-based quizzes, answer evaluation, and performance tracking to boost your preparation level.
+<a href="biology-tests.html" class="subject-card">
+<div class="subject-icon">🌿</div>
+<h2>Biology</h2>
+<p>Master Biology concepts with chapter-wise mock tests.</p>
+<div class="badge">Start Practice →</div>
+</a>
 
-</p>
+<a href="geography-tests.html" class="subject-card">
+<div class="subject-icon">🌍</div>
+<h2>Geography</h2>
+<p>Indian and World Geography practice tests for NDA aspirants.</p>
+<div class="badge">Start Practice →</div>
+</a>
 
-</div>
+<a href="history-tests.html" class="subject-card">
+<div class="subject-icon">🏛️</div>
+<h2>History</h2>
+<p>Ancient, Medieval and Modern History chapter-wise tests.</p>
+<div class="badge">Start Practice →</div>
+</a>
 
-<div class="info-grid">
+<a href="polity-tests.html" class="subject-card">
+<div class="subject-icon">📜</div>
+<h2>Polity</h2>
+<p>Constitution, Parliament, Judiciary and Governance practice.</p>
+<div class="badge">Start Practice →</div>
+</a>
 
-<div class="info-card">
+<a href="economics-tests.html" class="subject-card">
+<div class="subject-icon">💹</div>
+<h2>Economics</h2>
+<p>Strengthen Economics concepts with chapter-wise mock tests.</p>
+<div class="badge">Start Practice →</div>
+</a>
 
-<h3>📊 Full Mock Tests</h3>
+<a href="current-affairs-tests.html" class="subject-card">
+<div class="subject-icon">📰</div>
+<h2>Current Affairs</h2>
+<p>Monthly Current Affairs and Defence Updates practice tests.</p>
+<div class="badge">Start Practice →</div>
+</a>
 
-<p>Complete NDA exam pattern practice tests.</p>
-
-</div>
-
-<div class="info-card">
-
-<h3>📚 Subject Tests</h3>
-
-<p>Separate tests for Maths, GK, English & Science.</p>
-
-</div>
-
-<div class="info-card">
-
-<h3>⏱ Timed Quizzes</h3>
-
-<p>Speed-based questions to improve accuracy.</p>
-
-</div>
-
-<div class="info-card">
-
-<h3>📈 Performance Tracking</h3>
-
-<p>Score analysis and improvement suggestions.</p>
-
-</div>
-
-<div class="info-card">
-
-<h3>🎯 NDA Pattern</h3>
-
-<p>Real exam-level difficulty questions.</p>
-
-</div>
-
-<div class="info-card">
-
-<h3>🚀 Revision Mode</h3>
-
-<p>Quick tests for last-minute preparation.</p>
-
-</div>
-
-</div>
+<a href="static-gk-tests.html" class="subject-card">
+<div class="subject-icon">🧠</div>
+<h2>Static GK</h2>
+<p>Practice General Knowledge questions covering important topics.</p>
+<div class="badge">Start Practice →</div>
+</a>
 
 </section>
 
 <footer>
 
 <div style="margin-bottom:10px;">
-
 Dream. Learn. Prepare. Become an Officer. 🇮🇳
-
 </div>
 
 <p>
-
 © 2026 NDAVerse. All rights reserved. |
-
-Built with ❤️ by
-
-<span>Neharsh Shende</span>
-
+Built with ❤️ by <span>Neharsh Shende</span>
 </p>
 
 </footer>
