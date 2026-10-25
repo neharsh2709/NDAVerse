@@ -222,7 +222,7 @@ function App() {
   });
 
   const todayLectures = SUBJECTS.flatMap(subject =>
-    (PLAN.schedule[day][subject.id] || []).map(lecture => ({
+    (PLAN.schedule[date]?.[subject.id] || []).map(lecture => ({
       ...lecture, subject
     }))
   );
