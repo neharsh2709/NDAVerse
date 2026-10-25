@@ -2,604 +2,490 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { createRoot } from "react-dom/client";
 import {
-  BookOpen, CalendarDays, CheckCircle2, Circle, ChevronLeft,
-  ChevronRight, Clock3, Download, GraduationCap, Menu, Plus,
-  RotateCcw, Search, Settings2, Target, Trash2, TrendingUp,
-  Upload, X, Atom, FlaskConical, Sigma
+  LayoutDashboard, CalendarDays, BookOpen, ChartNoAxesCombined,
+  CheckCircle2, Flame, Clock3, Target, ChevronLeft, ChevronRight,
+  RotateCcw, Download, Upload, Menu, X, Atom, Calculator,
+  GraduationCap, ClipboardCheck, AlertCircle, Sparkles
 } from "lucide-react";
 import "./style.css";
 
 const START = "2026-11-01";
 const END = "2027-07-31";
 
-
-const subjects = [
-  {
-    id: "maths",
-    name: "Maths",
-    color: "#a78bfa",
-    icon: Sigma,
-    total: 184
-  },
-  {
-    id: "physics",
-    name: "Physics",
-    color: "#60a5fa",
-    icon: Atom,
-    total: 205
-  },
-  {
-    id: "chemistry",
-    name: "Chemistry",
-    color: "#34d399",
-    icon: FlaskConical,
-    total: 317
-  }
+const SUBJECTS = [
+  { id: "maths", name: "Mathematics", short: "Maths", total: 184, icon: Calculator, color: "#8b9cff" },
+  { id: "physics", name: "Physics", short: "Physics", total: 205, icon: Atom, color: "#38d9c5" },
+  { id: "chemistry", name: "Chemistry", short: "Chemistry", total: 317, icon: Sparkles, color: "#f4b860" }
 ];
 
+const STORAGE_KEY = "jee-verse-planner-v1";
 
-const initial = () => ({
-  chapters: subjects.map(s => ({
-    id: s.id + "-starter",
-    subject: s.id,
-    name: s.name + " — replace with chapter names",
-    total: s.total
-  })),
-  completed: {},
-  settings: { start: START, end: END, hours: 2, questions: 45 }
-});
-
-const get = () => {
-  try {
-    return JSON.parse(localStorage.getItem("jeeVersePlanner") || "null") || initial();
-  } catch {
-    return initial();
-  }
+const dateString = (date) => {
+  const d = new Date(date);
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 };
 
-const dt = s => new Date(s + "T12:00:00");
-const key = d =>
-  `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
-const add = (s, n) => {
-  const d = dt(s);
-  d.setDate(d.getDate() + n);
-  return key(d);
+const parseDate = (value) => new Date(`${value}T12:00:00`);
+
+const addDays = (value, days) => {
+  const d = parseDate(value);
+  d.setDate(d.getDate() + days);
+  return dateString(d);
 };
-const fmt = s => dt(s).toLocaleDateString("en-IN", {
-  weekday: "long", day: "numeric", month: "short", year: "numeric"
-});
 
+const daysBetween = (a, b) =>
+  Math.round((parseDate(b) - parseDate(a)) / 86400000);
 
-function makePlan(state) {
+const formatDate = (value, options = { day: "numeric", month: "short" }) =>
+  parseDate(value).toLocaleDateString("en-IN", options);
+
+const isSunday = (value) => parseDate(value).getDay() === 0;
+
+function buildSchedule() {
   const dates = [];
+  for (let d = START; d <= END; d = addDays(d, 1)) dates.push(d);
 
-  for (
-    let d = state.settings.start;
-    d <= state.settings.end;
-    d = add(d, 1)
-  ) {
-    dates.push(d);
-  }
+  const studyDates = dates.filter((d) => !isSunday(d));
+  const schedule = {};
 
-  const chapters = state.chapters.map(c => ({
-    ...c,
-    left: Math.max(0, Number(c.total) || 0)
-  }));
+  studyDates.forEach((date, index) => {
+    schedule[date] = {};
+    SUBJECTS.forEach((subject) => {
+      const before = Math.floor(index * subject.total / studyDates.length);
+      const after = Math.floor((index + 1) * subject.total / studyDates.length);
+      const count = after - before;
 
-  const lectureDays = dates.filter(d => dt(d).getDay() !== 0);
-  const total = chapters.reduce((sum, c) => sum + c.left, 0);
-  const totalDays = lectureDays.length;
+      schedule[date][subject.id] = Array.from({ length: count }, (_, i) => ({
+        id: `${subject.id}-${before + i + 1}`,
+        number: before + i + 1
+      }));
+    });
+  });
 
-  const output = {};
-  let previousTarget = 0;
-  let dayIndex = 0;
-  let chapterIndex = 0;
+  dates.filter(isSunday).forEach((date) => {
+    schedule[date] = { revision: true };
+  });
 
-  for (const date of dates) {
-    if (dt(date).getDay() === 0) {
-      output[date] = {
-        test: true,
-        lectures: [],
-        tasks: [
-          ["test", "Weekly mixed test (timed)"],
-          ["analysis", "Analyse mistakes and update error log"],
-          ["revision", "Revise formulas, reactions and weak topics"]
-        ]
-      };
-      continue;
-    }
-
-    dayIndex++;
-
-    // Spread extra lectures evenly across the whole schedule.
-    const target = Math.round((dayIndex * total) / totalDays);
-    let count = target - previousTarget;
-    previousTarget = target;
-
-    const lectures = [];
-    let checked = 0;
-
-    while (
-      count > 0 &&
-      chapters.some(c => c.left > 0) &&
-      checked < chapters.length * (total + 1)
-    ) {
-      if (chapters.length === 0) break;
-
-      const chapter = chapters[chapterIndex];
-
-      if (chapter.left > 0) {
-        chapter.left--;
-
-        const existing = lectures.find(
-          item => item.chapterId === chapter.id
-        );
-
-        if (existing) {
-          existing.count++;
-        } else {
-          lectures.push({
-            chapterId: chapter.id,
-            name: chapter.name,
-            subject: chapter.subject,
-            count: 1
-          });
-        }
-
-        count--;
-      }
-
-      chapterIndex = (chapterIndex + 1) % chapters.length;
-      checked++;
-    }
-
-    output[date] = {
-      test: false,
-      lectures,
-      tasks: [
-        ["questions", "Solve questions from today's lecture topics"],
-        ["revision", "Same-day revision: notes + active recall"],
-        ["spaced", "15-minute revision of an older topic"],
-        ["error", "Update formula / mistake notebook"]
-      ]
-    };
-  }
-
-  return output;
+  return { dates, schedule };
 }
 
+const BUILT = buildSchedule();
+
+function loadProgress() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return { completed: {}, notes: {}, chapters: {}, tests: [] };
+    return { completed: {}, notes: {}, chapters: {}, tests: [], ...JSON.parse(raw) };
+  } catch {
+    return { completed: {}, notes: {}, chapters: {}, tests: [] };
+  }
+}
+
+function saveProgress(progress) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+}
+
+function getToday() {
+  const today = dateString(new Date());
+  if (today < START) return START;
+  if (today > END) return END;
+  return today;
+}
 
 function App() {
-  const [state, setState] = useState(get);
+  const [progress, setProgress] = useState(loadProgress);
+  const [selectedDate, setSelectedDate] = useState(getToday);
   const [page, setPage] = useState("Dashboard");
-  const [date, setDate] = useState(START);
-  const [search, setSearch] = useState("");
-  const [menu, setMenu] = useState(false);
-  const [toast, setToast] = useState("");
+  const [mobileMenu, setMobileMenu] = useState(false);
+  const [chapterSubject, setChapterSubject] = useState("maths");
+  const [chapterName, setChapterName] = useState("");
+  const [testName, setTestName] = useState("");
+  const [testScore, setTestScore] = useState("");
+  const [testTotal, setTestTotal] = useState("100");
+  const [testDate, setTestDate] = useState(getToday);
 
   useEffect(() => {
-    localStorage.setItem("jeeVersePlanner", JSON.stringify(state));
-  }, [state]);
+    saveProgress(progress);
+  }, [progress]);
 
-  const plan = useMemo(() => makePlan(state), [state]);
-  const day = plan[date] || { lectures: [], tasks: [] };
-  const total = state.chapters.reduce((a, c) => a + (Number(c.total) || 0), 0);
-  const done = Object.entries(state.completed).filter(
-    ([k, v]) => v && k.includes(":lecture:")
-  ).length;
-  const all = Object.values(state.completed).filter(Boolean).length;
+  const update = (fn) => setProgress((old) => fn(old));
 
-  const subject = id => subjects.find(s => s.id === id) || subjects[0];
+  const toggleLecture = (id) => update((old) => {
+    const completed = { ...old.completed };
+    if (completed[id]) delete completed[id];
+    else completed[id] = true;
+    return { ...old, completed };
+  });
 
-  const toggle = k => setState(s => ({
-    ...s,
-    completed: { ...s.completed, [k]: !s.completed[k] }
-  }));
+  const allLectures = useMemo(() => {
+    const list = [];
+    BUILT.dates.forEach((date) => {
+      SUBJECTS.forEach((subject) => {
+        (BUILT.schedule[date]?.[subject.id] || []).forEach((lecture) => {
+          list.push({ ...lecture, date, subjectId: subject.id });
+        });
+      });
+    });
+    return list;
+  }, []);
 
-  const notify = message => {
-    setToast(message);
-    setTimeout(() => setToast(""), 2200);
+  const completedCount = allLectures.filter((l) => progress.completed[l.id]).length;
+  const totalCount = SUBJECTS.reduce((sum, s) => sum + s.total, 0);
+  const remaining = totalCount - completedCount;
+  const percent = Math.round(completedCount / totalCount * 100);
+
+  const subjectStats = SUBJECTS.map((subject) => {
+    const lectures = allLectures.filter((l) => l.subjectId === subject.id);
+    const done = lectures.filter((l) => progress.completed[l.id]).length;
+    return { ...subject, done, pending: subject.total - done, percent: Math.round(done / subject.total * 100) };
+  });
+
+  const todayDone = (date) => {
+    const tasks = SUBJECTS.flatMap((s) =>
+      (BUILT.schedule[date]?.[s.id] || []).map((l) => l.id)
+    );
+    return tasks.filter((id) => progress.completed[id]).length;
   };
 
-  const update = (id, field, value) => setState(s => ({
-    ...s,
-    chapters: s.chapters.map(c =>
-      c.id === id
-        ? { ...c, [field]: field === "total" ? Math.max(0, Number(value) || 0) : value }
-        : c
-    )
+  const todayTasks = SUBJECTS.flatMap((s) =>
+    (BUILT.schedule[selectedDate]?.[s.id] || []).map((l) => ({
+      ...l, subject: s
+    }))
+  );
+
+  const todayCompleted = todayTasks.filter((t) => progress.completed[t.id]).length;
+
+  const overdue = allLectures.filter(
+    (l) => l.date < getToday() && !progress.completed[l.id]
+  );
+
+  const streak = useMemo(() => {
+    let count = 0;
+    let day = getToday();
+
+    while (day >= START) {
+      if (isSunday(day)) {
+        day = addDays(day, -1);
+        continue;
+      }
+      const ids = SUBJECTS.flatMap((s) =>
+        (BUILT.schedule[day]?.[s.id] || []).map((l) => l.id)
+      );
+      if (!ids.length || !ids.every((id) => progress.completed[id])) break;
+      count++;
+      day = addDays(day, -1);
+    }
+    return count;
+  }, [progress.completed]);
+
+  const weekly = useMemo(() => {
+    const end = parseDate(selectedDate);
+    const start = new Date(end);
+    start.setDate(start.getDate() - 6);
+    const startStr = dateString(start);
+    const items = allLectures.filter((l) => l.date >= startStr && l.date <= selectedDate);
+    return {
+      total: items.length,
+      done: items.filter((l) => progress.completed[l.id]).length
+    };
+  }, [selectedDate, progress.completed, allLectures]);
+
+  const monthData = useMemo(() => {
+    const month = selectedDate.slice(0, 7);
+    const items = allLectures.filter((l) => l.date.startsWith(month));
+    return {
+      total: items.length,
+      done: items.filter((l) => progress.completed[l.id]).length
+    };
+  }, [selectedDate, progress.completed, allLectures]);
+
+  const changeDate = (amount) => {
+    const next = addDays(selectedDate, amount);
+    if (next >= START && next <= END) setSelectedDate(next);
+  };
+
+  const addChapter = (e) => {
+    e.preventDefault();
+    if (!chapterName.trim()) return;
+    const id = `${chapterSubject}-${Date.now()}`;
+    update((old) => ({
+      ...old,
+      chapters: {
+        ...old.chapters,
+        [id]: { id, name: chapterName.trim(), subject: chapterSubject, done: false }
+      }
+    }));
+    setChapterName("");
+  };
+
+  const toggleChapter = (id) => update((old) => ({
+    ...old,
+    chapters: {
+      ...old.chapters,
+      [id]: { ...old.chapters[id], done: !old.chapters[id].done }
+    }
   }));
 
-  const exportFile = () => {
+  const addTest = (e) => {
+    e.preventDefault();
+    if (!testName.trim() || testScore === "") return;
+    update((old) => ({
+      ...old,
+      tests: [...old.tests, {
+        id: Date.now(),
+        name: testName.trim(),
+        score: Number(testScore),
+        total: Number(testTotal) || 100,
+        date: testDate
+      }]
+    }));
+    setTestName("");
+    setTestScore("");
+  };
+
+  const exportBackup = () => {
+    const blob = new Blob([JSON.stringify(progress, null, 2)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
-    const url = URL.createObjectURL(new Blob(
-      [JSON.stringify(state, null, 2)],
-      { type: "application/json" }
-    ));
     a.href = url;
     a.download = "jee-verse-progress.json";
     a.click();
     URL.revokeObjectURL(url);
-    notify("Backup exported");
   };
 
-  const importFile = event => {
+  const importBackup = (event) => {
     const file = event.target.files?.[0];
     if (!file) return;
     const reader = new FileReader();
-
     reader.onload = () => {
       try {
         const data = JSON.parse(reader.result);
-        if (data.chapters && data.completed && data.settings) {
-          setState(data);
-          notify("Backup imported");
+        if (data && typeof data.completed === "object") {
+          setProgress({
+            completed: data.completed || {},
+            notes: data.notes || {},
+            chapters: data.chapters || {},
+            tests: data.tests || []
+          });
         } else {
-          notify("Invalid backup");
+          alert("This backup file is not valid.");
         }
       } catch {
-        notify("Could not read backup");
+        alert("Could not read that backup file.");
       }
     };
-
     reader.readAsText(file);
     event.target.value = "";
   };
 
-  const nav = ["Dashboard", "Daily targets", "Chapter tracker", "Revision & tests"];
-  const navIcon = [TrendingUp, CalendarDays, BookOpen, RotateCcw];
+  const resetProgress = () => {
+    if (!window.confirm("Reset all completed lectures, chapters, notes and test scores?")) return;
+    setProgress({ completed: {}, notes: {}, chapters: {}, tests: [] });
+  };
 
-  const checkRow = (id, title, detail, color, tag) => (
-    <button
-      className={"check " + (state.completed[id] ? "checked" : "")}
-      key={id}
-      onClick={() => toggle(id)}
-    >
-      <span style={{ color: state.completed[id] ? "#34d399" : color }}>
-        {state.completed[id] ? <CheckCircle2 size={20} /> : <Circle size={20} />}
-      </span>
-      <span className="checkcopy">
-        <b>{title}</b>
-        <small>{detail}</small>
-      </span>
-      <em>{tag}</em>
-    </button>
-  );
+  const navItems = [
+    { name: "Dashboard", icon: LayoutDashboard },
+    { name: "Daily Plan", icon: CalendarDays },
+    { name: "Chapters", icon: BookOpen },
+    { name: "Analytics", icon: ChartNoAxesCombined },
+    { name: "Tests & Revision", icon: ClipboardCheck }
+  ];
 
   return (
-    <div className="shell">
-      <aside className={"sidebar " + (menu ? "open" : "")}>
+    <div className="app-shell">
+      {mobileMenu && <button className="mobile-overlay" onClick={() => setMobileMenu(false)} aria-label="Close menu" />}
+      <aside className={`sidebar ${mobileMenu ? "sidebar-open" : ""}`}>
         <div className="brand">
-          <span className="brandicon"><GraduationCap /></span>
-          <span><b>JEEVerse</b><small>BACKLOG COMMAND CENTRE</small></span>
-          <button className="close" onClick={() => setMenu(false)}><X /></button>
+          <div className="brand-icon"><GraduationCap size={25} /></div>
+          <div><strong>JEEVerse</strong><small>YOUR STUDY SPACE</small></div>
+          <button className="mobile-close icon-button" onClick={() => setMobileMenu(false)}><X /></button>
         </div>
 
-        <p className="navlabel">WORKSPACE</p>
-        {nav.map((name, i) => {
-          const Icon = navIcon[i];
-          return (
-            <button
-              key={name}
-              className={"nav " + (page === name ? "active" : "")}
-              onClick={() => { setPage(name); setMenu(false); }}
-            >
-              <Icon size={18} />{name}
-            </button>
-          );
-        })}
+        <div className="sidebar-label">WORKSPACE</div>
+        <nav>
+          {navItems.map((item) => {
+            const Icon = item.icon;
+            return (
+              <button key={item.name} className={`nav-link ${page === item.name ? "active" : ""}`}
+                onClick={() => { setPage(item.name); setMobileMenu(false); }}>
+                <Icon size={19} /><span>{item.name}</span>
+                {item.name === "Daily Plan" && <span className="nav-dot" />}
+              </button>
+            );
+          })}
+        </nav>
 
-        <div className="sidebottom">
-          <div className="deadline">
-            <small>FINAL DEADLINE</small>
-            <b>31 JUL 2027</b>
-            <span>Every lecture. Every revision.</span>
-            <div className="bar"><i /></div>
+        <div className="sidebar-bottom">
+          <div className="goal-card">
+            <div className="goal-heading"><Target size={17} /> Your goal</div>
+            <strong>706 lectures</strong>
+            <small>Finish by 31 July 2027</small>
+            <div className="mini-track"><span style={{ width: `${percent}%` }} /></div>
+            <small>{percent}% completed</small>
           </div>
-          <small className="saved">● Saved on this device</small>
+          <div className="sidebar-foot">Built for your JEE journey ✦</div>
         </div>
       </aside>
 
-      {menu && <div className="scrim" onClick={() => setMenu(false)} />}
-
-      <main>
-        <header>
-          <button className="hamb" onClick={() => setMenu(true)}><Menu /></button>
-          <div>
-            <small>JEE PREPARATION / {page.toUpperCase()}</small>
-            <h1>{page === "Dashboard" ? "Your study cockpit" : page}</h1>
-          </div>
-          <div className="actions">
-            <span className="autosave">● Auto-saved</span>
-            <button className="iconbtn" onClick={exportFile} title="Export progress">
-              <Download size={17} />
-            </button>
-            <label className="iconbtn" title="Import progress">
-              <Upload size={17} />
-              <input hidden type="file" accept="application/json" onChange={importFile} />
-            </label>
+      <main className="main-area">
+        <header className="topbar">
+          <button className="icon-button menu-button" onClick={() => setMobileMenu(true)} aria-label="Open menu"><Menu /></button>
+          <div className="breadcrumb">Workspace <span>/</span> <strong>{page}</strong></div>
+          <div className="topbar-right">
+            <span className="date-pill"><CalendarDays size={15} /> {formatDate(getToday(), { day: "numeric", month: "short", year: "numeric" })}</span>
+            <div className="avatar">J</div>
           </div>
         </header>
 
-        {page === "Dashboard" && (
-          <section className="content">
-            <div className="hero">
-              <div>
-                <small className="eyebrow">✦ YOUR 2026–27 ROADMAP</small>
-                <h2>Small targets.<br /><i>Serious consistency.</i></h2>
-                <p>
-                  One clear day at a time. Finish your lecture backlog, practise
-                  questions, and test what you learn before 31 July 2027.
-                </p>
-                <button className="primary" onClick={() => setPage("Daily targets")}>
-                  Open daily targets <ChevronRight size={17} />
-                </button>
-              </div>
-              <div className="heroart">
-                <div className="orbit" />
-                <div className="core"><Target size={34} /><b>JEE</b><small>2027</small></div>
-                <span className="float">✓ Daily targets</span>
-              </div>
+        <div className="content">
+          <div className="welcome-row">
+            <div>
+              <p className="eyebrow">YOUR JEE PREPARATION</p>
+              <h1>{page === "Dashboard" ? "Your progress, at a glance." : page}</h1>
+              <p className="subheading">Small daily steps. Consistent preparation. One clear goal.</p>
             </div>
+            <button className="secondary-button" onClick={exportBackup}><Download size={16} /> Export progress</button>
+          </div>
 
-            <div className="stats">
-              {[
-                [BookOpen, "LECTURES IN PLAN", total, "Across 5 subjects"],
-                [CheckCircle2, "LECTURE ITEMS CHECKED", done, "Track completion daily"],
-                [TrendingUp, "CHECKLIST ITEMS", all, "Progress saved locally"],
-                [CalendarDays, "FINISH BY", "31 Jul", "2027 deadline"]
-              ].map(([Icon, label, value, detail]) => (
-                <div className="stat" key={label}>
-                  <Icon size={20} /><small>{label}</small><b>{value}</b><span>{detail}</span>
+          {page === "Dashboard" && (
+            <>
+              <section className="hero-card">
+                <div className="hero-copy">
+                  <div className="hero-tag"><Sparkles size={14} /> YOUR PERSONAL STUDY PLAN</div>
+                  <h2>One lecture at a time.<br /><span>One step closer to JEE.</span></h2>
+                  <p>Your plan runs from 1 November 2026 to 31 July 2027. Targets are spread across study days, with Sundays reserved for revision and tests.</p>
+                  <button className="primary-button" onClick={() => setPage("Daily Plan")}>View today's plan <ChevronRight size={17} /></button>
                 </div>
-              ))}
-            </div>
+                <div className="hero-graphic"><div className="orbit orbit-one" /><div className="orbit orbit-two" /><div className="orbit orbit-three" /><div className="planet"><GraduationCap size={43} /></div><span className="float-star star-one">✦</span><span className="float-star star-two">✧</span></div>
+              </section>
 
-            <div className="heading">
-              <div><small className="eyebrow">YOUR SUBJECTS</small><h3>Backlog at a glance</h3></div>
-              <button className="link" onClick={() => setPage("Chapter tracker")}>Edit chapter counts →</button>
-            </div>
+              <section className="stats-grid">
+                <StatCard label="Lectures completed" value={`${completedCount} / ${totalCount}`} sub={`${remaining} lectures remaining`} icon={CheckCircle2} color="mint" />
+                <StatCard label="Overall progress" value={`${percent}%`} sub="Across all three subjects" icon={ChartNoAxesCombined} color="blue" />
+                <StatCard label="Current streak" value={`${streak} days`} sub="Complete all daily targets" icon={Flame} color="orange" />
+                <StatCard label="Backlog lectures" value={overdue.length} sub="Past targets not completed" icon={AlertCircle} color="pink" />
+              </section>
 
-            <div className="subjects">
-              {subjects.map(s => {
-                const count = state.chapters
-                  .filter(c => c.subject === s.id)
-                  .reduce((a, c) => a + (Number(c.total) || 0), 0);
-                const Icon = s.icon;
-                return (
-                  <div className="subject" key={s.id}>
-                    <span style={{ color: s.color }}><Icon size={20} /></span>
-                    <small>{s.name}</small>
-                    <b>{count}<i> lectures</i></b>
-                    <div className="bar"><i style={{ background: s.color, width: "0%" }} /></div>
-                    <em>Target count: {count}</em>
-                  </div>
-                );
-              })}
-            </div>
+              <div className="section-heading"><div><h2>Subject progress</h2><p>Track all 706 lectures</p></div><button className="text-button" onClick={() => setPage("Analytics")}>View analytics <ChevronRight size={16} /></button></div>
+              <section className="subject-grid">
+                {subjectStats.map((s) => {
+                  const Icon = s.icon;
+                  return <article className="subject-card" key={s.id}>
+                    <div className="subject-top"><div className="subject-icon" style={{ "--subject-color": s.color }}><Icon size={22} /></div><span className="subject-total">{s.total} lectures</span></div>
+                    <h3>{s.name}</h3><p>{s.done} completed · {s.pending} remaining</p>
+                    <div className="progress-track"><span style={{ width: `${s.percent}%`, background: s.color }} /></div>
+                    <div className="progress-caption"><span>{s.percent}% complete</span><span>{s.pending} left</span></div>
+                  </article>;
+                })}
+              </section>
 
-            <div className="panels">
+              <div className="bottom-grid">
+                <section className="panel">
+                  <div className="panel-heading"><div><h2>Today's focus</h2><p>{formatDate(getToday(), { weekday: "long", day: "numeric", month: "long" })}</p></div><button className="icon-button" onClick={() => { setSelectedDate(getToday()); setPage("Daily Plan"); }}><ChevronRight /></button></div>
+                  {BUILT.schedule[getToday()]?.revision ? <div className="revision-banner"><ClipboardCheck /><div><strong>Sunday revision day</strong><p>Revise completed topics and attempt a mock test.</p></div></div> :
+                    <div className="focus-list">{SUBJECTS.map((s) => {
+                      const tasks = BUILT.schedule[getToday()]?.[s.id] || [];
+                      return <div className="focus-row" key={s.id}><span className="focus-dot" style={{ background: s.color }} /><div><strong>{s.name}</strong><small>{tasks.length} lecture{tasks.length !== 1 ? "s" : ""} planned</small></div><span className="focus-count">{tasks.filter((l) => progress.completed[l.id]).length}/{tasks.length}</span></div>;
+                    })}</div>}
+                </section>
+                <section className="panel">
+                  <div className="panel-heading"><div><h2>Weekly consistency</h2><p>Last 7 days ending {formatDate(selectedDate)}</p></div><span className="round-icon"><Flame size={18} /></span></div>
+                  <div className="weekly-number">{weekly.done}<span> / {weekly.total}</span></div><p className="muted">lectures completed this week</p>
+                  <div className="progress-track"><span style={{ width: `${weekly.total ? weekly.done / weekly.total * 100 : 0}%`, background: "#38d9c5" }} /></div>
+                  <button className="text-button space-top" onClick={() => setPage("Analytics")}>See weekly & monthly report <ChevronRight size={16} /></button>
+                </section>
+              </div>
+            </>
+          )}
+
+          {page === "Daily Plan" && (
+            <>
+              <div className="date-navigator">
+                <button className="icon-button" disabled={selectedDate <= START} onClick={() => changeDate(-1)}><ChevronLeft /></button>
+                <div><h2>{formatDate(selectedDate, { weekday: "long", day: "numeric", month: "long", year: "numeric" })}</h2><p>{isSunday(selectedDate) ? "Revision and mock-test day" : "Your planned lecture targets"}</p></div>
+                <button className="icon-button" disabled={selectedDate >= END} onClick={() => changeDate(1)}><ChevronRight /></button>
+                <button className="secondary-button" onClick={() => setSelectedDate(getToday())}>Today</button>
+              </div>
+              <div className="daily-summary"><div><span>Today's target</span><strong>{todayTasks.length} lectures</strong></div><div><span>Completed</span><strong>{todayCompleted} lectures</strong></div><div><span>Remaining</span><strong>{todayTasks.length - todayCompleted} lectures</strong></div></div>
+              {isSunday(selectedDate) && <div className="revision-banner sunday-banner"><ClipboardCheck /><div><strong>Sunday: revise, don't rush ahead</strong><p>Review the week's notes, solve questions and attempt a mock test. Catch up on unfinished lectures if needed.</p></div></div>}
+              <section className="panel daily-panel">
+                <div className="panel-heading"><div><h2>Lecture checklist</h2><p>Tick a lecture after completing it.</p></div><span className="completion-badge">{todayCompleted}/{todayTasks.length}</span></div>
+                {todayTasks.length === 0 ? <div className="empty-state"><CalendarDays size={30} /><h3>Revision day</h3><p>No regular lecture targets are scheduled for Sunday.</p></div> :
+                  SUBJECTS.map((subject) => {
+                    const tasks = BUILT.schedule[selectedDate]?.[subject.id] || [];
+                    if (!tasks.length) return null;
+                    return <div className="task-group" key={subject.id}><h3><span className="focus-dot" style={{ background: subject.color }} />{subject.name}<small>{tasks.filter((t) => progress.completed[t.id]).length}/{tasks.length}</small></h3>
+                      {tasks.map((task) => <label className={`lecture-task ${progress.completed[task.id] ? "task-done" : ""}`} key={task.id}><input type="checkbox" checked={!!progress.completed[task.id]} onChange={() => toggleLecture(task.id)} /><span className="custom-check"><CheckCircle2 size={17} /></span><span className="task-name">Lecture {task.number}</span><span className="task-status">{progress.completed[task.id] ? "Completed" : "Pending"}</span></label>)}
+                    </div>;
+                  })}
+              </section>
+              <section className="panel notes-panel"><h2>Daily notes</h2><p>Write down questions, doubts or revision reminders.</p><textarea value={progress.notes?.[selectedDate] || ""} onChange={(e) => update((old) => ({ ...old, notes: { ...old.notes, [selectedDate]: e.target.value } }))} placeholder="What did you learn today? What needs revision?" rows={4} /></section>
+            </>
+          )}
+
+          {page === "Chapters" && (
+            <>
               <div className="panel">
-                <h3>Study system</h3><p>Follow the same sequence each study day.</p>
-                <div className="minirow"><b>1. Lecture</b><span>Watch actively and make concise notes</span></div>
-                <div className="minirow"><b>2. Questions</b><span>25–40 questions from today's topics</span></div>
-                <div className="minirow"><b>3. Revision</b><span>Same day, after 1 day, after 7 days</span></div>
+                <div className="panel-heading"><div><h2>Chapter tracker</h2><p>Add chapters and mark them complete as you finish them.</p></div><BookOpen /></div>
+                <form className="chapter-form" onSubmit={addChapter}>
+                  <select value={chapterSubject} onChange={(e) => setChapterSubject(e.target.value)}>{SUBJECTS.map((s) => <option value={s.id} key={s.id}>{s.name}</option>)}</select>
+                  <input value={chapterName} onChange={(e) => setChapterName(e.target.value)} placeholder="Enter chapter name" required />
+                  <button className="primary-button" type="submit">Add chapter</button>
+                </form>
+                {Object.values(progress.chapters || {}).length === 0 ? <div className="empty-state"><BookOpen size={30} /><h3>No chapters added yet</h3><p>Add your first chapter above.</p></div> :
+                  SUBJECTS.map((s) => {
+                    const chapters = Object.values(progress.chapters || {}).filter((c) => c.subject === s.id);
+                    if (!chapters.length) return null;
+                    return <div className="task-group" key={s.id}><h3><span className="focus-dot" style={{ background: s.color }} />{s.name}<small>{chapters.filter((c) => c.done).length}/{chapters.length}</small></h3>
+                      {chapters.map((c) => <div className={`chapter-row ${c.done ? "task-done" : ""}`} key={c.id}><label><input type="checkbox" checked={c.done} onChange={() => toggleChapter(c.id)} /><span className="custom-check"><CheckCircle2 size={17} /></span><span>{c.name}</span></label><button className="icon-button delete-button" title="Delete chapter" onClick={() => update((old) => { const chapters = { ...old.chapters }; delete chapters[c.id]; return { ...old, chapters }; })}><X size={16} /></button></div>)}
+                    </div>;
+                  })}
               </div>
-              <div className="panel">
-                <h3>Plan timeline</h3><p>1 Nov 2026 — 31 Jul 2027</p>
-                <div className="minirow"><b>Start the backlog</b><span>1 November 2026</span></div>
-                <div className="minirow"><b>Weekly testing</b><span>Every Sunday</span></div>
-                <div className="minirow"><b>Finish planned lectures</b><span>31 July 2027</span></div>
-              </div>
-            </div>
-          </section>
-        )}
+            </>
+          )}
 
-        {page === "Daily targets" && (
-          <section className="content">
-            <div className="datehead">
-              <button className="iconbtn" onClick={() => setDate(d => d <= START ? START : add(d, -1))}><ChevronLeft /></button>
-              <div>
-                <small className="eyebrow">YOUR TARGET SHEET</small>
-                <h2>{fmt(date)}</h2>
-                <p>{day.test ? "Test + revision day" : "Lecture day — complete in order, then practise"}</p>
-              </div>
-              <button className="iconbtn" onClick={() => setDate(d => d >= END ? END : add(d, 1))}><ChevronRight /></button>
-              <button className="secondary" onClick={() => {
-                const today = key(new Date());
-                setDate(today < START ? START : today > END ? END : today);
-              }}>Jump to today</button>
-            </div>
+          {page === "Analytics" && (
+            <>
+              <section className="stats-grid">
+                <StatCard label="Total completion" value={`${percent}%`} sub={`${completedCount} of ${totalCount} lectures`} icon={Target} color="mint" />
+                <StatCard label="Last 7 days" value={`${weekly.done}/${weekly.total}`} sub="Lectures completed" icon={CalendarDays} color="blue" />
+                <StatCard label="This month" value={`${monthData.done}/${monthData.total}`} sub="Lectures completed" icon={ChartNoAxesCombined} color="orange" />
+                <StatCard label="Overdue backlog" value={overdue.length} sub="Unfinished past targets" icon={AlertCircle} color="pink" />
+              </section>
+              <section className="panel analytics-panel"><div className="panel-heading"><div><h2>Subject breakdown</h2><p>Progress against each subject's total</p></div></div>
+                {subjectStats.map((s) => <div className="analytics-subject" key={s.id}><div className="analytics-subject-top"><strong>{s.name}</strong><span>{s.done}/{s.total} · {s.percent}%</span></div><div className="progress-track"><span style={{ width: `${s.percent}%`, background: s.color }} /></div></div>)}
+              </section>
+              <section className="panel"><div className="panel-heading"><div><h2>Plan overview</h2><p>1 November 2026 – 31 July 2027</p></div></div><div className="overview-grid"><div><span>Total lectures</span><strong>706</strong></div><div><span>Study days</span><strong>{BUILT.dates.filter((d) => !isSunday(d)).length}</strong></div><div><span>Average lectures/study day</span><strong>{(706 / BUILT.dates.filter((d) => !isSunday(d)).length).toFixed(2)}</strong></div><div><span>Deadline</span><strong>31 Jul 2027</strong></div></div></section>
+            </>
+          )}
 
-            <div className="dailygrid">
-              <div className="panel">
-                <div className="paneltop">
-                  <div><h3>{day.test ? "Sunday test protocol" : "Today's work"}</h3><p>Check off each item as you finish</p></div>
-                  <span className="pill">
-                    {Object.keys(state.completed).filter(k => k.startsWith(date + ":") && state.completed[k]).length} done
-                  </span>
-                </div>
+          {page === "Tests & Revision" && (
+            <>
+              <section className="panel"><div className="panel-heading"><div><h2>Log a test result</h2><p>Record your mock-test scores and track improvement.</p></div><ClipboardCheck /></div>
+                <form className="test-form" onSubmit={addTest}>
+                  <label>Test name<input value={testName} onChange={(e) => setTestName(e.target.value)} placeholder="e.g. Full syllabus mock 1" required /></label>
+                  <label>Test date<input type="date" value={testDate} min={START} max={END} onChange={(e) => setTestDate(e.target.value)} required /></label>
+                  <div className="score-inputs"><label>Your score<input type="number" min="0" value={testScore} onChange={(e) => setTestScore(e.target.value)} required /></label><label>Maximum marks<input type="number" min="1" value={testTotal} onChange={(e) => setTestTotal(e.target.value)} required /></label></div>
+                  <button className="primary-button" type="submit">Save test result</button>
+                </form>
+              </section>
+              <section className="panel"><div className="panel-heading"><div><h2>Test history</h2><p>{progress.tests.length} test{progress.tests.length !== 1 ? "s" : ""} recorded</p></div></div>
+                {!progress.tests.length ? <div className="empty-state"><ClipboardCheck size={30} /><h3>No tests recorded</h3><p>Add your first mock-test result above.</p></div> :
+                  [...progress.tests].sort((a, b) => b.date.localeCompare(a.date)).map((t) => <div className="test-row" key={t.id}><div><strong>{t.name}</strong><small>{formatDate(t.date, { day: "numeric", month: "short", year: "numeric" })}</small></div><strong>{t.score}/{t.total}<small>{Math.round(t.score / t.total * 100)}%</small></strong><button className="icon-button delete-button" onClick={() => update((old) => ({ ...old, tests: old.tests.filter((x) => x.id !== t.id) }))}><X size={16} /></button></div>)}
+              </section>
+            </>
+          )}
 
-                {!day.test && <>
-                  <h4>LECTURE TARGETS</h4>
-                  {day.lectures.map((lecture, i) => checkRow(
-                    `${date}:lecture:${lecture.chapterId}:${i}`,
-                    lecture.name,
-                    subject(lecture.subject).name + " · " + lecture.count + " lecture(s)",
-                    subject(lecture.subject).color,
-                    lecture.count + "x"
-                  ))}
-                  {!day.lectures.length && <p className="muted">All lectures allocated. Use today for questions and revision.</p>}
-                </>}
-
-                <h4>{day.test ? "TEST & REVISION" : "QUESTIONS, REVISION & REVIEW"}</h4>
-                {day.tasks.map(([id, title]) => checkRow(
-                  date + ":" + id,
-                  title,
-                  id === "questions" ? "Aim for 25–40 questions; mark doubts" :
-                  id === "test" ? "60–90 minutes, closed book" :
-                  id === "revision" ? "Short focused session" : "Focused review",
-                  id === "test" ? "#fb923c" : id === "revision" ? "#34d399" : "#60a5fa",
-                  id.toUpperCase()
-                ))}
-
-                <div className="notice">
-                  <Clock3 size={18} />
-                  <span><b>Suggested order:</b> lecture → short break → questions → revise notes at night. Split long lectures into focused blocks.</span>
-                </div>
-              </div>
-
-              <div className="panel">
-                <h3>Weekly rhythm</h3><p>Repeat every week</p>
-                {[
-                  ["Mon–Sat", "Lectures + same-day questions"],
-                  ["Sunday", "Mixed test + mistake analysis"],
-                  ["Every evening", "Formula / reaction recall"],
-                  ["Every 4 weeks", "Cumulative test + backlog audit"]
-                ].map(([a, b]) => <div className="minirow" key={a}><b>{a}</b><span>{b}</span></div>)}
-
-                <h3 className="calendarTitle">Choose a date</h3>
-                <input className="dateinput" type="date" min={START} max={END} value={date} onChange={e => setDate(e.target.value)} />
-              </div>
-            </div>
-          </section>
-        )}
-
-        {page === "Chapter tracker" && (
-          <section className="content">
-            <div className="intro">
-              <div>
-                <small className="eyebrow">MAKE THE PLAN YOURS</small>
-                <h2>Chapter tracker</h2>
-                <p>Add exact chapter names and remaining lecture counts. The schedule redistributes targets automatically.</p>
-              </div>
-              <button className="primary" onClick={() => setState(s => ({
-                ...s,
-                chapters: [...s.chapters, {
-                  id: "c-" + Date.now(), subject: "maths", name: "New chapter", total: 0
-                }]
-              }))}><Plus size={16} /> Add chapter</button>
-            </div>
-
-            <div className="notice">
-              <Settings2 size={18} />
-              <span><b>Important:</b> Starter entries use subject totals, not verified chapter breakdowns. Replace them with your actual chapters. Keep each subject's sum equal to its remaining lectures.</span>
-            </div>
-
-            <div className="toolbar">
-              <div className="search"><Search size={17} /><input placeholder="Search chapters or subjects…" value={search} onChange={e => setSearch(e.target.value)} /></div>
-              <span>{state.chapters.length} rows · {total} lectures</span>
-            </div>
-
-            <div className="chapterlist">
-              {state.chapters.filter(c => (c.name + " " + subject(c.subject).name).toLowerCase().includes(search.toLowerCase())).map(c => (
-                <div className="chapter" key={c.id}>
-                  <i style={{ background: subject(c.subject).color }} />
-                  <div className="fields">
-                    <label>Chapter name<input value={c.name} onChange={e => update(c.id, "name", e.target.value)} /></label>
-                    <label>Subject<select value={c.subject} onChange={e => update(c.id, "subject", e.target.value)}>
-                      {subjects.map(s => <option value={s.id} key={s.id}>{s.name}</option>)}
-                    </select></label>
-                    <label>Lectures<input type="number" min="0" value={c.total} onChange={e => update(c.id, "total", e.target.value)} /></label>
-                  </div>
-                  <button className="delete" onClick={() => setState(s => ({
-                    ...s, chapters: s.chapters.filter(x => x.id !== c.id)
-                  }))}><Trash2 size={17} /></button>
-                </div>
-              ))}
-            </div>
-
-            <div className="panel settings">
-              <h3>Schedule settings</h3>
-              <div className="fields settingsfields">
-                <label>Start date<input type="date" value={state.settings.start} onChange={e => setState(s => ({ ...s, settings: { ...s.settings, start: e.target.value } }))} /></label>
-                <label>Deadline<input type="date" value={state.settings.end} onChange={e => setState(s => ({ ...s, settings: { ...s.settings, end: e.target.value } }))} /></label>
-                <label>Lecture length (hours)<input type="number" min=".5" step=".5" value={state.settings.hours} onChange={e => setState(s => ({ ...s, settings: { ...s.settings, hours: Number(e.target.value) } }))} /></label>
-                <label>Questions (minutes/day)<input type="number" min="15" step="15" value={state.settings.questions} onChange={e => setState(s => ({ ...s, settings: { ...s.settings, questions: Number(e.target.value) } }))} /></label>
-              </div>
-              <p className="muted">{total} lectures · approximately {(total * state.settings.hours).toLocaleString()} total lecture-hours</p>
-            </div>
-          </section>
-        )}
-
-        {page === "Revision & tests" && (
-          <section className="content">
-            <div className="intro">
-              <div>
-                <small className="eyebrow">RETAIN WHAT YOU LEARN</small>
-                <h2>Revision & testing system</h2>
-                <p>A lecture is only the first pass. Use this cycle to turn it into exam-ready knowledge.</p>
-              </div>
-            </div>
-
-            <div className="revisioncards">
-              {[
-                ["01", "Same day", "20–45 min", [
-                  "Recall key ideas without looking", "Review notes and formulas",
-                  "Solve 25–40 basic questions", "Mark doubts in an error log"
-                ]],
-                ["02", "After 1 day", "15–20 min", [
-                  "Recall formulas from memory", "Redo yesterday's incorrect questions",
-                  "Review reactions and exceptions"
-                ]],
-                ["03", "After 7 days", "30–45 min", [
-                  "Attempt mixed chapter questions", "Redo marked / incorrect questions",
-                  "Update error notebook"
-                ]],
-                ["04", "After 30 days", "45–60 min", [
-                  "Take a timed chapter test", "Analyse accuracy and time",
-                  "Revisit weak topics within 48 hours"
-                ]]
-              ].map(([number, title, time, items]) => (
-                <div className="revisioncard" key={number}>
-                  <small>{number} · {time}</small><h3>{title}</h3>
-                  <ul>{items.map(item => <li key={item}>{item}</li>)}</ul>
-                </div>
-              ))}
-            </div>
-
-            <div className="panels">
-              <div className="panel">
-                <h3>Testing calendar</h3>
-                {[
-                  ["Every Sunday", "Mixed test on topics studied that week", "60–90 min"],
-                  ["After each chapter", "Chapter test before moving on", "45–90 min"],
-                  ["Last Sunday monthly", "Cumulative test from prior chapters", "2–3 hours"],
-                  ["After every test", "Analyse wrong and guessed answers", "Same day"]
-                ].map(item => (
-                  <div className="testrow" key={item[0]}>
-                    <b>{item[0]}</b><span>{item[1]}</span><em>{item[2]}</em>
-                  </div>
-                ))}
-              </div>
-              <div className="panel">
-                <h3>Question practice ladder</h3>
-                {[
-                  ["1", "Lecture examples", "Redo without seeing the solution"],
-                  ["2", "Basic chapter questions", "Build accuracy before speed"],
-                  ["3", "JEE Main PYQs", "Start when core concepts are clear"],
-                  ["4", "Advanced problems", "After Main-level practice"]
-                ].map(item => (
-                  <div className="minirow" key={item[0]}>
-                    <b>{item[0]}. {item[1]}</b><span>{item[2]}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="notice">
-              <Clock3 size={18} />
-              <span><b>Protect sleep and consistency.</b> If the daily load becomes unrealistic, adjust the target rather than skipping question practice and revision for weeks.</span>
-            </div>
-          </section>
-        )}
-
-        <footer>JEEVerse Planner · Progress saves in this browser on this device</footer>
+          <footer className="footer"><span>JEEVerse Planner</span><span>Consistency beats intensity ✦</span><button className="text-button" onClick={resetProgress}><RotateCcw size={14} /> Reset all progress</button></footer>
+          <div className="data-tools"><span>Progress is saved on this device.</span><label className="text-button import-label"><Upload size={14} /> Import backup<input type="file" accept=".json,application/json" onChange={importBackup} hidden /></label></div>
+        </div>
       </main>
-
-      {toast && <div className="toast"><CheckCircle2 size={17} />{toast}</div>}
     </div>
   );
+}
+
+function StatCard({ label, value, sub, icon: Icon, color }) {
+  return <article className="stat-card"><div className={`stat-icon ${color}`}><Icon size={20} /></div><div className="stat-label">{label}</div><strong className="stat-value">{value}</strong><p>{sub}</p></article>;
 }
 
 createRoot(document.getElementById("root")).render(<App />);
