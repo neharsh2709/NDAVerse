@@ -12,13 +12,31 @@ import "./style.css";
 const START = "2026-11-01";
 const END = "2027-07-31";
 
+
 const subjects = [
-  { id: "maths", name: "Maths", color: "#a78bfa", icon: Sigma, total: 184 },
-  { id: "physics", name: "Physics", color: "#60a5fa", icon: Atom, total: 205 },
-  { id: "physical", name: "Physical Chemistry", color: "#34d399", icon: FlaskConical, total: 104 },
-  { id: "organic", name: "Organic Chemistry", color: "#fb923c", icon: BookOpen, total: 137 },
-  { id: "inorganic", name: "Inorganic Chemistry", color: "#f472b6", icon: GraduationCap, total: 76 }
+  {
+    id: "maths",
+    name: "Maths",
+    color: "#a78bfa",
+    icon: Sigma,
+    total: 184
+  },
+  {
+    id: "physics",
+    name: "Physics",
+    color: "#60a5fa",
+    icon: Atom,
+    total: 205
+  },
+  {
+    id: "chemistry",
+    name: "Chemistry",
+    color: "#34d399",
+    icon: FlaskConical,
+    total: 317
+  }
 ];
+
 
 const initial = () => ({
   chapters: subjects.map(s => ({
