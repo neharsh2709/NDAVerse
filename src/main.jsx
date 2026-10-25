@@ -51,9 +51,15 @@ const fmt = s => dt(s).toLocaleDateString("en-IN", {
   weekday: "long", day: "numeric", month: "short", year: "numeric"
 });
 
+
 function makePlan(state) {
   const dates = [];
-  for (let d = state.settings.start; d <= state.settings.end; d = add(d, 1)) {
+
+  for (
+    let d = state.settings.start;
+    d <= state.settings.end;
+    d = add(d, 1)
+  ) {
     dates.push(d);
   }
 
@@ -62,13 +68,14 @@ function makePlan(state) {
     left: Math.max(0, Number(c.total) || 0)
   }));
 
-  const total = chapters.reduce((a, c) => a + c.left, 0);
   const lectureDays = dates.filter(d => dt(d).getDay() !== 0);
-  const base = Math.floor(total / Math.max(1, lectureDays.length));
-  const extra = total % Math.max(1, lectureDays.length);
-  let index = 0;
-  let chapterIndex = 0;
+  const total = chapters.reduce((sum, c) => sum + c.left, 0);
+  const totalDays = lectureDays.length;
+
   const output = {};
+  let previousTarget = 0;
+  let dayIndex = 0;
+  let chapterIndex = 0;
 
   for (const date of dates) {
     if (dt(date).getDay() === 0) {
@@ -84,31 +91,48 @@ function makePlan(state) {
       continue;
     }
 
-    let count = base + (index < extra ? 1 : 0);
-    index++;
-    const lectures = [];
+    dayIndex++;
 
-    while (count > 0 && chapters.some(c => c.left > 0)) {
-      let attempts = 0;
-      while (chapters[chapterIndex].left <= 0 && attempts < chapters.length) {
-        chapterIndex = (chapterIndex + 1) % chapters.length;
-        attempts++;
-      }
+    // Spread extra lectures evenly across the whole schedule.
+    const target = Math.round((dayIndex * total) / totalDays);
+    let count = target - previousTarget;
+    previousTarget = target;
+
+    const lectures = [];
+    let checked = 0;
+
+    while (
+      count > 0 &&
+      chapters.some(c => c.left > 0) &&
+      checked < chapters.length * (total + 1)
+    ) {
+      if (chapters.length === 0) break;
 
       const chapter = chapters[chapterIndex];
+
       if (chapter.left > 0) {
         chapter.left--;
-        const existing = lectures.find(x => x.chapterId === chapter.id);
-        if (existing) existing.count++;
-        else lectures.push({
-          chapterId: chapter.id,
-          name: chapter.name,
-          subject: chapter.subject,
-          count: 1
-        });
+
+        const existing = lectures.find(
+          item => item.chapterId === chapter.id
+        );
+
+        if (existing) {
+          existing.count++;
+        } else {
+          lectures.push({
+            chapterId: chapter.id,
+            name: chapter.name,
+            subject: chapter.subject,
+            count: 1
+          });
+        }
+
         count--;
       }
+
       chapterIndex = (chapterIndex + 1) % chapters.length;
+      checked++;
     }
 
     output[date] = {
@@ -125,6 +149,7 @@ function makePlan(state) {
 
   return output;
 }
+
 
 function App() {
   const [state, setState] = useState(get);
